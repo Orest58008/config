@@ -1,0 +1,10 @@
+[safe]
+	directory = /data/projects/yass
+	directory = /data/projects/simple-etcher
+[user]
+	name = Orest58008
+	email = orest58008@tuta.io
+[init]
+	defaultBranch = main
+[commit]
+	gpgsign = true

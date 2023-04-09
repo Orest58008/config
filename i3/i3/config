@@ -226,7 +226,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Background with nitrogen
-exec --no-startup-id "nitrogen --set-auto /data/pictures/wallpapers/ipda90h8dk311.jpg"
+exec --no-startup-id "nitrogen --set-scaled /data/pictures/wallpapers/ipda90h8dk311.jpg"
 
 # Autotiling (requires autotiling program)
 exec_always autotiling
