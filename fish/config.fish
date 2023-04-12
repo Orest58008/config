@@ -1,22 +1,28 @@
 if status is-interactive
    # aliases
-    alias fish_greeting yass
+    alias yass="echo && command yass"
+    alias fish_greeting=yass
     alias cat=bat
-    alias ls="exa -lFh --git"
+    alias find=fd
+    alias ls="exa -lFh --git --icons --sort type"
     alias rg="rg -ip"
-    alias nvim-gtk="cd /data/projects && command nvim-gtk"
+    alias clear="clear && yass"
 
    # abbreviations
     abbr s "sudo"
-    abbr i "yay -Si"
-    abbr R "yay -Rns"
-    abbr S "yay -S"
+    abbr i "paru -Si"
+    abbr R "paru -Rns"
+    abbr S "paru -S"
     abbr v "nvim"
-    abbr y "yay"
+    abbr p "paru"
     abbr e "exit"
     abbr q "exit"
     abbr sp "speedtest --secure"
     abbr r "rm -rfv"
+    abbr dc "distrobox create -i"
+    abbr de "distrobox enter"
+    abbr ds "distrobox stop"
+    abbr dr "distrobox rm"
 
    # variables
     set -x PAGER most
