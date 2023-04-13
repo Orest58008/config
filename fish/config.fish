@@ -1,5 +1,5 @@
 if status is-interactive
-   # aliases
+    # aliases
     alias yass="echo && command yass"
     alias fish_greeting=yass
     alias cat=bat
@@ -8,7 +8,7 @@ if status is-interactive
     alias rg="rg -ip"
     alias clear="clear && yass"
 
-   # abbreviations
+    # abbreviations
     abbr s "sudo"
     abbr i "paru -Si"
     abbr R "paru -Rns"
@@ -24,22 +24,15 @@ if status is-interactive
     abbr ds "distrobox stop"
     abbr dr "distrobox rm"
 
-   # variables
+    # variables
     set -x PAGER most
+    set -x BAT_THEME "Catppuccin-frappe"
     set -x EDITOR nvim
     fish_add_path ~/.local/bin/
 
-   # one dark palette
-    set fish_color_command c678dd    #magenta
-    set fish_color_quote 98c379      #green
-    set fish_color_error be5046      #dark red
-    set fish_color_param abb2bf      #white
-    set fish_color_valid_path 61afef #blue
-    set fish_color_option afbfbf     #light white
-    set fish_color_comment 5c6370    #comment grey
-    set fish_color_operator 61afef   #blue
-    set fish_color_escape be5046     #dark red
+    # catppuccin theme
+    fish_config theme choose "Catppuccin Frappe"
 
-   # starship
+    # starship
     starship init fish | source
 end

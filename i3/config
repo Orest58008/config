@@ -190,7 +190,7 @@ for_window [class="Gnome-calculator"] floating enable
 
 # gaps and borders
 default_border pixel 0
-# default_floating_border pixel 1
+default_floating_border pixel 0
 gaps inner 4
 
 # reload the configuration file
@@ -228,7 +228,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Background with nitrogen
-exec --no-startup-id "nitrogen --set-scaled /data/pictures/wallpapers/ipda90h8dk311.jpg"
+exec --no-startup-id "nitrogen --set-zoom-fill /data/pictures/wallpapers/82072674_p0.png"
 
 # Autotiling (requires autotiling program)
 exec_always autotiling
