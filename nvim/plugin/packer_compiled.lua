@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  catppuccin = {
+    loaded = true,
+    path = "/home/orest/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
+  },
   ["coc.nvim"] = {
     loaded = true,
     path = "/home/orest/.local/share/nvim/site/pack/packer/start/coc.nvim",
@@ -88,11 +93,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/orest/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
-  },
-  ["onedark.nvim"] = {
-    loaded = true,
-    path = "/home/orest/.local/share/nvim/site/pack/packer/start/onedark.nvim",
-    url = "https://github.com/navarasu/onedark.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,
