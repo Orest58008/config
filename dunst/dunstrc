@@ -1,8 +1,10 @@
 [global]
 frame_color = "#8CAAEE"
 separator_color = frame
-corner_radius = 15
+corner_radius = 16
 font = "Monospace 12"
+icon_theme="Papirus-Dark"
+enable_recursive_icon_lookup = true
 
 [urgency_low]
 background = "#303446"

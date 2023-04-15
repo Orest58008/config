@@ -31,7 +31,7 @@ font pango:monospace 8
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # set keyboard layout
-exec --no-startup-id "setxkbmap -layout us,ua -option grp:alt_shift_toggle"
+exec_always --no-startup-id "setxkbmap -layout us,ua -option grp:alt_shift_toggle"
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -43,11 +43,14 @@ exec --no-startup-id nm-applet
 # picom for transparency
 exec --no-startup-id picom
 
+# xfce4-screenshooter
+bindsym Print exec --no-startup-id xfce4-screenshooter
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 100%
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -67,10 +70,14 @@ bindsym $mod+q kill
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
+# bindsym $mod+a exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+
+# start bemenu
+set $bemenu-cat-frappe --fb "#303446" --ff "#81c8be" --nb "#303446" --nf "#f2d5cf" --tb "#303446" --hb "#303446" --tf "#ca9ee6" --hf "#8caaee" --nf "#f2d5cf" --af "#f2d5cf" --ab "#303446"
+bindsym $mod+r exec --no-startup-id bemenu-run -c -l 20 -M 600 $bemenu-cat-frappe
 
 # change focus
 bindsym $mod+j focus left
@@ -117,7 +124,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+# bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -224,10 +231,10 @@ mode "resize" {
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+        bindsym $mod+p mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $mod+p mode "resize"
 
 # polybar
 exec --no-startup-id "polybar -r"
