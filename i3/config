@@ -200,7 +200,8 @@ for_window [class="Gnome-calculator"] floating enable
 # gaps and borders
 default_border pixel 0
 default_floating_border pixel 0
-gaps inner 4
+gaps inner 6
+gaps outer 3
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

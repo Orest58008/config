@@ -3,8 +3,10 @@ frame_color = "#8CAAEE"
 separator_color = frame
 corner_radius = 16
 font = "Monospace 12"
-icon_theme="Papirus-Dark"
+icon_theme = "Papirus-Dark"
 enable_recursive_icon_lookup = true
+origin = bottom-left
+offset = 9x9
 
 [urgency_low]
 background = "#303446"
