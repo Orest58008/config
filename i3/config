@@ -30,9 +30,6 @@ font pango:monospace 8
 # screen before suspend. Use loginctl lock-session to lock your screen.
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# set keyboard layout
-exec_always --no-startup-id "setxkbmap -layout us,ua -option grp:alt_shift_toggle"
-
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
@@ -43,8 +40,15 @@ exec --no-startup-id nm-applet
 # picom for transparency
 exec --no-startup-id picom
 
+# autostart programs
+exec_always nicotine
+exec_always telegram-desktop
+
 # xfce4-screenshooter
-bindsym Print exec --no-startup-id xfce4-screenshooter
+# bindsym Print exec --no-startup-id xfce4-screenshooter
+
+# scrot screenshooter
+bindsym Print exec --no-startup-id "scrot -F 'Картинки/%Y-%m-%d_%H-%M-%S.png' -e 'optipng $f'"
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -77,7 +81,7 @@ bindsym $mod+q kill
 
 # start bemenu
 set $bemenu-cat-frappe --fb "#303446" --ff "#81c8be" --nb "#303446" --nf "#f2d5cf" --tb "#303446" --hb "#303446" --tf "#ca9ee6" --hf "#8caaee" --nf "#f2d5cf" --af "#f2d5cf" --ab "#303446"
-bindsym $mod+r exec --no-startup-id bemenu-run -c -l 20 -M 600 $bemenu-cat-frappe
+bindsym $mod+r exec --no-startup-id bemenu-run -c -i -l 20 -M 640 $bemenu-cat-frappe
 
 # change focus
 bindsym $mod+j focus left
@@ -186,8 +190,10 @@ assign [class="discord"] workspace number 2
 bindsym $mod+m exec rhythmbox
 assign [class="Rhythmbox"] workspace number 3
 
-bindsym $mod+v exec "cd /data/projects && nvim-gtk"
+# bindsym $mod+v exec "nvim-gtk"
+bindsym $mod+h exec "ultimmc"
 assign [class="NeovimGtk"] workspace number 4
+assign [class="UltimMC"] workspace number 4
 assign [class="Evince"] workspace number 4
 
 bindsym $mod+n exec nicotine
@@ -238,7 +244,7 @@ mode "resize" {
 bindsym $mod+p mode "resize"
 
 # polybar
-exec --no-startup-id "polybar -r"
+exec_always --no-startup-id "$HOME/.config/polybar/scripts/launch.sh"
 
 # Background with nitrogen
 exec --no-startup-id "nitrogen --set-zoom-fill /data/pictures/wallpapers/82072674_p0.png"
