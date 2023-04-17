@@ -47,8 +47,11 @@ exec_always telegram-desktop
 # xfce4-screenshooter
 # bindsym Print exec --no-startup-id xfce4-screenshooter
 
+# gnome-screenshot
+bindsym Print exec gnome-screenshot -i
+
 # scrot screenshooter
-bindsym Print exec --no-startup-id "scrot -F 'Картинки/%Y-%m-%d_%H-%M-%S.png' -e 'optipng $f'"
+# bindsym Print exec --no-startup-id "scrot -F 'Картинки/%Y-%m-%d_%H-%M-%S.png' -e 'optipng $f'"
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -57,6 +60,11 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# mpd control using mpc
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioPlay exec mpc toggle
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -81,7 +89,7 @@ bindsym $mod+q kill
 
 # start bemenu
 set $bemenu-cat-frappe --fb "#303446" --ff "#81c8be" --nb "#303446" --nf "#f2d5cf" --tb "#303446" --hb "#303446" --tf "#ca9ee6" --hf "#8caaee" --nf "#f2d5cf" --af "#f2d5cf" --ab "#303446"
-bindsym $mod+r exec --no-startup-id bemenu-run -c -i -l 20 -M 640 $bemenu-cat-frappe
+bindsym $mod+r exec bemenu-run -c -i -l 20 -M 640 --fn "monospace 12" $bemenu-cat-frappe
 
 # change focus
 bindsym $mod+j focus left
@@ -187,8 +195,10 @@ assign [class="TelegramDesktop"] workspace number 2
 assign [class="Signal"] workspace number 2
 assign [class="discord"] workspace number 2
 
-bindsym $mod+m exec rhythmbox
+# bindsym $mod+m exec rhythmbox
+bindsym $mod+m exec ymuse
 assign [class="Rhythmbox"] workspace number 3
+assign [class="Ymuse"] workspace number 3
 
 # bindsym $mod+v exec "nvim-gtk"
 bindsym $mod+h exec "ultimmc"
@@ -202,6 +212,7 @@ assign [class="Nicotine"] workspace number 6
 for_window [class="Xfce4-panel"] floating enable
 for_window [class="Connman-gtk"] floating enable
 for_window [class="Gnome-calculator"] floating enable
+for_window [class="Gnome-screenshot"] floating enable
 
 # gaps and borders
 default_border pixel 0
@@ -214,7 +225,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
