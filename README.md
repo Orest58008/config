@@ -1,10 +1,11 @@
 ## Currently using
 ### Global
 * OS -- Arch Linux
-* Theme -- Catppuccin
+* Theme -- Catppuccin-frappe-sapphire
 * Icons -- Papirus
 ### WM stuff
 * WM -- i3-wm
+* Compozitor -- picom
 * Panel -- polybar
 * Notifications -- dunst
 ### Terminal stuff
@@ -12,10 +13,13 @@
 * Terminal emulator -- alacritty (ligature branch[^alacritty])
 * AUR helper -- paru
 ### Apps
-* App / command launcher -- bemenu
+* App / command launcher -- Ulauncher
 * Browser -- Firefox
 * File manager -- Thunar
-* Music -- Rhythmbox
+* Music -- mpd
+  * Terminal client -- ncmpcpp
+  * Control through binds -- mpc
+  * Last FM synchronization -- yams
 * Soulseek client -- Nicotine+
 * Text editor -- nvim
 ### Nvim plugins
