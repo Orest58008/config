@@ -3,7 +3,6 @@ if status is-interactive
     alias yass="echo && command yass"
     alias fish_greeting=yass
     alias cat=bat
-    alias find=fd
     alias ls="exa -lFh --git --icons --sort type"
     alias rg="rg -ip"
     alias clear="clear && yass"

@@ -6,7 +6,7 @@ font = "Monospace 12"
 icon_theme = "Papirus-Dark"
 enable_recursive_icon_lookup = true
 origin = bottom-left
-offset = 9x9
+offset = 18x18
 
 [urgency_low]
 background = "#303446"
