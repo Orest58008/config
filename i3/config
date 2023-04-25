@@ -66,6 +66,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioPlay exec mpc toggle
+bindsym Shift+XF86AudioNext exec mpc volume +5
+bindsym Shift+XF86AudioPrev exec mpc volume -5
+bindsym Shift+XF86AudioPlay exec mpc stop
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
