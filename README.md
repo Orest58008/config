@@ -1,3 +1,5 @@
+# Disclaimer: some configs, such as rogue.scr and gitconfig contain my branding and you should not use them in unchanged state
+
 ## Currently using
 ### Global
 * OS -- Arch Linux
@@ -5,7 +7,7 @@
 * Icons -- Papirus
 ### WM stuff
 * WM -- i3-wm
-* Compozitor -- picom
+* Compositor -- picom
 * Panel -- polybar
 * Notifications -- dunst
 ### Terminal stuff
@@ -13,7 +15,7 @@
 * Terminal emulator -- alacritty (ligature branch[^alacritty])
 * AUR helper -- paru
 ### Apps
-* App / command launcher -- Ulauncher
+* App / command launcher -- Rofi
 * Browser -- Firefox
 * File manager -- Thunar
 * Music -- mpd
