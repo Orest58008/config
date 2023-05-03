@@ -6,8 +6,8 @@ font = "Monospace 12"
 icon_theme = "Papirus-Dark"
 enable_recursive_icon_lookup = true
 origin = bottom-left
-offset = 18x18
-mouse_left_click = close
+offset = 21x21
+mouse_left_click = close_current
 mouse_right_click = do_action
 
 [urgency_low]
