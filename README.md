@@ -6,16 +6,15 @@
 * Theme -- Catppuccin-frappe-sapphire
 * Icons -- Papirus
 ### WM stuff
-* WM -- i3-wm
-* Compositor -- picom
-* Panel -- polybar
+* Compositor -- hypr
+* Panel -- waybar
 * Notifications -- dunst
 ### Terminal stuff
 * Shell -- fish
 * Terminal emulator -- alacritty (ligature branch[^alacritty])
 * AUR helper -- paru
 ### Apps
-* App / command launcher -- Rofi
+* App / command launcher -- wofi
 * Browser -- Firefox
 * File manager -- Thunar
 * Music -- mpd

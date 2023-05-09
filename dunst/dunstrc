@@ -7,8 +7,8 @@ icon_theme = "Papirus-Dark"
 enable_recursive_icon_lookup = true
 origin = bottom-left
 offset = 21x21
-mouse_left_click = close_current
-mouse_right_click = do_action
+mouse_right_click = close_current
+mouse_left_click = do_action
 
 [urgency_low]
 background = "#303446"

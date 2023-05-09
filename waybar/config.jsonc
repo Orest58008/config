@@ -1,18 +1,19 @@
 {
     "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 36, // Waybar height (to be removed for auto height)
+    //"height": 36, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 6, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-	"wlr/workspaces",
-	"sway/mode",
-	"sway/scratchpad",
-	"custom/media"
+	"wlr/workspaces"
+	//"sway/mode",
+	//"sway/scratchpad",
+	//"custom/media"
     ],
     "modules-center": [
-	"wlr/window"
+	"clock"
+	//"hyprland/window"
     ],
     "modules-right": [
 	"mpd",
@@ -23,11 +24,11 @@
 	//"memory",
 	//"temperature",
 	//"backlight",
-	"keyboard-state",
-	"wlr/language",
+	//"keyboard-state",
+	//"hyprland/language",   //doesn't work for now
 	//"battery",
 	//"battery#bat2",
-	"clock",
+	//"clock",
 	"tray"
     ],
     // Modules configuration
@@ -41,9 +42,10 @@
         "format-icons": {
             "1": " ",
             "2": " ",
-            "3": "󰎈",
+            "3": " ",
             "4": " ",
-	    "6": " ",
+            "5": " ",
+	    "6": "󱇴 ",
             //"urgent": "",
             //"active": "",
             //"default": ""
@@ -69,10 +71,13 @@
         "tooltip-format": "{app}: {title}"
     },
     "mpd": {
-        "format": "{stateIcon} {artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) {volume}%",
+        "format": "({elapsedTime:%M:%S}/{totalTime:%M:%S}) {artist} - {title}",
+	"format-paused": "{stateIcon} {artist} - {title}",
         "format-disconnected": "Disconnected",
         "format-stopped": "",
         "unknown-tag": "N/A",
+	"artist-len": 30,
+	"titre-len": 30,
         "interval": 2,
         "consume-icons": {
             "on": " "
@@ -85,13 +90,13 @@
             "on": " "
         },
         "single-icons": {
-            "on": "1 "
+            "on": " 1 "
         },
         "state-icons": {
             "paused": "",
             "playing": ""
         },
-        "tooltip-format": "MPD (connected)",
+        "tooltip-format": " {volume}% {artist} - {album} - {title}",
         "tooltip-format-disconnected": "MPD (disconnected)"
     },
     "idle_inhibitor": {
@@ -149,7 +154,7 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-wifi": "󰖩 {essid}",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
@@ -169,6 +174,12 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
+    },
+    "hyprland/language": {
+	"format": "{}",
+	"format-en": "🇬🇧",
+	"format-uk": "🇺🇦",
+	"keyboard-name": "dell-kb216-wired-keyboard"
     },
     "custom/media": {
         "format": "{icon} {}",
