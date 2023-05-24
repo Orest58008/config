@@ -1,7 +1,7 @@
 -- nvim setup
 vim.cmd [[set number]]
 vim.cmd [[set shiftwidth=4]]
--- vim.cmd [[colorscheme catppuccin-frappe]]
+vim.cmd [[colorscheme catppuccin-macchiato]]
 
 -- coc setup
 local keyset = vim.keymap.set
