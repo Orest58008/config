@@ -17,12 +17,13 @@ set $term kitty
 # on the original workspace that the command was run on.
 set $menu bemenu-run | xargs swaymsg exec --
 
-
 ### Theming
+#
 exec gsettings set org.gnome.desktop.interface font-name Inter
 exec gsettings set org.gnome.desktop.interface gtk-theme Catppuccin-Macchiato-Standard-Sapphire-Dark
 exec gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark
 exec gsettings set org.gnome.desktop.interface cursor-theme posy-white
+seat seat0 xcursor_theme posy-white 24
 
 # target		title		bg	text	indicator	border
 client.focused		$sapphire	$base	$text	$sapphire	$sapphire
@@ -33,6 +34,12 @@ client.urgent		$red		$base	$text	$red		$red
 default_border pixel 2
 gaps inner 3
 gaps outer 3
+
+### Clipboard configuration
+#
+exec wl-clip-persist --clipboard both
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
 
 ### Output configuration
 #
@@ -211,6 +218,7 @@ bindsym $mod+m exec $term -e ncmpcpp
 
 #
 # Autostarting programs
+#
 exec autotiling
 exec telegram-desktop
 

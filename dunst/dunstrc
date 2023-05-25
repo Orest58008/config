@@ -1,24 +1,26 @@
 [global]
-frame_color = "#8CAAEE"
-separator_color = frame
-corner_radius = 16
 font = "Monospace 12"
 icon_theme = "Papirus-Dark"
 enable_recursive_icon_lookup = true
 origin = bottom-left
-offset = 21x21
+offset = 14x14
 mouse_right_click = close_current
 mouse_left_click = do_action
 
+[global]
+frame_color = "#7DC4E4"
+frame_width = 2
+separator_color = frame
+
 [urgency_low]
-background = "#303446"
-foreground = "#C6D0F5"
+background = "#24273A"
+foreground = "#CAD3F5"
 
 [urgency_normal]
-background = "#303446"
-foreground = "#C6D0F5"
+background = "#24273A"
+foreground = "#CAD3F5"
 
 [urgency_critical]
-background = "#303446"
-foreground = "#C6D0F5"
-frame_color = "#EF9F76"
+background = "#24273A"
+foreground = "#CAD3F5"
+frame_color = "#F5A97F"

@@ -1,5 +1,5 @@
 [Desktop Entry]
 Name=Sway
 Comment=An i3-compatible Wayland compositor
-Exec=env MOZ_ENABLE_WAYLAND=1 GRIM_DEFAULT_DIR=$HOME/Картинки/grim sway
+Exec=env GRIM_DEFAULT_DIR=$HOME/Картинки/grim MOZ_ENABLE_WAYLAND=1 XCURSOR_THEME=posy-white sway
 Type=Application
