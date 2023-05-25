@@ -1,4 +1,4 @@
-include catppuccin-mocha
+include catppuccin-macchiato
 
 # Default config for sway
 #
@@ -19,9 +19,16 @@ set $menu bemenu-run | xargs swaymsg exec --
 
 
 ### Theming
-exec gsettings set org.gnome.desktop.interface cursor-theme posy-white
+exec gsettings set org.gnome.desktop.interface font-name Inter
 exec gsettings set org.gnome.desktop.interface gtk-theme Catppuccin-Macchiato-Standard-Sapphire-Dark
 exec gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark
+exec gsettings set org.gnome.desktop.interface cursor-theme posy-white
+
+# target		title		bg	text	indicator	border
+client.focused		$sapphire	$base	$text	$sapphire	$sapphire
+client.focused_inactive	$blue		$base	$text	$blue		$mantle
+client.unfocused	$blue		$base	$text	$blue		$mantle
+client.urgent		$red		$base	$text	$red		$red
 
 default_border pixel 2
 gaps inner 3
@@ -63,17 +70,23 @@ input * {
 
 ### Key bindings
 #
-# Basics:
-#
     # Kill focused window
     bindsym $mod+q kill
 
     # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
     floating_modifier $mod normal
+
+    # Sound
+    bindsym XF86AudioRaiseVolume exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
+    bindsym XF86AudioLowerVolume exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-
+    bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+    bindsym XF86AudioNext exec mpc next
+    bindsym XF86AudioPrev exec mpc prev
+    bindsym XF86AudioPlay exec mpc toggle
+    
+    # Screenshooting
+    bindsym Print exec grim
+    bindsym Shift+Print exec grim -g $(slurp)
 
     # Reload the configuration file
     bindsym $mod+Shift+r reload
@@ -184,8 +197,22 @@ bindsym $mod+p mode "resize"
 bindsym $mod+Return exec $term
 # Bemenu launcher
 bindsym $mod+r exec $menu
+# PCManFM
+bindsym $mod+d exec pcmanfm
 # Firefox
 bindsym $mod+b exec firefox
+assign [class="firefox"] 1
+# Telegram
+bindsym $mod+t exec telegram-desktop
+assign [class="org.telegram.desktop"] 2
+for_window [title="TelegramDesktop"] floating enable
+# Music
+bindsym $mod+m exec $term -e ncmpcpp
+
+#
+# Autostarting programs
+exec autotiling
+exec telegram-desktop
 
 #
 # Status Bar:
@@ -195,11 +222,13 @@ bar {
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     status_command while date +'%Y-%m-%d %H:%M:%S %p'; do sleep 1; done
+    font pango:monospace 14
 
     colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
+        statusline $text
+        background $base
+        active_workspace $base $sapphire $text
+        inactive_workspace $text00 $text00 $base
     }
 }
 

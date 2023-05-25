@@ -31,12 +31,13 @@ if status is-interactive
     abbr gob "go build"
 
     # variables
-    set -x BAT_THEME "Catppuccin-frappe"
+    set -x BAT_THEME "Catppuccin-macchiato"
     set -x EDITOR nvim
+    set -x GPG_TTY $(tty)
     fish_add_path ~/.local/bin/
 
     # catppuccin theme
-    fish_config theme choose "Catppuccin Frappe"
+    fish_config theme choose "Catppuccin Macchiato"
 
     # starship
     starship init fish | source

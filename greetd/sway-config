@@ -1,0 +1,10 @@
+# Notice that `swaymsg exit` will run after regreet
+exec "regreet; swaymsg exit"
+
+bindsym Mod4+Shift+e exec swaynag \
+-t warning \
+-m 'What do you want to do?' \
+-n 'Poweroff' 'systemctl poweroff' \
+-b 'Reboot' 'systemctl reboot'
+
+include /etc/sway/config.d/*
