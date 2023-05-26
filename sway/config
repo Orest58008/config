@@ -15,7 +15,8 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu bemenu-run | xargs swaymsg exec --
+set $bemenu_theme --bdr "#7dc4e4" --fb "#24273a" --ff "#7dc4e4" --nb "#24273a" --nf "#f4dbd6" --tb "#24273a" --hb "#24273a" --tf "#c6a0f6" --hf "#8aadf4" --nf "#f4dbd6" --af "#f4dbd6" --ab "#24273a"
+set $menu bemenu-run $bemenu_theme -i -l 20 -n -c -M 600 -B 2 --counter always --fn "monospace 12"
 
 ### Theming
 #
@@ -206,12 +207,13 @@ bindsym $mod+Return exec $term
 bindsym $mod+r exec $menu
 # PCManFM
 bindsym $mod+d exec pcmanfm
+for_window [title="Виконати файл"] floating enable
 # Firefox
 bindsym $mod+b exec firefox
-assign [class="firefox"] 1
+assign [app_id="firefox"] 1
 # Telegram
 bindsym $mod+t exec telegram-desktop
-assign [class="org.telegram.desktop"] 2
+assign [app_id="org.telegram.desktop"] 2
 for_window [title="TelegramDesktop"] floating enable
 # Music
 bindsym $mod+m exec $term -e ncmpcpp
