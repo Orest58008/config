@@ -7,7 +7,8 @@
     // Choose the order of the modules
     "modules-left": [
 	"sway/workspaces",
-	"sway/mode"
+	"sway/mode",
+	"tray"
 	//"sway/scratchpad",
 	//"custom/media"
     ],
@@ -19,17 +20,17 @@
 	"mpd",
 	//"idle_inhibitor",
 	"pulseaudio",
-	"network",
 	//"cpu",
 	//"memory",
 	//"temperature",
 	//"backlight",
 	//"keyboard-state",
 	"sway/language",
+	"network"
 	//"battery",
 	//"battery#bat2",
 	//"clock",
-	"tray"
+	//"tray"
     ],
     // Modules configuration
     "sway/workspaces": {
@@ -156,9 +157,7 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "󰖩 {essid}",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
+        "tooltip-format": "↑{bandwidthUpBits}  ↓{bandwidthDownBits}",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
