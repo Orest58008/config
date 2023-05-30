@@ -5,11 +5,11 @@
 * Icons -- Papirus
 ### WM stuff
 * Compositor -- sway
-* Panel -- swaybar
+* Panel -- waybar
 * Notifications -- dunst
 ### Terminal stuff
 * Shell -- fish
-* Terminal emulator -- kitty
+* Terminal emulator -- alacritty (ligature branch[^alacritty])
 * AUR helper -- yay
 ### Apps
 * App / command launcher -- bemenu
@@ -26,3 +26,7 @@
 * Completion -- coc.nvim
 * Code highlighting -- nvim-treesitter
 * Language support -- vim-fish, markdown-preview.nvim
+
+
+
+[^alacritty]: [Add font ligatures to your Alacritty](https://dev.to/prakhil_tp/add-font-ligatures-to-your-alacritty-2fld)

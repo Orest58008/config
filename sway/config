@@ -11,7 +11,7 @@ include catppuccin-macchiato
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Your preferred terminal emulator
-set $term kitty
+set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -39,8 +39,7 @@ gaps outer 3
 ### Clipboard configuration
 #
 exec wl-clip-persist --clipboard both
-exec wl-paste --type text --watch cliphist store
-exec wl-paste --type image --watch cliphist store
+exec wl-paste --watch cliphist store
 
 ### Output configuration
 #
@@ -91,10 +90,12 @@ input * {
     bindsym XF86AudioNext exec mpc next
     bindsym XF86AudioPrev exec mpc prev
     bindsym XF86AudioPlay exec mpc toggle
+    bindsym Shift+XF86AudioPlay exec mpc stop
     
     # Screenshooting
-    bindsym Print exec grim
-    bindsym Shift+Print exec grim -g $(slurp)
+    bindsym Print exec grim - | wl-copy
+    bindsym Shift+Print exec grim -g $(slurp) - | wl-copy
+    bindsym Ctrl+Print exec grim
 
     # Reload the configuration file
     bindsym $mod+Shift+r reload
@@ -208,6 +209,9 @@ bindsym $mod+r exec $menu
 # PCManFM
 bindsym $mod+d exec pcmanfm
 for_window [title="Виконати файл"] floating enable
+# Calculator
+bindsym $mod+c exec gnome-calculator
+for_window [app_id="gnome-calculator"] floating enable
 # Firefox
 bindsym $mod+b exec firefox
 assign [app_id="firefox"] 1
@@ -217,12 +221,19 @@ assign [app_id="org.telegram.desktop"] 2
 for_window [title="TelegramDesktop"] floating enable
 # Music
 bindsym $mod+m exec $term -e ncmpcpp
+# File sharers
+assign [app_id="org.qbittorrent.qBittorrent"] 6
+for_window [title="Magnet-посилання"] floating enable
+for_window [title="Інформація про падіння"] floating enable
+assign [app_id="org.nicotine_plus.Nicotine"] 6
 
 #
 # Autostarting programs
 #
 exec autotiling
+exec nicotine
 exec telegram-desktop
+exec qbittorrent
 exec waybar
 
 #
