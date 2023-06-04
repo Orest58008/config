@@ -69,7 +69,7 @@ output * bg /data/pictures/wallpapers/82072674_p0.png fill
 #
 input * {
     xkb_layout "us,ua"
-    xkb_options "grp:alt_shift_toggle,compose:rctrl"
+    xkb_options "grp:alt_caps_toggle,compose:rctrl"
 }
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
@@ -87,10 +87,12 @@ input * {
     bindsym XF86AudioRaiseVolume exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
     bindsym XF86AudioLowerVolume exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-
     bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+    bindsym XF86AudioPlay exec mpc toggle
     bindsym XF86AudioNext exec mpc next
     bindsym XF86AudioPrev exec mpc prev
-    bindsym XF86AudioPlay exec mpc toggle
     bindsym Shift+XF86AudioPlay exec mpc stop
+    bindsym Shift+XF86AudioNext exec mpc volume +5
+    bindsym Shift+XF86AudioPrev exec mpc volume -5
     
     # Screenshooting
     bindsym Print exec grim - | wl-copy
@@ -209,16 +211,19 @@ bindsym $mod+r exec $menu
 # PCManFM
 bindsym $mod+d exec pcmanfm
 for_window [title="Виконати файл"] floating enable
+for_window [title="Підтвердити заміщення файлів"] floating enable
+for_window [title="Розпакувати архів"] floating enable
 # Calculator
 bindsym $mod+c exec gnome-calculator
 for_window [app_id="gnome-calculator"] floating enable
 # Firefox
 bindsym $mod+b exec firefox
 assign [app_id="firefox"] 1
-# Telegram
+# Messaging apps
 bindsym $mod+t exec telegram-desktop
 assign [app_id="org.telegram.desktop"] 2
 for_window [title="TelegramDesktop"] floating enable
+assign [class="Signal"] 2
 # Music
 bindsym $mod+m exec $term -e ncmpcpp
 # File sharers
@@ -226,11 +231,14 @@ assign [app_id="org.qbittorrent.qBittorrent"] 6
 for_window [title="Magnet-посилання"] floating enable
 for_window [title="Інформація про падіння"] floating enable
 assign [app_id="org.nicotine_plus.Nicotine"] 6
+# Misc
+for_window [class="XEyes"] floating enable
 
 #
 # Autostarting programs
 #
 exec autotiling
+exec firefox
 exec nicotine
 exec telegram-desktop
 exec qbittorrent

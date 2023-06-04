@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["barbar.nvim"] = {
+    loaded = true,
+    path = "/home/orest/.local/share/nvim/site/pack/packer/start/barbar.nvim",
+    url = "https://github.com/romgrk/barbar.nvim"
+  },
   catppuccin = {
     loaded = true,
     path = "/home/orest/.local/share/nvim/site/pack/packer/start/catppuccin",
@@ -84,6 +89,11 @@ _G.packer_plugins = {
     path = "/home/orest/.local/share/nvim/site/pack/packer/start/coc.nvim",
     url = "https://github.com/neoclide/coc.nvim"
   },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/home/orest/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   ["markdown-preview.nvim"] = {
     loaded = true,
     path = "/home/orest/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
@@ -93,6 +103,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/orest/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/home/orest/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
