@@ -1,5 +1,5 @@
 {
-    "layer": "top", // Waybar at top layer
+    //"layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     //"height": 36, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
@@ -79,6 +79,7 @@
 	"artist-len": 30,
 	"titre-len": 30,
         "interval": 2,
+	"on-click": "mpc toggle",
         "consume-icons": {
             "on": " "
         },

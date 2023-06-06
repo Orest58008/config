@@ -1,8 +1,27 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR __fish_initialized:3400
+SETUVAR _fish_abbr_R:yay\x20\x2dRns
+SETUVAR _fish_abbr_S:yay\x20\x2dS
+SETUVAR _fish_abbr_dc:distrobox\x20create\x20\x2di
+SETUVAR _fish_abbr_de:distrobox\x20enter
+SETUVAR _fish_abbr_dr:distrobox\x20rm
+SETUVAR _fish_abbr_ds:distrobox\x20stop
+SETUVAR _fish_abbr_ga:git\x20add\x20\x2e
+SETUVAR _fish_abbr_gc:git\x20commit\x20\x2dm
+SETUVAR _fish_abbr_gl:git\x20log
+SETUVAR _fish_abbr_gob:go\x20build
+SETUVAR _fish_abbr_gor:go\x20run\x20main\x2ego
+SETUVAR _fish_abbr_gp:git\x20push
+SETUVAR _fish_abbr_i:yay\x20\x2dSi
+SETUVAR _fish_abbr_q:exit
+SETUVAR _fish_abbr_r:rm\x20\x2drfv
+SETUVAR _fish_abbr_s:yay\x20\x2dSs
+SETUVAR _fish_abbr_sp:speedtest\x20\x2d\x2dsecure
+SETUVAR _fish_abbr_v:nvim
+SETUVAR _fish_abbr_y:yay
 SETUVAR fish_color_cwd_root:red
 SETUVAR fish_color_history_current:\x2d\x2dbold
 SETUVAR fish_color_valid_path:\x2d\x2dunderline
 SETUVAR fish_key_bindings:fish_default_key_bindings
-SETUVAR fish_user_paths:/home/orest/\x2elocal/bin
+SETUVAR fish_user_paths:/home/orest/\x2econfig/emacs/bin\x1e/home/orest/\x2elocal/bin

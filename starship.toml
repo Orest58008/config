@@ -4,7 +4,7 @@ behind = "↓"
 diverged = "↕"
 
 [aws]
-symbol = "  "
+symbol = " "
 
 [buf]
 symbol = " "
@@ -19,7 +19,7 @@ symbol = " "
 symbol = " "
 
 [directory]
-read_only = " "
+read_only = " 󰉐 "
 
 [docker_context]
 symbol = " "
@@ -61,10 +61,10 @@ symbol = " "
 symbol = " "
 
 [meson]
-symbol = "喝 "
+symbol = "󰯙 "
 
 [nim]
-symbol = " "
+symbol = " "
 
 [nix_shell]
 symbol = " "
@@ -107,23 +107,23 @@ Redox = " "
 Solus = "ﴱ "
 SUSE = " "
 Ubuntu = " "
-Unknown = " "
-Windows = " "
+Unknown = " "
+Windows = " "
 
 [package]
-symbol = " "
+symbol = " "
 
 [python]
 symbol = " "
 
 [rlang]
-symbol = "ﳒ "
+symbol = "󰟔 "
 
 [ruby]
 symbol = " "
 
 [rust]
-symbol = " "
+symbol = "󱘗 "
 
 [scala]
 symbol = " "
