@@ -6,6 +6,7 @@ origin = bottom-left
 offset = 14x14
 mouse_right_click = close_current
 mouse_left_click = do_action
+show_age_threshold = 30
 
 [global]
 frame_color = "#7DC4E4"

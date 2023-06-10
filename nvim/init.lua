@@ -54,12 +54,13 @@ end)
 -- require('packer').sync()
 
 
--- plugins setup
+-- coc setup
 local keyset = vim.keymap.set
 local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
-
--- coc setup
-keyset('i', "<TAB>", [[coc#pum#visible() ? coc#pum#confirm() : coc#on_enter()]], opts)
+keyset('i', '<TAB>', [[coc#pum#visible() ? coc#pum#confirm() : coc#on_enter()]], opts)
 
 -- lightline setup
 require('lualine').setup()
+
+-- keyboard setup
+vim.cmd [[set langmap=йцукенгшщзфівапролдячсмитьЙЦУКЕНГШЩЗФІВАПРОЛДЯЧСМИТЬю;qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM.]]
