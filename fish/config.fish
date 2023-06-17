@@ -9,24 +9,36 @@ if status is-interactive
     alias clear="clear && yass"
 
     # abbreviations
-    set AUR_HELPER yay
-    abbr y "$AUR_HELPER"
-    abbr i "$AUR_HELPER -Si"
-    abbr R "$AUR_HELPER -Rns"
-    abbr S "$AUR_HELPER -S"
-    abbr s "$AUR_HELPER -Ss"
     abbr v "nvim"
     abbr q "exit"
     abbr sp "speedtest --secure"
     abbr r "rm -rfv"
+
+    set AUR_HELPER yay
+    set SUDO_COMMAND sudo
+    if command -qa $AUR_HELPER
+	abbr S "$AUR_HELPER -S"
+	abbr R "$AUR_HELPER -Rns"
+	abbr i "$AUR_HELPER -Si"
+	abbr y "$AUR_HELPER"
+	abbr s "$AUR_HELPER -Ss"
+    else if command -qa xbps-install
+	abbr S "$SUDO_COMMAND xbps-install -vy"
+	abbr R "$SUDO_COMMAND xbps-remove -R"
+	abbr u "$SUDO_COMMAND xbps-install -Suy"
+	abbr i "xbps-query -i"
+    end
+
     abbr dc "distrobox create -i"
     abbr de "distrobox enter"
     abbr ds "distrobox stop"
     abbr dr "distrobox rm"
+
     abbr ga "git add ."
     abbr gc "git commit -m"
     abbr gp "git push"
     abbr gl "git log"
+
     abbr gor "go run main.go"
     abbr gob "go build"
     
@@ -34,7 +46,7 @@ if status is-interactive
     bind \ct "tmux"
 
     # variables
-    set -x BAT_THEME "Catppuccin-macchiato"
+    set -x BAT_THEME "Catppuccin-mocha"
     set -x EDITOR nvim
     set -x FZF_DEFAULT_COMMAND "find -H"
     set -x GPG_TTY $(tty)
@@ -42,7 +54,7 @@ if status is-interactive
     fish_add_path ~/.config/emacs/bin/
 
     # catppuccin theme
-    fish_config theme choose "Catppuccin Macchiato"
+    fish_config theme choose "Catppuccin Mocha"
 
     # starship
     starship init fish | source

@@ -19,7 +19,7 @@
 
 /* Workspaces */
 #workspaces {
-    border: 2px solid @sapphire;
+    border: 2px solid @green;
     margin-left: 6px;
     margin-right: 6px;
     margin-top: 6px;
@@ -27,31 +27,21 @@
 }
 
 #workspaces button {
-    padding-left: 5px;
-    padding-right: 3px;
+    padding-left: 8px;
+    padding-right: 5px;
     background-color: @base;
     color: @text;
 }
 
 #workspaces button.focused {
-    background-color: @text;
-    color: @base;
-}
-
-#workspaces button.focused:hover {
-    background-color: @sapphire;
-    color: @base;
-}
-
-#workspaces button:hover {
-    background-color: @base;
-    color: @sapphire;
+    background-color: @mantle;
+    color: @green;
 }
 
 
 /* Main Modules */
 #tray {
-    border: 2px solid @sapphire;
+    border: 2px solid @green;
     background-color: @base;
     margin-right: 6px;
     margin-top: 6px;
@@ -80,7 +70,7 @@
 
 /* System Monitoring Modules */
 #cpu, #memory, #temperature {
-    border: 2px solid @sapphire;
+    border: 2px solid @green;
     background-color: @base;
     margin-left: 3px;
     margin-right: 3px;
@@ -91,7 +81,7 @@
 }
 
 #disk {
-    border: 2px solid @sapphire;
+    border: 2px solid @green;
     background-color: @base;
     margin-left: 3px;
     margin-right: 3px;
@@ -103,7 +93,8 @@
 
 /* Clock Module */
 #clock {
-    padding-top: 6px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     font-size: 130%;
     font-weight: bolder;
     background-color: @base;
@@ -112,7 +103,7 @@
 
 /* Language module */
 #language {
-    border: 2px solid @sapphire;
+    border: 2px solid @green;
     background-color: @base;
     margin-left: 3px;
     margin-right: 3px;
@@ -144,12 +135,12 @@
 
 /* Network Module */
 #network {
-    border: 2px solid @sapphire;
+    border: 2px solid @green;
     color: @blue;
 }
 
 /* PulseAudio Module */
 #pulseaudio {
-    border: 2px solid @sapphire;
+    border: 2px solid @green;
     color: @mauve;
 }

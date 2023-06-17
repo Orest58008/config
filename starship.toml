@@ -31,7 +31,7 @@ symbol = " "
 symbol = " "
 
 [git_branch]
-symbol = " "
+symbol = " "
 
 [golang]
 symbol = " "
@@ -46,7 +46,7 @@ symbol = " "
 symbol = "⌘ "
 
 [hg_branch]
-symbol = " "
+symbol = " "
 
 [java]
 symbol = " "
@@ -58,7 +58,7 @@ symbol = " "
 symbol = " "
 
 [memory_usage]
-symbol = " "
+symbol = "󰍛 "
 
 [meson]
 symbol = "󰯙 "
@@ -104,7 +104,7 @@ Raspbian = " "
 Redhat = " "
 RedHatEnterprise = " "
 Redox = " "
-Solus = "ﴱ "
+Solus = " "
 SUSE = " "
 Ubuntu = " "
 Unknown = " "

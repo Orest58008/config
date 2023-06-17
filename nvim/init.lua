@@ -2,8 +2,8 @@
 
 -- nvim setup
 vim.cmd [[set number]]
-vim.cmd [[set shiftwidth=4]]
-vim.cmd [[colorscheme catppuccin-macchiato]]
+vim.cmd [[set sw=4]]
+vim.cmd [[colorscheme catppuccin-mocha]]
 
 
 -- packer setup

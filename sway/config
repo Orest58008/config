@@ -1,4 +1,6 @@
-include catppuccin-macchiato
+# vim: sw=4
+
+include catppuccin-mocha
 
 # Default config for sway
 #
@@ -18,17 +20,17 @@ set $menu bemenu-run $bemenu_theme -i -l 20 -n -c -M 600 -B 2 --counter always -
 
 ### Theming
 #
-exec gsettings set org.gnome.desktop.interface font-name Inter
-exec gsettings set org.gnome.desktop.interface gtk-theme Catppuccin-Macchiato-Standard-Sapphire-Dark
+# exec gsettings set org.gnome.desktop.interface font-name Inter
+exec gsettings set org.gnome.desktop.interface gtk-theme Catppuccin-Mocha-Standard-Green-Dark
 exec gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark
-exec gsettings set org.gnome.desktop.interface cursor-theme posy-white
-seat seat0 xcursor_theme posy-white 24
+exec gsettings set org.gnome.desktop.interface cursor-theme Posy_Cursor
+seat seat0 xcursor_theme Posy_Cursor 24
 
-# target		title		bg	text	indicator	border
-client.focused		$sapphire	$base	$text	$sapphire	$sapphire
-client.focused_inactive	$blue		$base	$text	$blue		$mantle
-client.unfocused	$blue		$base	$text	$blue		$mantle
-client.urgent		$red		$base	$text	$red		$red
+# target		title	bg	text	indicator	border
+client.focused		$green	$base	$text	$green		$green
+client.focused_inactive	$mantle	$base	$text	$mantle		$mantle
+client.unfocused	$mantle	$base	$text	$mantle		$mantle
+client.urgent		$red	$base	$text	$red		$red
 
 default_border pixel 2
 gaps inner 3
@@ -42,7 +44,8 @@ exec wl-paste --watch cliphist store
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /data/pictures/wallpapers/82072674_p0.png fill
+output * bg /data/pictures/wallpapers/98616585_p0.png fill
+
 #
 # Example configuration:
 #
@@ -52,16 +55,10 @@ output * bg /data/pictures/wallpapers/82072674_p0.png fill
 
 ### Idle configuration
 #
-# Example configuration:
-#
 # exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
+#     timeout 300 'swaylock -f -c 000000' \
+#     timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+#     before-sleep 'swaylock -f -c 000000'
 
 ### Input configuration
 #
@@ -82,6 +79,11 @@ input * {
     floating_modifier $mod normal
 
     # Sound
+    exec pipewire
+    exec pipewire-pulse
+    exec wireplumber
+    exec mpd
+
     bindsym XF86AudioRaiseVolume exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
     bindsym XF86AudioLowerVolume exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-
     bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
@@ -216,7 +218,7 @@ for_window [title="Стиснення"] floating enable
 bindsym $mod+c exec gnome-calculator
 for_window [app_id="gnome-calculator"] floating enable
 # Firefox
-bindsym $mod+b exec firefox
+bindsym $mod+b exec firefox-wayland
 assign [app_id="firefox"] 1
 for_window [title="Firefox - Покажчик спільного доступу"] floating enable
 # Messaging apps
@@ -238,11 +240,11 @@ for_window [class="XEyes"] floating enable
 # Autostarting programs
 #
 exec autotiling
-exec firefox
+exec firefox-wayland
 exec nicotine
 exec telegram-desktop
 exec qbittorrent
-exec waybar
+exec sleep .5 && waybar
 
 #
 # Status Bar:
@@ -257,7 +259,7 @@ exec waybar
     # colors {
         # statusline $text
         # background $base
-        # active_workspace	$base	$sapphire	$text
+        # active_workspace	$base	$green	$text
         # inactive_workspace	$text00	$text00		$base
         # urgent_workspace	$base	$red		$text
     # }
