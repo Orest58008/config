@@ -15,7 +15,7 @@ set $mod Mod4
 # Your preferred terminal emulator
 set $term kitty
 # Your preferred application launcher
-set $bemenu_theme --bdr "#7dc4e4" --fb "#24273a" --ff "#7dc4e4" --nb "#24273a" --nf "#f4dbd6" --tb "#24273a" --hb "#24273a" --tf "#c6a0f6" --hf "#8aadf4" --nf "#f4dbd6" --af "#f4dbd6" --ab "#24273a"
+set $bemenu_theme --bdr "#a6e3a1" --fb "#24273a" --ff "#7dc4e4" --nb "#24273a" --nf "#f4dbd6" --tb "#24273a" --hb "#24273a" --tf "#c6a0f6" --hf "#8aadf4" --nf "#f4dbd6" --af "#f4dbd6" --ab "#24273a"
 set $menu bemenu-run $bemenu_theme -i -l 20 -n -c -M 600 -B 2 --counter always --fn "monospace 12"
 
 ### Theming
@@ -83,6 +83,7 @@ input * {
     exec pipewire-pulse
     exec wireplumber
     exec mpd
+    exec mpdscribble
 
     bindsym XF86AudioRaiseVolume exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
     bindsym XF86AudioLowerVolume exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-

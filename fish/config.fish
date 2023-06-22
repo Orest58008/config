@@ -1,12 +1,13 @@
 if status is-interactive
     # aliases
-    alias fish_greeting=yass
-    alias cat=bat
-    alias ls="exa -lFh --git --icons --sort type"
-    alias rg="rg -ip"
-    alias cp="cp -v"
-    alias mv="mv -v"
-    alias clear="clear && yass"
+    alias fish_greeting yass
+    alias cat bat
+    alias ls "exa -hlF --git --icons --sort type"
+    alias lt "ls -T"
+    alias rg "rg -ip"
+    alias cp "cp -v"
+    alias mv "mv -v"
+    alias clear "clear && yass"
 
     # abbreviations
     abbr v "nvim"
@@ -23,9 +24,9 @@ if status is-interactive
 	abbr y "$AUR_HELPER"
 	abbr s "$AUR_HELPER -Ss"
     else if command -qa xbps-install
-	abbr S "$SUDO_COMMAND xbps-install -vy"
-	abbr R "$SUDO_COMMAND xbps-remove -R"
-	abbr u "$SUDO_COMMAND xbps-install -Suy"
+	abbr S "$SUDO_COMMAND xbps-install -Syv"
+	abbr R "$SUDO_COMMAND xbps-remove -Rv"
+	abbr u "$SUDO_COMMAND xbps-install -Suv"
 	abbr i "xbps-query -i"
     end
 

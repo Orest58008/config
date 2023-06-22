@@ -1,0 +1,35 @@
+{
+    "entries": [
+        {
+            "base": "meta",
+            "current_age": 545,
+            "etag": "W/\"64922ff8-53cfe\"",
+            "last_changed_timestamp": 1687367872492,
+            "max_age": 600,
+            "md5sum": "39f6ebd13bfa14355274f424385b319b",
+            "path": "net.minecraft/index.json",
+            "remote_changed_timestamp": "Tue, 20 Jun 2023 23:02:16 GMT"
+        },
+        {
+            "base": "translations",
+            "current_age": 269,
+            "etag": "W/\"6492e77c-5263\"",
+            "last_changed_timestamp": 1687367860370,
+            "max_age": 600,
+            "md5sum": "9e112b30f56fd0000a988bb18226bf7e",
+            "path": "index_v2.json",
+            "remote_changed_timestamp": "Wed, 21 Jun 2023 12:05:16 GMT"
+        },
+        {
+            "base": "translations",
+            "current_age": 549,
+            "etag": "\"6492e77c-38eb0\"",
+            "last_changed_timestamp": 1687367860530,
+            "max_age": 600,
+            "md5sum": "7f7bae9132e05648b5d906f3a86086dd",
+            "path": "mmc_uk.qm",
+            "remote_changed_timestamp": "Wed, 21 Jun 2023 12:05:16 GMT"
+        }
+    ],
+    "version": "1"
+}

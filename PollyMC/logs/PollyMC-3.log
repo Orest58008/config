@@ -1,0 +1,117 @@
+     0.000 D | Testing "/home/orest/.local/share/PollyMC/qtlogging.ini" ...
+     0.000 D | Testing "/usr/qtlogging.ini" ...
+     0.000 D | <> Log initialized.
+     0.000 D | <> No migration needed from "PolyMC"
+     0.000 D | <> No migration needed from "MultiMC"
+     0.000 D | "PollyMC" , (c) 2013-2021  "© 2022-2023 PollyMC Contributors\n© 2022-2023 Prism Launcher Contributors\n© 2021-2022 PolyMC Contributors \n© 2012-2021 MultiMC Contributors"
+     0.000 D | Version                    :  "7.1"
+     0.000 D | Git commit                 :  "13b2c15abc8e0416f60e64c1a630edb3dd59325c"
+     0.000 D | Git refspec                :  "refs/heads/develop"
+     0.000 D | Work dir before adjustment :  "/home/orest"
+     0.000 D | Work dir after adjustment  :  "/home/orest/.local/share/PollyMC"
+     0.000 D | Adjusted by                :  "Persistent data path"
+     0.000 D | Binary path                :  "/usr/bin"
+     0.000 D | Application root path      :  "/usr"
+     0.000 D | <> Paths set.
+     0.024 D | Detected default console font: "Cascadia Code" , substitutions: ""
+     0.028 D | <> Settings loaded.
+     0.029 D | Detecting proxy settings...
+     0.029 D | Using no proxy is an option!
+     0.029 D | <> Network done.
+     0.030 D | Loading Application Language File for uk ...
+     0.030 D | Your language is "uk"
+     0.031 D | <> Translations loaded.
+     0.031 D | Started watching  "/home/orest/.local/share/PollyMC/icons"
+     0.031 D | Sorting icon list...
+     0.032 D | <> Instance icons intialized.
+     0.032 D | [Theme] <> Icon themes initialized.
+     0.032 D | [Theme] <> Initializing Widget Themes
+     0.032 D | [Theme] Determining System Theme...
+     0.032 D | [Theme] System theme seems to be: "fusion"
+     0.032 D | [Theme] Considering theme from theme factory: "windows"
+     0.032 D | [Theme] Considering theme from theme factory: "fusion"
+     0.032 D | [Theme] System theme has been determined to be: "Fusion"
+     0.032 D | [Theme] Loading Built-in Theme: "system"
+     0.032 D | [Theme] Loading Built-in Theme: "dark"
+     0.032 D | [Theme] Loading Built-in Theme: "bright"
+     0.032 D | [Theme] Theme Folder Path:  "/home/orest/.local/share/PollyMC/themes"
+     0.032 D | [Theme] <> Widget themes initialized.
+     0.032 D | Instance path              :  "instances"
+     0.032 D | Loading Instances...
+     0.032 D | Discovering instances in "/home/orest/.local/share/PollyMC/instances"
+     0.032 D | <> Instances loaded.
+     0.032 D | Loading accounts...
+     0.032 C | "Failed to read the account list file (accounts.json)."
+     0.032 D | <> Accounts loaded.
+     0.033 D | <> Cache initialized.
+     0.033 D | Downloading Translations Index...
+     0.033 D | [launcher.task]: Task "NetJob(Translations Index ID: dea7a192-d271-4f24-83fd-96a3f74fdf9d)" starting for the first time
+     0.033 D | [Theme] <> Icon theme set.
+     0.033 D | [Theme] applying theme "Системний"
+     0.033 D | [Theme] <> Application theme set.
+     0.062 D | Reloading news.
+     0.062 D | [launcher.task]: Task "NetJob(News RSS Feed ID: e9b0baa7-9fad-4412-a56b-ed547d06793e)" starting for the first time
+     0.113 D | <> Main window shown.
+     0.140 D | [launcher.task]: Task "Net::Download(BYTES:https://prismlauncher.org/feed/feed.xml ID: e1a6a9e9-d94b-4861-bcd1-b2af2d5ce8de)" starting for the first time
+     0.141 D | [launcher.task.net.download]: "{e1a6a9e9-d94b-4861-bcd1-b2af2d5ce8de}" Downloading  "https://prismlauncher.org/feed/feed.xml"
+     0.150 D | [launcher.task]: Task "Net::Download(CACHE:https://i18n.prismlauncher.org/index_v2.json ID: 9072bf85-1121-49bd-8bbc-6fa135d8478c)" starting for the first time
+     0.150 D | [launcher.task.net.download]: "{9072bf85-1121-49bd-8bbc-6fa135d8478c}" Downloading  "https://i18n.prismlauncher.org/index_v2.json"
+     0.158 D | Dir changed: "/home/orest/.local/share/PollyMC/translations"
+     0.160 D | Loading Application Language File for uk ...
+     0.417 D | [launcher.task.net.download]: "{e1a6a9e9-d94b-4861-bcd1-b2af2d5ce8de}" Download succeeded: "https://prismlauncher.org/feed/feed.xml"
+     0.417 D | [launcher.task]: Task "NetJob(News RSS Feed ID: e9b0baa7-9fad-4412-a56b-ed547d06793e)" succeeded
+     0.417 D | Finished loading RSS feed.
+     0.431 D | Loaded news entry "Prism Launcher Release 7.1, now available"
+     0.431 D | Loaded news entry "Prism Launcher Release 7.0, now available"
+     0.432 D | Loaded news entry "FTB Modpack Downloading Removal."
+     0.432 D | Loaded news entry "[MALWARE WARNING] \"fractureiser\" malware in many popular Minecraft mods and modpacks"
+     0.432 D | Loaded news entry "Happy Pride Month!"
+     0.432 D | Loaded news entry "[SECURITY UPDATE] Prism Launcher Release 6.3, now available"
+     0.432 D | Loaded news entry "Prism Launcher Release 6.2, now available"
+     0.432 D | Loaded news entry "Prism Launcher Release 6.1, now available"
+     0.432 D | Loaded news entry "Prism Launcher Release 6.0, now available"
+     0.432 D | Loaded news entry "Prism Launcher Release 5.2, now available"
+     0.432 D | Loaded news entry "Prism Launcher Release 5.1, now available"
+     0.432 D | Loaded news entry "Prism Launcher Release 5.0, now available"
+     0.432 D | Loaded news entry "PolyMC Update 1.4.2, now available"
+     0.432 D | Loaded news entry "PolyMC Update 1.4.1, now available"
+     0.432 D | Loaded news entry "PolyMC Update 1.4.0, now available"
+     0.432 D | Loaded news entry "PolyMC Update 1.3.2, now available"
+     0.432 D | Loaded news entry "PolyMC Update 1.3.1, now available"
+     0.432 D | Loaded news entry "PolyMC Update 1.3.0, now available"
+     0.432 D | Loaded news entry "PolyMC Update 1.2.2, now available (CurseForge Hotfix)"
+     0.432 D | Loaded news entry "PolyMC Update 1.2.1, now available"
+     0.432 D | Loaded news entry "PolyMC Update 1.2.0, now available"
+     0.432 D | Loaded news entry "PolyMC Update 1.1.1, now available"
+     0.432 D | Loaded news entry "PolyMC Update 1.1.0, now available"
+     0.432 D | Loaded news entry "Moving on"
+     0.432 D | Loaded news entry "Modrinth support and Mod downloading"
+     0.432 D | Loaded news entry "New maintainers and step down."
+     0.433 D | News loading succeeded.
+     0.633 D | [launcher.task.net.metacache]: Parsing 'Cache-Control' header with "max-age=600"
+     0.634 D | [launcher.task.net.metacache]: Parsing 'Age' header with "425"
+     0.634 D | [launcher.task.net.download]: "{9072bf85-1121-49bd-8bbc-6fa135d8478c}" Download succeeded: "https://i18n.prismlauncher.org/index_v2.json"
+     0.634 D | [launcher.task]: Task "NetJob(Translations Index ID: dea7a192-d271-4f24-83fd-96a3f74fdf9d)" succeeded
+     0.635 D | Got translations index!
+     0.635 W | [launcher.task.net]: [HttpMetaCache] Removing cache entry because of old age!
+     0.635 D | [launcher.task]: Task "NetJob(Translation for uk ID: 7859feb3-0442-473a-ad8f-c31871d5e0e9)" starting for the first time
+     0.635 D | [launcher.task]: Task "Net::Download(CACHE:https://i18n.prismlauncher.org/2bb24315a983dcf7de088c5b83178f2bbef0cc1f.class ID: 746364f1-548f-4a1f-b6e9-5af346809fdd)" starting for the first time
+     0.636 D | [launcher.task.net.download]: "{746364f1-548f-4a1f-b6e9-5af346809fdd}" Downloading  "https://i18n.prismlauncher.org/2bb24315a983dcf7de088c5b83178f2bbef0cc1f.class"
+     0.636 D | Dir changed: "/home/orest/.local/share/PollyMC/translations"
+     0.642 D | Loading Application Language File for uk ...
+     0.911 D | [launcher.task.net.metacache]: Parsing 'Cache-Control' header with "max-age=600"
+     0.912 D | [launcher.task.net.metacache]: Parsing 'Age' header with "103"
+     0.912 D | [launcher.task.net.download]: "{746364f1-548f-4a1f-b6e9-5af346809fdd}" Download succeeded: "https://i18n.prismlauncher.org/2bb24315a983dcf7de088c5b83178f2bbef0cc1f.class"
+     0.912 D | [launcher.task]: Task "NetJob(Translation for uk ID: 7859feb3-0442-473a-ad8f-c31871d5e0e9)" succeeded
+     0.912 D | Got translation: "uk"
+     0.913 D | Loading Application Language File for uk ...
+     0.914 D | Dir changed: "/home/orest/.local/share/PollyMC/translations"
+     0.919 D | Loading Application Language File for uk ...
+     6.640 D | Paged dialog close requested
+     6.640 D | Sorting icon list...
+     6.641 D | Detecting proxy settings...
+     6.641 D | Using no proxy is an option!
+     6.641 D | Paged dialog close approved
+     6.641 D | Paged dialog geometry saved
+     6.650 D | Discovering instances in "/home/orest/.local/share/PollyMC/instances"
+    31.078 D | [launcher.task.net.metacache.http]: Saving metacache with 21 entries
