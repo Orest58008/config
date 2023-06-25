@@ -77,7 +77,7 @@
         "format-stopped": "",
         "unknown-tag": "N/A",
 	"artist-len": 30,
-	"titre-len": 30,
+	"title-len": 30,
         "interval": 2,
 	"on-click": "mpc toggle",
         "consume-icons": {
@@ -115,8 +115,8 @@
         // "timezone": "America/New_York",
 	"interval": 1,
 	"format": "{:%H:%M:%S}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format-alt": "{:%a, %d %b %Y}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "cpu": {
         "format": "{usage}% ",

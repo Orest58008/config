@@ -55,10 +55,10 @@ output * bg /data/pictures/wallpapers/98616585_p0.png fill
 
 ### Idle configuration
 #
-# exec swayidle -w \
-#     timeout 300 'swaylock -f -c 000000' \
-#     timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#     before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+    timeout 300 'swaylock -f -i /data/pictures/wallpapers/98616585_p0.png --font monospace' \
+    timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+    before-sleep 'swaylock -f -i /data/pictures/wallpapers/98616585_p0.png --font monospace'
 
 ### Input configuration
 #
@@ -231,7 +231,10 @@ assign [class="Signal"] 2
 bindsym $mod+m exec $term -e ncmpcpp
 # File sharers
 assign [app_id="org.qbittorrent.qBittorrent"] 6
+assign [class="qBittorrent"] 6
 for_window [title="Magnet-посилання"] floating enable
+for_window [title="Виберіть шлях збереження"] floating enable
+for_window [title="Вибрати файл теми qBittorrent"] floating enable
 for_window [title="Інформація про падіння"] floating enable
 assign [app_id="org.nicotine_plus.Nicotine"] 6
 # Misc
@@ -245,7 +248,7 @@ exec firefox-wayland
 exec nicotine
 exec telegram-desktop
 exec qbittorrent
-exec sleep .5 && waybar
+exec sleep 1s && waybar
 
 #
 # Status Bar:

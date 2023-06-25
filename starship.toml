@@ -2,6 +2,7 @@
 ahead = "↑"
 behind = "↓"
 diverged = "↕"
+deleted = "×"
 
 [aws]
 symbol = " "

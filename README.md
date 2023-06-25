@@ -1,7 +1,7 @@
 ## Currently using
 ### Global
-* OS -- Arch Linux
-* Theme -- Catppuccin-Macchiato-Sapphire
+* OS -- Void Linux
+* Theme -- Catppuccin-Mocha-Sapphire
 * Icons -- Papirus
 ### WM stuff
 * Compositor -- sway
@@ -9,8 +9,7 @@
 * Notifications -- dunst
 ### Terminal stuff
 * Shell -- fish
-* Terminal emulator -- alacritty (ligature branch[^alacritty])
-* AUR helper -- yay
+* Terminal emulator -- kitty
 ### Apps
 * App / command launcher -- bemenu
 * Browser -- Firefox
@@ -26,7 +25,3 @@
 * Completion -- coc.nvim
 * Code highlighting -- nvim-treesitter
 * Language support -- vim-fish, markdown-preview.nvim
-
-
-
-[^alacritty]: [Add font ligatures to your Alacritty](https://dev.to/prakhil_tp/add-font-ligatures-to-your-alacritty-2fld)
