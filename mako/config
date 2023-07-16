@@ -1,0 +1,19 @@
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#a6e3a1
+progress-color=over #313244
+
+icon-path=/usr/share/icons/Papirus-Dark
+max-icon-size=32
+font=monospace 13
+
+anchor=bottom-left
+margin=14
+group-by=app-name
+
+ignore-timeout=1
+default-timeout=30
+
+
+[urgency=high]
+border-color=#fab387

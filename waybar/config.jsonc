@@ -6,6 +6,7 @@
     "spacing": 6, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
+	"idle_inhibitor",
 	"sway/workspaces",
 	"sway/mode",
 	"tray"
@@ -18,7 +19,6 @@
     ],
     "modules-right": [
 	"mpd",
-	//"idle_inhibitor",
 	"pulseaudio",
 	//"cpu",
 	//"memory",
@@ -76,8 +76,8 @@
         "format-disconnected": "Disconnected",
         "format-stopped": "",
         "unknown-tag": "N/A",
-	"artist-len": 30,
-	"title-len": 30,
+	"artist-len": 25,
+	"title-len": 25,
         "interval": 2,
 	"on-click": "mpc toggle",
         "consume-icons": {

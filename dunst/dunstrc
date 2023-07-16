@@ -1,5 +1,5 @@
 [global]
-font = "Monospace 12"
+font = "Monospace 13"
 icon_theme = "Papirus-Dark"
 enable_recursive_icon_lookup = true
 origin = bottom-left
@@ -9,19 +9,18 @@ mouse_left_click = do_action
 show_age_threshold = 30
 
 [global]
-frame_color = "#7DC4E4"
-frame_width = 2
-separator_color = frame
+frame_color = "#A6E3A1"
+separator_color= frame
 
 [urgency_low]
-background = "#24273A"
-foreground = "#CAD3F5"
+background = "#1E1E2E"
+foreground = "#CDD6F4"
 
 [urgency_normal]
-background = "#24273A"
-foreground = "#CAD3F5"
+background = "#1E1E2E"
+foreground = "#CDD6F4"
 
 [urgency_critical]
-background = "#24273A"
-foreground = "#CAD3F5"
-frame_color = "#F5A97F"
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+frame_color = "#FAB387"

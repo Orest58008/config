@@ -14,6 +14,8 @@ include catppuccin-mocha
 set $mod Mod4
 # Your preferred terminal emulator
 set $term kitty
+# Your preferred file navigator
+set $navigator nemo
 # Your preferred application launcher
 set $bemenu_theme --bdr "#a6e3a1" --fb "#24273a" --ff "#7dc4e4" --nb "#24273a" --nf "#f4dbd6" --tb "#24273a" --hb "#24273a" --tf "#c6a0f6" --hf "#8aadf4" --nf "#f4dbd6" --af "#f4dbd6" --ab "#24273a"
 set $menu bemenu-run $bemenu_theme -i -l 20 -n -c -M 600 -B 2 --counter always --fn "monospace 12"
@@ -56,8 +58,8 @@ output * bg /data/pictures/wallpapers/98616585_p0.png fill
 ### Idle configuration
 #
 exec swayidle -w \
-    timeout 300 'swaylock -f -i /data/pictures/wallpapers/98616585_p0.png --font monospace' \
-    timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+    timeout 2000 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+    timeout 2100 'swaylock -f -i /data/pictures/wallpapers/98616585_p0.png --font monospace' \
     before-sleep 'swaylock -f -i /data/pictures/wallpapers/98616585_p0.png --font monospace'
 
 ### Input configuration
@@ -73,7 +75,7 @@ input * {
 ### Key bindings
 #
     # Kill focused window
-    bindsym $mod+q kill
+    bindsym --to-code $mod+q kill
 
     # Drag floating windows by holding down $mod and left mouse button.
     floating_modifier $mod normal
@@ -206,29 +208,33 @@ bindsym $mod+p mode "resize"
 # Apps:
 #
 # Terminal
-bindsym $mod+Return exec $term
+bindsym --to-code $mod+Return exec $term
 # Bemenu launcher
-bindsym $mod+r exec $menu
-# PCManFM
-bindsym $mod+d exec pcmanfm
+bindsym --to-code $mod+r exec $menu
+# VLC media player
+bindsym --to-code $mod+v exec vlc
+# File manager
+bindsym --to-code $mod+d exec $navigator
 for_window [title="Виконати файл"] floating enable
 for_window [title="Підтвердити заміщення файлів"] floating enable
 for_window [title="Розпакувати архів"] floating enable
 for_window [title="Стиснення"] floating enable
 # Calculator
-bindsym $mod+c exec gnome-calculator
+bindsym --to-code $mod+c exec gnome-calculator
 for_window [app_id="gnome-calculator"] floating enable
 # Firefox
-bindsym $mod+b exec firefox-wayland
+bindsym --to-code $mod+b exec firefox-wayland
 assign [app_id="firefox"] 1
+assign [app_id="Firefox"] 1
 for_window [title="Firefox - Покажчик спільного доступу"] floating enable
+for_window [title="https://www.deepl.com"] floating enable
 # Messaging apps
-bindsym $mod+t exec telegram-desktop
+bindsym --to-code $mod+t exec telegram-desktop
 assign [app_id="org.telegram.desktop"] 2
 for_window [title="TelegramDesktop"] floating enable
 assign [class="Signal"] 2
 # Music
-bindsym $mod+m exec $term -e ncmpcpp
+bindsym --to-code $mod+m exec $term -e ncmpcpp
 # File sharers
 assign [app_id="org.qbittorrent.qBittorrent"] 6
 assign [class="qBittorrent"] 6
@@ -246,9 +252,9 @@ for_window [class="XEyes"] floating enable
 exec autotiling
 exec firefox-wayland
 exec nicotine
-exec telegram-desktop
-exec qbittorrent
-exec sleep 1s && waybar
+exec sleep 2 && telegram-desktop
+exec sleep 2 && qbittorrent
+exec sleep 1 && waybar
 
 #
 # Status Bar:

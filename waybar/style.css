@@ -20,7 +20,7 @@
 /* Workspaces */
 #workspaces {
     border: 2px solid @green;
-    margin-left: 6px;
+    margin-left: 3px;
     margin-right: 6px;
     margin-top: 6px;
     background-color: @base;
@@ -143,4 +143,20 @@
 #pulseaudio {
     border: 2px solid @green;
     color: @mauve;
+}
+
+/* Idle Inhibitor */
+#idle_inhibitor {
+    border: 2px solid @green;
+    margin-left: 6px;
+    margin-right: 3px;
+    margin-top: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: @green;
+    background-color: @base;
+}
+
+#idle_inhibitor.deactivated {
+    color: @text;
 }
