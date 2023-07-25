@@ -66,7 +66,7 @@ exec swayidle -w \
 #
 input * {
     xkb_layout "us,ua"
-    xkb_options "grp:alt_caps_toggle,compose:rctrl"
+    xkb_options "grp:caps_toggle,compose:rctrl"
 }
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
@@ -211,8 +211,8 @@ bindsym $mod+p mode "resize"
 bindsym --to-code $mod+Return exec $term
 # Bemenu launcher
 bindsym --to-code $mod+r exec $menu
-# VLC media player
-bindsym --to-code $mod+v exec vlc
+# GNOME media player
+bindsym --to-code $mod+v exec totem
 # File manager
 bindsym --to-code $mod+d exec $navigator
 for_window [title="Виконати файл"] floating enable
@@ -235,14 +235,16 @@ for_window [title="TelegramDesktop"] floating enable
 assign [class="Signal"] 2
 # Music
 bindsym --to-code $mod+m exec $term -e ncmpcpp
+# PollyMC
+assign [class="PollyMC"] 5
 # File sharers
-assign [app_id="org.qbittorrent.qBittorrent"] 6
-assign [class="qBittorrent"] 6
+assign [app_id="org.qbittorrent.qBittorrent"] 8
+assign [class="qBittorrent"] 8
 for_window [title="Magnet-посилання"] floating enable
 for_window [title="Виберіть шлях збереження"] floating enable
 for_window [title="Вибрати файл теми qBittorrent"] floating enable
 for_window [title="Інформація про падіння"] floating enable
-assign [app_id="org.nicotine_plus.Nicotine"] 6
+assign [app_id="org.nicotine_plus.Nicotine"] 8
 # Misc
 for_window [class="XEyes"] floating enable
 
