@@ -99,8 +99,8 @@ input * {
     
     # Screenshooting
     bindsym Print exec grim - | wl-copy
-    bindsym Shift+Print exec grim -g $(slurp) - | wl-copy
-    bindsym Ctrl+Print exec grim
+    bindsym Shift+Print exec grim
+    bindsym Ctrl+Print exec grim -g $(slurp) -
 
     # Reload the configuration file
     bindsym $mod+Shift+r reload
@@ -236,6 +236,7 @@ assign [class="Signal"] 2
 # Music
 bindsym --to-code $mod+m exec $term -e ncmpcpp
 # PollyMC
+bindsym --to-code $mod+h exec pollymc
 assign [class="PollyMC"] 5
 # File sharers
 assign [app_id="org.qbittorrent.qBittorrent"] 8
@@ -247,6 +248,7 @@ for_window [title="Інформація про падіння"] floating enable
 assign [app_id="org.nicotine_plus.Nicotine"] 8
 # Misc
 for_window [class="XEyes"] floating enable
+for_window [app_id="pavucontrol"] floating enable
 
 #
 # Autostarting programs

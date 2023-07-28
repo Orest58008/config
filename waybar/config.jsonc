@@ -34,7 +34,7 @@
     ],
     // Modules configuration
     "sway/workspaces": {
-        "all-outputs": true,
+	"disable-scroll": true,
 	"on-click": "activate",
         "format": "{icon}",
         "format-icons": {
