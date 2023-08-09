@@ -10,7 +10,8 @@ show_age_threshold = 30
 
 [global]
 frame_color = "#A6E3A1"
-separator_color= frame
+separator_color = frame
+frame_width = 2
 
 [urgency_low]
 background = "#1E1E2E"

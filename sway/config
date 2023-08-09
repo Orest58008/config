@@ -66,6 +66,7 @@ exec swayidle -w \
 #
 input * {
     xkb_layout "us,ua"
+    xkb_variant "intl"
     xkb_options "grp:caps_toggle,compose:rctrl"
 }
 #
@@ -235,9 +236,10 @@ for_window [title="TelegramDesktop"] floating enable
 assign [class="Signal"] 2
 # Music
 bindsym --to-code $mod+m exec $term -e ncmpcpp
-# PollyMC
+# Minecraft
 bindsym --to-code $mod+h exec pollymc
 assign [class="PollyMC"] 5
+assign [class="Minecraft.*"] 5
 # File sharers
 assign [app_id="org.qbittorrent.qBittorrent"] 8
 assign [class="qBittorrent"] 8

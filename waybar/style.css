@@ -137,6 +137,7 @@
 #network {
     border: 2px solid @green;
     color: @blue;
+    margin-right: 6px;
 }
 
 /* PulseAudio Module */
