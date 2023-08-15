@@ -1,19 +1,23 @@
 background-color=#1e1e2e
 text-color=#cdd6f4
-border-color=#a6e3a1
+border-color=#89dceb
 progress-color=over #313244
 
-icon-path=/usr/share/icons/Papirus-Dark
-max-icon-size=32
-font=monospace 13
+icon-path=/usr/share/icons/Papirus-Dark/
+max-icon-size=48
+font=monospace 14
 
 anchor=bottom-left
-margin=14
+margin=16
 group-by=app-name
 
 ignore-timeout=1
-default-timeout=30
+default-timeout=7000
 
+format=%b
+
+[grouped]
+format=(%g)\n%b
 
 [urgency=high]
 border-color=#fab387

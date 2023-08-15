@@ -1,3 +1,4 @@
+ 
  <distrocolor><d><b><u>$USER$<clear>@<distrocolor><d><b><u>$HOSTNAME$
  <distrocolor><b>ОС<clear>         $PRETTY_NAME$
  <distrocolor><b>Кернель<clear>    $KERNEL_VERSION$
