@@ -24,8 +24,8 @@
 	//"memory",
 	//"temperature",
 	//"backlight",
-	"keyboard-state",
 	"sway/language",
+	"keyboard-state",
 	"network"
 	//"battery",
 	//"battery#bat2",
@@ -44,7 +44,7 @@
             "4":  " ",
             "5":  " ",
 	    "6":  "󱔗 ",
-	    "7":  "󰞀",
+	    "7":  " ",
 	    "8":  "󱇴 ",
 	    "10": " "
             //"urgent": "",
@@ -55,10 +55,10 @@
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
-        "format": "{name} {icon}",
+        "format": "{icon}",
         "format-icons": {
-            "locked": "",
-            "unlocked": ""
+            "locked": ".",
+            "unlocked": ""
         }
     },
     "sway/mode": {

@@ -2,15 +2,14 @@
 
 /* Universal Styling */
 * {
-    border: none;
-    border-radius: 0px;
     font-family: monospace;
     font-size: 17px;
-    min-height: 0;
+    border-radius: 0;
 }
 
 /* Bar Styling */
 #waybar {
+    padding: 0;
     background: transparent;
     color: @text;
 }
@@ -81,7 +80,6 @@
     padding-right: 10px;
     color: @blue;
 }
-
 #disk {
     border: 2px solid @sky;
     background-color: @base;
@@ -109,6 +107,15 @@
     padding-left: 10px;
     padding-right: 10px;
     color: @flamingo;
+}
+#language {
+    border-right: none;
+    margin-right: -6;
+}
+#keyboard-state {
+    border-left: none;
+    margin-left: -10;
+    padding-left: 0;
 }
 
 /* Battery Module */
@@ -154,7 +161,6 @@
     color: @blue;
     background-color: @base;
 }
-
 #idle_inhibitor.deactivated {
     color: @text;
 }
