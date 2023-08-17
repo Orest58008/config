@@ -59,8 +59,8 @@ output * bg /data/pictures/wallpapers/110473958_p0.jpg fill
 #
 exec swayidle -w \
     timeout 2000 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-    timeout 2100 'swaylock -f -i /data/pictures/wallpapers/98616585_p0.png --font monospace' \
-    before-sleep 'swaylock -f -i /data/pictures/wallpapers/98616585_p0.png --font monospace'
+    timeout 2100 'swaylock -f -i /data/pictures/wallpapers/110473958_p0.jpg --font monospace' \
+    before-sleep 'swaylock -f -i /data/pictures/wallpapers/110473958_p0.jpg --font monospace'
 
 ### Input configuration
 #
@@ -95,7 +95,7 @@ input * {
     # Screenshooting
     bindsym Print exec grim - | wl-copy
     bindsym Shift+Print exec grim
-    bindsym Ctrl+Print exec grim -g $(slurp) -
+    bindsym Ctrl+Print exec grim -g $(slurp)
 
     # Reload the configuration file
     bindsym $mod+Shift+r reload
@@ -274,7 +274,7 @@ exec firefox
 exec telegram-desktop
 exec nicotine
 exec qbittorrent
-exec bitwarden
+exec bitwarden-desktop
 
 #
 # Status Bar:

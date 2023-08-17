@@ -10,9 +10,10 @@ font=monospace 14
 anchor=bottom-left
 margin=16
 group-by=app-name
+layer=overlay
 
 ignore-timeout=1
-default-timeout=7000
+default-timeout=5000
 
 format=%b
 
