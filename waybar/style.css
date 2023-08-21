@@ -4,12 +4,12 @@
 * {
     font-family: monospace;
     font-size: 17px;
-    border-radius: 0;
+    border-radius: 0px;
 }
 
 /* Bar Styling */
 #waybar {
-    padding: 0;
+    padding: 0px;
     background: transparent;
     color: @text;
 }
@@ -110,12 +110,12 @@
 }
 #language {
     border-right: none;
-    margin-right: -6;
+    margin-right: -6px;
 }
 #keyboard-state {
     border-left: none;
-    margin-left: -10;
-    padding-left: 0;
+    margin-left: -10px;
+    padding-left: 0px;
 }
 
 /* Battery Module */

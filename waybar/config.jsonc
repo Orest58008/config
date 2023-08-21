@@ -77,8 +77,8 @@
         "format-disconnected": "Disconnected",
         "format-stopped": "",
         "unknown-tag": "N/A",
-	"artist-len": 25,
-	"title-len": 25,
+	"artist-len": 20,
+	"title-len": 20,
         "interval": 2,
 	"on-click": "mpc toggle",
         "consume-icons": {

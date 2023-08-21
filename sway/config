@@ -30,8 +30,8 @@ seat seat0 xcursor_theme posy-white 24
 
 # target		title	bg	text	indicator	border
 client.focused		$sky	$base	$text	$sky		$sky
-client.focused_inactive	$base	$base	$text	$sky		$base
-client.unfocused	$mantle	$base	$text	$mantle		$mantle
+client.focused_inactive	$mantle	$base	$text	$mantle		$mantle
+client.unfocused	$mantle	$mantle	$text	$mantle		$mantle
 client.urgent		$red	$base	$text	$red		$red
 
 default_border pixel 2
@@ -244,6 +244,10 @@ assign [class="Signal"] 2
 # Music
 bindsym --to-code $mod+m exec $term -e ncmpcpp
 
+# Gimp
+bindsym --to-code $mod+g exec gimp
+assign [class="Gimp"] 4
+
 # Minecraft
 bindsym --to-code $mod+h exec pollymc
 assign [class="PollyMC"] 5
@@ -268,13 +272,12 @@ for_window [app_id="pavucontrol"] floating enable
 #
 # Autostarting programs
 #
-exec autotiling
-exec waybar
-exec firefox
-exec telegram-desktop
-exec nicotine
-exec qbittorrent
-exec bitwarden-desktop
+exec autotiling 
+exec sleep 1 && waybar
+exec sleep 2 && firefox &
+exec sleep 2 && telegram-desktop &
+exec sleep 2 && nicotine &
+exec sleep 2 && qbittorrent &
 
 #
 # Status Bar:
