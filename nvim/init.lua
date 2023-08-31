@@ -50,6 +50,7 @@ require('packer').startup(function(use)
     run = function() vim.fn['mkdp#util#install']() end,
   })
 end)
+
 -- uncomment this before first using nvim
 -- require('packer').sync()
 

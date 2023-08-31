@@ -40,7 +40,6 @@ gaps outer 3
 
 ### Clipboard configuration
 #
-exec wl-clip-persist --clipboard both
 exec wl-paste --watch cliphist store
 
 ### Output configuration
@@ -231,6 +230,7 @@ bindsym --to-code $mod+b exec firefox
 assign [app_id="firefox"] 1
 assign [app_id="Firefox"] 1
 for_window [title="Firefox - Покажчик спільного доступу"] floating enable
+for_window [title="Зображення в зображенні"] floating enable
 for_window [title="https://www.deepl.com"] floating enable
 # bindsym --to-code $mod+b exec librewolf
 assign [app_id="LibreWolf"] 1

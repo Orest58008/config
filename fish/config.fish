@@ -18,10 +18,11 @@ if status is-interactive
     set AUR_HELPER yay
     set SUDO_COMMAND sudo
     if command -qa $AUR_HELPER
+	abbr y "$AUR_HELPER"
 	abbr S "$AUR_HELPER -S"
 	abbr R "$AUR_HELPER -Rns"
+	abbr u "$AUR_HELPER -Qu"
 	abbr i "$AUR_HELPER -Si"
-	abbr y "$AUR_HELPER"
 	abbr s "$AUR_HELPER -Ss"
     else if command -qa xbps-install
 	abbr S "$SUDO_COMMAND xbps-install -Syv"
