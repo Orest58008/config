@@ -159,9 +159,10 @@
     margin-left: 6px;
     padding-left: 10px;
     padding-right: 17px;
-    color: @blue;
-    background-color: @base;
+    color: @base;
+    background-color: @sky;
 }
 #idle_inhibitor.deactivated {
+    background-color: @base;
     color: @text;
 }

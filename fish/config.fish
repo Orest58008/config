@@ -21,7 +21,6 @@ if status is-interactive
 	abbr y "$AUR_HELPER"
 	abbr S "$AUR_HELPER -S"
 	abbr R "$AUR_HELPER -Rns"
-	abbr u "$AUR_HELPER -Qu"
 	abbr i "$AUR_HELPER -Si"
 	abbr s "$AUR_HELPER -Ss"
     else if command -qa xbps-install

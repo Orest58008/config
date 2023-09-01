@@ -9,7 +9,7 @@ mouse_left_click = do_action
 show_age_threshold = 30
 
 [global]
-frame_color = "#A6E3A1"
+frame_color = "#89DCEB"
 separator_color = frame
 frame_width = 2
 
