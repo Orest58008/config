@@ -53,6 +53,7 @@
         }
     },
     "keyboard-state": {
+	"device-path": "/dev/input/event2",
         "numlock": true,
         "capslock": true,
         "format": "{icon}",
@@ -177,23 +178,13 @@
         },
         "on-click": "pavucontrol"
     },
+    /*
     "hyprland/language": {
 	"format": "{}",
 	"format-en": "🇬🇧",
 	"format-uk": "🇺🇦",
 	"keyboard-name": "dell-kb216-wired-keyboard"
     },
-    "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    }
+    */
 }
 

@@ -17,8 +17,7 @@ set $term kitty
 # Your preferred file navigator
 set $navigator nemo
 # Your preferred application launcher
-set $bemenu_theme --bdr "#a6e3a1" --fb "#24273a" --ff "#7dc4e4" --nb "#24273a" --nf "#f4dbd6" --tb "#24273a" --hb "#24273a" --tf "#c6a0f6" --hf "#8aadf4" --nf "#f4dbd6" --af "#f4dbd6" --ab "#24273a"
-set $menu bemenu-run $bemenu_theme -i -l 20 -n -c -M 600 -B 2 --counter always --fn "monospace 12"
+set $menu wofi --show drun -I
 
 ### Theming
 #
@@ -248,10 +247,11 @@ bindsym --to-code $mod+m exec $term -e ncmpcpp
 bindsym --to-code $mod+g exec gimp
 assign [class="Gimp"] 4
 
-# Minecraft
+# Games
 bindsym --to-code $mod+h exec pollymc
 assign [class="PollyMC"] 5
 assign [class="Minecraft.*"] 5
+for_window [title="Select an IWAD to use"] floating enable
 
 # Security apps
 assign [class="Bitwarden"] 7
@@ -266,8 +266,11 @@ for_window [title="Інформація про падіння"] floating enable
 assign [app_id="org.nicotine_plus.Nicotine"] 8
 
 # Misc
+bindsym --to-code $mod+l exec wlogout
+bindsym --to-code $mod+x exec xeyes
 for_window [class="XEyes"] floating enable
 for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="gxmessage"] floating enable
 
 #
 # Autostarting programs

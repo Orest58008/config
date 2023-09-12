@@ -1,0 +1,8 @@
+[options]
+background = checks
+overlay = true
+overlay_font = monospace:10
+overlay_text_color = #cdd6f4
+overlay_background_color = #313244
+overlay_background_alpha = ff
+overlay_position_bottom = true

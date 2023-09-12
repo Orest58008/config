@@ -1,0 +1,45 @@
+* {
+    background-image: none;
+}
+window {
+    background-color: #1E1E2E;
+}
+button {
+    color: #CDD6F4;
+    background-color: #1E1E2E;
+    border-style: solid;
+    border-width: 2px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+}
+
+button:focus, button:active, button:hover {
+    color: #1E1E2E;
+    background-color: #74C7EC;
+    outline-style: none;
+}
+
+#lock {
+    background-image: image(url("/usr/share/icons/Papirus/64x64/apps/xfsm-lock.svg"));
+}
+
+#logout {
+    background-image: image(url("/usr/share/icons/Papirus/64x64/apps/xfsm-logout.svg"));
+}
+
+#suspend {
+    background-image: image(url("/usr/share/icons/Papirus/64x64/apps/xfsm-suspend.svg"));
+}
+
+#hibernate {
+    background-image: image(url("/usr/share/icons/Papirus/64x64/apps/xfsm-hibernate.svg"));
+}
+
+#shutdown {
+    background-image: image(url("/usr/share/icons/Papirus/64x64/apps/xfsm-shutdown.svg"));
+}
+
+#reboot {
+    background-image: image(url("/usr/share/icons/Papirus/64x64/apps/xfsm-reboot.svg"));
+}
