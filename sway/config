@@ -58,7 +58,7 @@ output * bg /data/pictures/wallpapers/110473958_p0.jpg fill
 exec swayidle -w \
     timeout 2000 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
     timeout 2100 'swaylock -f -i /data/pictures/wallpapers/110473958_p0.jpg --font monospace' \
-    before-sleep 'swaylock -f -i /data/pictures/wallpapers/110473958_p0.jpg --font monospace'
+    after-resume 'swaylock -f -i /data/pictures/wallpapers/110473958_p0.jpg --font monospace'
 
 ### Input configuration
 #
@@ -248,7 +248,6 @@ bindsym --to-code $mod+g exec gimp
 assign [class="Gimp"] 4
 
 # Games
-bindsym --to-code $mod+h exec pollymc
 assign [class="PollyMC"] 5
 assign [class="Minecraft.*"] 5
 for_window [title="Select an IWAD to use"] floating enable
@@ -266,8 +265,8 @@ for_window [title="Інформація про падіння"] floating enable
 assign [app_id="org.nicotine_plus.Nicotine"] 8
 
 # Misc
-bindsym --to-code $mod+l exec wlogout
 bindsym --to-code $mod+x exec xeyes
+bindsym --to-code $mod+h exec systemctl hibernate
 for_window [class="XEyes"] floating enable
 for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="gxmessage"] floating enable

@@ -21,7 +21,7 @@ if status is-interactive
 	abbr y "$AUR_HELPER"
 	abbr S "$AUR_HELPER -S"
 	abbr R "$AUR_HELPER -Rns"
-	abbr i "$AUR_HELPER -Si"
+	abbr i "$AUR_HELPER -Qi"
 	abbr s "$AUR_HELPER -Ss"
     else if command -qa xbps-install
 	abbr S "$SUDO_COMMAND xbps-install -Syv"
@@ -49,7 +49,7 @@ if status is-interactive
     # variables
     set -x BAT_THEME "Catppuccin-mocha"
     set -x EDITOR nvim
-    set -x PAGER "bat -n"
+    set -x MANPAGER "nvim +Man!"
     set -x FZF_DEFAULT_COMMAND "find -H"
     set -x GPG_TTY $(tty)
     fish_add_path ~/.local/bin/

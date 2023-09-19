@@ -2,6 +2,6 @@
  <distrocolor><d><b><u>$USER$<clear>@<distrocolor><d><b><u>$HOSTNAME$
  <distrocolor><b>ОС<clear>         $PRETTY_NAME$
  <distrocolor><b>Кернель<clear>    $KERNEL_VERSION$
- <distrocolor><b>Пам'ять<clear>    $MEMFREE_MB$ / $MEMTOTAL_MB$ MiB
- <distrocolor><b>Swap<clear>       $SWAPFREE_MB$ / $SWAPTOTAL_MB$ MiB
+ <distrocolor><b>Пам'ять<clear>    $MEMUSED_MB$ / $MEMTOTAL_MB$ MiB
+ <distrocolor><b>Swap<clear>       $SWAPUSED_MB$ / $SWAPTOTAL_MB$ MiB
  <distrocolor><b>Час роботи<clear> $UPTIME_HRS$:$UPTIME_MINS$:$UPTIME_SECS$
