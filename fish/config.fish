@@ -2,7 +2,7 @@ if status is-interactive
     # aliases
     alias fish_greeting yass
     alias cat bat
-    alias ls "exa -hlF --git --icons --sort type"
+    alias ls "exa -GFhl --git --icons --sort type"
     alias lt "ls -T"
     alias rg "rg -ip"
     alias cp "cp -v"
@@ -49,7 +49,7 @@ if status is-interactive
     # variables
     set -x BAT_THEME "Catppuccin-mocha"
     set -x EDITOR nvim
-    set -x MANPAGER "nvim +Man!"
+    set -x PAGER most
     set -x FZF_DEFAULT_COMMAND "find -H"
     set -x GPG_TTY $(tty)
     fish_add_path ~/.local/bin/

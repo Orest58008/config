@@ -21,6 +21,9 @@ require('packer').startup(function(use)
 
   -- ron syntax highlighting
   use 'ron-rs/ron.vim'
+
+  -- toml syntax highlighting
+  use 'cespare/vim-toml'
     
   -- tree-sitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
