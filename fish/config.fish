@@ -1,47 +1,48 @@
 if status is-interactive
     # aliases
-    alias fish_greeting yass
     alias cat bat
+    alias clear "clear && yass"
+    alias cp "cp -v"
+    alias fish_greeting yass
     alias ls "exa -GFhl --git --icons --sort type"
     alias lt "ls -T"
-    alias rg "rg -ip"
-    alias cp "cp -v"
     alias mv "mv -v"
-    alias clear "clear && yass"
+    alias rg "rg -ip"
 
     # abbreviations
-    abbr v "nvim"
+    abbr m "micro"
     abbr q "exit"
-    abbr sp "speedtest --secure"
     abbr r "rm -rfv"
+    abbr sp "speedtest --secure"
+    abbr v "nvim"
 
     set AUR_HELPER yay
     set SUDO_COMMAND sudo
     if command -qa $AUR_HELPER
-	abbr y "$AUR_HELPER"
-	abbr S "$AUR_HELPER -S"
-	abbr R "$AUR_HELPER -Rns"
 	abbr i "$AUR_HELPER -Qi"
+	abbr R "$AUR_HELPER -Rns"
 	abbr s "$AUR_HELPER -Ss"
+	abbr S "$AUR_HELPER -S"
+	abbr y "$AUR_HELPER"
     else if command -qa xbps-install
-	abbr S "$SUDO_COMMAND xbps-install -Syv"
-	abbr R "$SUDO_COMMAND xbps-remove -Rv"
-	abbr u "$SUDO_COMMAND xbps-install -Suv"
 	abbr i "xbps-query -i"
+	abbr R "$SUDO_COMMAND xbps-remove -Rv"
+	abbr S "$SUDO_COMMAND xbps-install -Syv"
+	abbr u "$SUDO_COMMAND xbps-install -Suv"
     end
 
     abbr dc "distrobox create -i"
     abbr de "distrobox enter"
-    abbr ds "distrobox stop"
     abbr dr "distrobox rm"
+    abbr ds "distrobox stop"
 
     abbr ga "git add ."
     abbr gc "git commit -m"
-    abbr gp "git push"
     abbr gl "git log"
+    abbr gp "git push"
 
-    abbr gor "go run main.go"
     abbr gob "go build"
+    abbr gor "go run main.go"
     
     # bindings
     bind \ct "tmux"
@@ -49,11 +50,20 @@ if status is-interactive
     # variables
     set -x BAT_THEME "Catppuccin-mocha"
     set -x EDITOR nvim
-    set -x PAGER most
     set -x FZF_DEFAULT_COMMAND "find -H"
     set -x GPG_TTY $(tty)
+    set -x MICRO_TRUECOLOR 1
+    set -x PAGER most
+
     fish_add_path ~/.local/bin/
     fish_add_path ~/.config/emacs/bin/
+
+    # XDG fixes
+    set -x XDG_CONFIG_HOME "$HOME/.config"
+    set -x GTK2_RC_FILES $XDG_CONFIG_HOME/gtk-2.0/gtkrc
+
+    set -x XDG_DATA_HOME "$HOME/.local/share"
+    set -x GNUPGHOME $XDG_DATA_HOME/gnupg
 
     # catppuccin theme
     fish_config theme choose "Catppuccin Mocha"

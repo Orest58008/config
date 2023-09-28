@@ -4,7 +4,7 @@
 	directory = /data/projects/pm-test
 [user]
     name = Orest Iwanko
-    email = orest58008@tuta.io
+    email = orest58008@yamadachi.quest
 [init]
     defaultBranch = main
 [commit]
