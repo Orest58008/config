@@ -5,7 +5,8 @@ if status is-interactive
     alias cp "cp -v"
     alias fish_greeting yass
     alias ls "exa -GFhl --git --icons --sort type"
-    alias lt "ls -T"
+	alias lt "ls -T"
+	alias la "ls -a"
     alias mv "mv -v"
     alias rg "rg -ip"
 
@@ -56,14 +57,17 @@ if status is-interactive
     set -x PAGER most
 
     fish_add_path ~/.local/bin/
-    fish_add_path ~/.config/emacs/bin/
+    fish_add_path ~/.local/share/cargo/bin/
 
     # XDG fixes
     set -x XDG_CONFIG_HOME "$HOME/.config"
     set -x GTK2_RC_FILES $XDG_CONFIG_HOME/gtk-2.0/gtkrc
 
     set -x XDG_DATA_HOME "$HOME/.local/share"
+    set -x CARGO_HOME $XDG_DATA_HOME/cargo
+    set -x GOPATH $XDG_DATA_HOME/go
     set -x GNUPGHOME $XDG_DATA_HOME/gnupg
+    alias wget "wget --hsts-file='$XDG_DATA_HOME/wget-hsts'"
 
     # catppuccin theme
     fish_config theme choose "Catppuccin Mocha"

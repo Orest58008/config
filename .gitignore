@@ -1,4 +1,9 @@
 btop/btop.log
+
+emacs/eln-cache
+emacs/elpa
+emacs/*~
+
 fish/completions
 fish/conf.d
 fish/fish_variables
