@@ -23,7 +23,9 @@
   :config
   (evil-mode 1)
   (evil-set-undo-system 'undo-redo)
+  (evil-define-key 'insert 'global (kbd "C-p") 'yank)
   (evil-define-key 'normal 'global (kbd "C-e") 'eval-buffer)
+  (evil-define-key 'normal 'global (kbd "C-;") 'neotree-toggle)
   (evil-define-key 'normal 'global (kbd "C-q") 'save-buffers-kill-emacs))
 
 ;; Catppuccin theme
@@ -31,14 +33,29 @@
   :config
   (load-theme 'catppuccin :no-confirm))
 
-;; Autocomplete
-(use-package auto-complete
-  :config
-  (ac-config-default))
+;; Language support and autocompletion
+(use-package go-mode)
+(add-hook 'go-mode-hook 'eglot-ensure)
 
-;; Tree sitter
-(use-package tree-sitter)
-(use-package tree-sitter-langs)
+(use-package rust-mode)
+(add-hook 'rust-mode-hook 'eglot-ensure)
+
+;; Dashboard
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook))
+(setq dashboard-items '((recents  . 5)
+                        (bookmarks . 5)
+                        (projects . 5)
+                        (agenda . 5)
+                        (registers . 5)))
+
+;; NeoTree
+(use-package neotree
+  :config
+  (setq neo-theme 'nerd))
+(neotree)
 
 
 ;;; CUSTOM-SET-VARIABLES
@@ -48,7 +65,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(ligature fira-code-mode tree-sitter-langs tree-sitter auto-complete catppuccin-theme evil)))
+   '(go-mode neotree dashboard ligature fira-code-mode tree-sitter-langs tree-sitter auto-complete catppuccin-theme evil)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -22,7 +22,7 @@ set $menu wofi --show drun -I
 ### Theming
 #
 exec gsettings set org.gnome.desktop.interface font-name Inter
-exec gsettings set org.gnome.desktop.interface gtk-theme Catppuccin-Mocha-Standard-Sky-dark
+exec gsettings set org.gnome.desktop.interface gtk-theme Catppuccin-Mocha-Standard-Sky-Dark
 exec gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark
 exec gsettings set org.gnome.desktop.interface cursor-theme posy-white
 seat seat0 xcursor_theme posy-white 24
@@ -151,7 +151,7 @@ input * {
     bindsym --to-code $mod+Shift+v splitv
 
     # Switch the current container between different layout styles
-    bindsym --to-code $mod+s layout stacking
+    # bindsym --to-code $mod+s layout stacking
     bindsym --to-code $mod+w layout tabbed
     bindsym --to-code $mod+e layout toggle split
 
@@ -243,9 +243,10 @@ assign [class="Signal"] 2
 # Music
 bindsym --to-code $mod+m exec $term -e ncmpcpp
 
-# Gimp
+# "work" apps
 bindsym --to-code $mod+g exec gimp
 assign [class="Gimp"] 4
+bindsym --to-code $mod+s exec emacs
 
 # Games
 assign [class="PollyMC"] 5
@@ -266,7 +267,6 @@ assign [app_id="org.nicotine_plus.Nicotine"] 8
 
 # Misc
 bindsym --to-code $mod+x exec xeyes
-bindsym --to-code $mod+h exec systemctl hibernate
 for_window [class="XEyes"] floating enable
 for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="gxmessage"] floating enable
@@ -274,7 +274,8 @@ for_window [app_id="gxmessage"] floating enable
 #
 # Autostarting programs
 #
-exec autotiling 
+exec autotiling
+exec activate-linux
 exec sleep 1 && waybar
 exec sleep 2 && firefox &
 exec sleep 2 && telegram-desktop &
