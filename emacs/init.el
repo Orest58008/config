@@ -55,7 +55,6 @@
 (use-package neotree
   :config
   (setq neo-theme 'nerd))
-(neotree)
 
 
 ;;; CUSTOM-SET-VARIABLES

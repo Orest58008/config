@@ -16,6 +16,7 @@ if status is-interactive
     abbr r "rm -rfv"
     abbr sp "speedtest --secure"
     abbr v "nvim"
+    abbr yt-mus "yt-dlp -f bestaudio -x --audio-format mp3 --embed-metadata --embed-thumbnail"
 
     set AUR_HELPER yay
     set SUDO_COMMAND sudo
@@ -53,6 +54,7 @@ if status is-interactive
     set -x EDITOR nvim
     set -x FZF_DEFAULT_COMMAND "find -H"
     set -x GPG_TTY $(tty)
+    set -x LANG C.UTF-8
     set -x MICRO_TRUECOLOR 1
     set -x PAGER most
 
@@ -68,6 +70,9 @@ if status is-interactive
     set -x GOPATH $XDG_DATA_HOME/go
     set -x GNUPGHOME $XDG_DATA_HOME/gnupg
     alias wget "wget --hsts-file='$XDG_DATA_HOME/wget-hsts'"
+
+    set -x XDG_CACHE_HOME "$HOME/.cache"
+    set -x TEXMFVAR $XDG_CACHE_HOME/texlive/texmf-var
 
     # catppuccin theme
     fish_config theme choose "Catppuccin Mocha"
