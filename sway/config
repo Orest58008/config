@@ -206,8 +206,8 @@ bindsym --to-code $mod+Return exec $term
 # Bemenu launcher
 bindsym --to-code $mod+r exec $menu
 
-# Media player
-bindsym --to-code $mod+v exec mpc-qt
+# Media players
+bindsym --to-code $mod+v exec vlc
 for_window [app_id="mpv"] floating enable
 for_window [app_id="mpv"] floating_maximum_size 800 x 600
 

@@ -69,6 +69,7 @@ if status is-interactive
     set -x CARGO_HOME $XDG_DATA_HOME/cargo
     set -x GOPATH $XDG_DATA_HOME/go
     set -x GNUPGHOME $XDG_DATA_HOME/gnupg
+    set -x WINEPREFIX $XDG_DATA_HOME/wine
     alias wget "wget --hsts-file='$XDG_DATA_HOME/wget-hsts'"
 
     set -x XDG_CACHE_HOME "$HOME/.cache"
