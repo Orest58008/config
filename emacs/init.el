@@ -34,6 +34,10 @@
   (load-theme 'catppuccin :no-confirm))
 
 ;; Language support and autocompletion
+(use-package company
+  :config
+  (company-mode))
+
 (use-package go-mode)
 (add-hook 'go-mode-hook 'eglot-ensure)
 
@@ -56,6 +60,11 @@
   :config
   (setq neo-theme 'nerd))
 
+;; org-mode
+(use-package org-tree-slide)
+(org-display-inline-images)
+(setq org-image-actual-width nil)
+
 
 ;;; CUSTOM-SET-VARIABLES
 (custom-set-variables
@@ -64,7 +73,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(go-mode neotree dashboard ligature fira-code-mode tree-sitter-langs tree-sitter auto-complete catppuccin-theme evil)))
+   '(company company-mode go-mode neotree dashboard ligature fira-code-mode tree-sitter-langs tree-sitter auto-complete catppuccin-theme evil)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
