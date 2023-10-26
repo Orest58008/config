@@ -2,6 +2,7 @@
 (tool-bar-mode -1)
 (set-frame-font "monospace 11" nil t)
 (global-display-line-numbers-mode)
+(horizontal-scroll-bar-mode)
 
 
 ;;; EXTENSIONS
@@ -24,6 +25,7 @@
   (evil-mode 1)
   (evil-set-undo-system 'undo-redo)
   (evil-define-key 'insert 'global (kbd "C-p") 'yank)
+  (evil-define-key 'normal 'global (kbd "C-o") 'find-file)
   (evil-define-key 'normal 'global (kbd "C-e") 'eval-buffer)
   (evil-define-key 'normal 'global (kbd "C-q") 'save-buffers-kill-emacs))
 
@@ -37,10 +39,10 @@
   :hook (prog-mode . company-mode))
 
 (use-package go-mode
-  :hook (go-mode-hook . eglot-ensure))
+  :hook (go-mode . eglot-ensure))
 
 (use-package rust-mode
-  :hook (rust-mode-hook . eglot-ensure))
+  :hook (rust-mode . eglot-ensure))
 
 ;; Dashboard
 (use-package dashboard
