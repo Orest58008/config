@@ -4,6 +4,8 @@ btop/btop.log
 
 emacs/eln-cache
 emacs/elpa
+emacs/elpaca
+emacs/recentf
 
 fish/completions
 fish/conf.d

@@ -1,3 +1,8 @@
+;;; CONSTS
+(defconst emacs-dir (expand-file-name "~/.config/emacs/")
+  "Emacs config directory")
+
+
 ;;; CUSTOMIZING LOOKS
 (tool-bar-mode -1)
 (set-frame-font "monospace 11" nil t)
@@ -5,19 +10,65 @@
 (horizontal-scroll-bar-mode)
 
 
-;;; EXTENSIONS
-;; Package list
-(setq package-archives 
-      '(("melpa" . "https://melpa.org/packages/")
-	("elpa" . "https://elpa.gnu.org/packages/")))
+;;; PACKAGE MANAGEMENT SETUP
+;; Install elpaca
+(defvar elpaca-installer-version 0.5)
+(defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
+(defvar elpaca-builds-directory (expand-file-name "builds/" elpaca-directory))
+(defvar elpaca-repos-directory (expand-file-name "repos/" elpaca-directory))
+(defvar elpaca-order '(elpaca :repo "https://github.com/progfolio/elpaca.git"
+                              :ref nil
+                              :files (:defaults (:exclude "extensions"))
+                              :build (:not elpaca--activate-package)))
+(let* ((repo  (expand-file-name "elpaca/" elpaca-repos-directory))
+       (build (expand-file-name "elpaca/" elpaca-builds-directory))
+       (order (cdr elpaca-order))
+       (default-directory repo))
+  (add-to-list 'load-path (if (file-exists-p build) build repo))
+  (unless (file-exists-p repo)
+    (make-directory repo t)
+    (when (< emacs-major-version 28) (require 'subr-x))
+    (condition-case-unless-debug err
+        (if-let ((buffer (pop-to-buffer-same-window "*elpaca-bootstrap*"))
+                 ((zerop (call-process "git" nil buffer t "clone"
+                                       (plist-get order :repo) repo)))
+                 ((zerop (call-process "git" nil buffer t "checkout"
+                                       (or (plist-get order :ref) "--"))))
+                 (emacs (concat invocation-directory invocation-name))
+                 ((zerop (call-process emacs nil buffer nil "-Q" "-L" "." "--batch"
+                                       "--eval" "(byte-recompile-directory \".\" 0 'force)")))
+                 ((require 'elpaca))
+                 ((elpaca-generate-autoloads "elpaca" repo)))
+            (progn (message "%s" (buffer-string)) (kill-buffer buffer))
+          (error "%s" (with-current-buffer buffer (buffer-string))))
+      ((error) (warn "%s" err) (delete-directory repo 'recursive))))
+  (unless (require 'elpaca-autoloads nil t)
+    (require 'elpaca)
+    (elpaca-generate-autoloads "elpaca" repo)
+    (load "./elpaca-autoloads")))
+(add-hook 'after-init-hook #'elpaca-process-queues)
+(elpaca `(,@elpaca-order))
 
-;; Bootstrap use-package
-(package-initialize)
-(setq use-package-always-ensure t)
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-(eval-when-compile (require 'use-package))
+;; Install use-package support
+(elpaca elpaca-use-package
+  (elpaca-use-package-mode)
+  (setq elpaca-use-package-by-default t))
+(elpaca-wait)
+
+;;; EXTENSIONS
+;; Catppuccin theme
+(use-package catppuccin-theme
+  :config (enable-theme 'catppuccin))
+
+;; Dashboard
+(use-package dashboard
+  :elpaca t
+  :config
+  (add-hook 'elpaca-after-init-hook #'dashboard-insert-startupify-lists)
+  (add-hook 'elpaca-after-init-hook #'dashboard-initialize)
+  (dashboard-setup-startup-hook))
+
+(setq dashboard-items '((recents . 5)))
 
 ;; Vim bindings
 (use-package evil
@@ -29,11 +80,6 @@
   (evil-define-key 'normal 'global (kbd "C-e") 'eval-buffer)
   (evil-define-key 'normal 'global (kbd "C-q") 'save-buffers-kill-emacs))
 
-;; Catppuccin theme
-(use-package catppuccin-theme
-  :config
-  (load-theme 'catppuccin :no-confirm))
-
 ;; Language support and autocompletion
 (use-package company
   :hook (prog-mode . company-mode))
@@ -44,34 +90,7 @@
 (use-package rust-mode
   :hook (rust-mode . eglot-ensure))
 
-;; Dashboard
-(use-package dashboard
-  :ensure t
-  :config
-  (dashboard-setup-startup-hook)
-  (setq dashboard-items '((recents  . 5)
-			  (bookmarks . 5)
-			  (agenda . 5)
-			  (registers . 5))))
-
-;; org-mode
 (use-package org-tree-slide)
 
 (use-package org-modern
   :hook (org-mode . org-modern-mode))
-
-
-;;; CUSTOM-SET-VARIABLES
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(org-modern company go-mode dashboard catppuccin-theme evil)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
