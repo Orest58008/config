@@ -1,4 +1,5 @@
 @import "flexoki-dark.css";
+@import "flexoki-full.css";
 
 /* Universal Styling */
 * {
@@ -16,7 +17,7 @@
 
 /* Workspaces */
 #workspaces {
-    border: 2px solid @cy;
+    border: 2px solid @pu;
     margin-top: 6px;
     background-color: @bg;
 }
@@ -29,23 +30,23 @@
 }
 
 #workspaces button.focused {
-    background-color: @cy;
+    background-color: @pu;
     color: @bg;
 }
 
 #workspaces button:hover {
     background-color: @bg-2;
-    color: @cy;
+    color: @pu;
 }
 
 #workspaces button.focused:hover {
-    background-color: @cy;
+    background-color: @pu;
     color: @bg-2;
 }
 
 /* Main Modules */
 #tray {
-    border: 2px solid @cy;
+    border: 2px solid @pu;
     background-color: @bg;
     margin-top: 6px;
     padding-left: 10px;
@@ -73,7 +74,7 @@
 
 /* System Monitoring Modules */
 #cpu, #memory, #temperature {
-    border: 2px solid @cy;
+    border: 2px solid @pu;
     background-color: @bg;
     margin-top: 6px;
     padding-left: 10px;
@@ -81,7 +82,7 @@
     color: @bl;
 }
 #disk {
-    border: 2px solid @cy;
+    border: 2px solid @pu;
     background-color: @bg;
     margin-top: 6px;
     padding-left: 10px;
@@ -96,17 +97,17 @@
     font-size: 130%;
     font-weight: bolder;
     background-color: @bg;
-    color: @tx;
+    color: @paper;
 }
 
 /* Language module */
 #language, #keyboard-state {
-    border: 2px solid @cy;
+    border: 2px solid @pu;
     background-color: @bg;
     margin-top: 6px;
     padding-left: 10px;
     padding-right: 10px;
-    color: @pu;
+    color: @cy;
 }
 #language {
     border-right: none;
@@ -120,26 +121,26 @@
 
 /* Network Module */
 #network {
-    border: 2px solid @cy;
+    border: 2px solid @pu;
     color: @bl;
     margin-right: 6px;
 }
 
 /* PulseAudio Module */
 #pulseaudio {
-    border: 2px solid @cy;
+    border: 2px solid @pu;
     color: @ma;
 }
 
 /* Idle Inhibitor */
 #idle_inhibitor {
-    border: 2px solid @cy;
+    border: 2px solid @pu;
     margin-top: 6px;
     margin-left: 6px;
     padding-left: 10px;
     padding-right: 17px;
     color: @bg;
-    background-color: @cy;
+    background-color: @pu;
 }
 #idle_inhibitor.deactivated {
     background-color: @bg;

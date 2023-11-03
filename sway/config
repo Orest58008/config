@@ -25,11 +25,11 @@ exec gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark
 exec gsettings set org.gnome.desktop.interface cursor-theme posy-white
 seat seat0 xcursor_theme posy-white 24
 
-# target		title	background	text	indicator	border
-client.focused		$cy	$bg		$tx	$cy		$cy
-client.focused_inactive	$ui	$bg		$tx	$ui		$ui
-client.unfocused	$ui	$bg-2		$tx	$ui-2		$ui-2
-client.urgent		$re	$bg		$tx	$re		$re
+# target		title	bg	text	indicator & border
+client.focused		$pu	$bg	$tx	$pu	$pu
+client.focused_inactive	$ui	$bg	$tx	$ui	$ui
+client.unfocused	$ui	$bg-2	$tx	$ui-2	$ui-2
+client.urgent		$re	$bg	$tx	$re	$re
 
 default_border pixel 2
 gaps inner 3
