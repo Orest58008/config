@@ -1,74 +1,53 @@
-;;; CONSTS
-(defconst emacs-dir (expand-file-name "~/.config/emacs/")
-  "Emacs config directory")
-
-
 ;;; CUSTOMIZING LOOKS
 (tool-bar-mode -1)
 (set-frame-font "monospace 11" nil t)
-(global-display-line-numbers-mode)
-(horizontal-scroll-bar-mode)
+(add-hook 'org-mode-hook 'horizontal-scroll-bar-mode) ; TODO create automatic scroll bar plugin
+
+;; Line numbers
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(add-hook 'org-mode-hook 'display-line-numbers-mode)
 
 
 ;;; PACKAGE MANAGEMENT SETUP
-;; Install elpaca
-(defvar elpaca-installer-version 0.5)
-(defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
-(defvar elpaca-builds-directory (expand-file-name "builds/" elpaca-directory))
-(defvar elpaca-repos-directory (expand-file-name "repos/" elpaca-directory))
-(defvar elpaca-order '(elpaca :repo "https://github.com/progfolio/elpaca.git"
-                              :ref nil
-                              :files (:defaults (:exclude "extensions"))
-                              :build (:not elpaca--activate-package)))
-(let* ((repo  (expand-file-name "elpaca/" elpaca-repos-directory))
-       (build (expand-file-name "elpaca/" elpaca-builds-directory))
-       (order (cdr elpaca-order))
-       (default-directory repo))
-  (add-to-list 'load-path (if (file-exists-p build) build repo))
-  (unless (file-exists-p repo)
-    (make-directory repo t)
-    (when (< emacs-major-version 28) (require 'subr-x))
-    (condition-case-unless-debug err
-        (if-let ((buffer (pop-to-buffer-same-window "*elpaca-bootstrap*"))
-                 ((zerop (call-process "git" nil buffer t "clone"
-                                       (plist-get order :repo) repo)))
-                 ((zerop (call-process "git" nil buffer t "checkout"
-                                       (or (plist-get order :ref) "--"))))
-                 (emacs (concat invocation-directory invocation-name))
-                 ((zerop (call-process emacs nil buffer nil "-Q" "-L" "." "--batch"
-                                       "--eval" "(byte-recompile-directory \".\" 0 'force)")))
-                 ((require 'elpaca))
-                 ((elpaca-generate-autoloads "elpaca" repo)))
-            (progn (message "%s" (buffer-string)) (kill-buffer buffer))
-          (error "%s" (with-current-buffer buffer (buffer-string))))
-      ((error) (warn "%s" err) (delete-directory repo 'recursive))))
-  (unless (require 'elpaca-autoloads nil t)
-    (require 'elpaca)
-    (elpaca-generate-autoloads "elpaca" repo)
-    (load "./elpaca-autoloads")))
-(add-hook 'after-init-hook #'elpaca-process-queues)
-(elpaca `(,@elpaca-order))
+;; Bootstrap straight
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 6))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 
-;; Install use-package support
-(elpaca elpaca-use-package
-  (elpaca-use-package-mode)
-  (setq elpaca-use-package-by-default t))
-(elpaca-wait)
+;; Enable use-package support
+(straight-use-package 'use-package)
+(setq straight-use-package-by-default t)
+
 
 ;;; EXTENSIONS
-;; Catppuccin theme
-(use-package catppuccin-theme
-  :config (enable-theme 'catppuccin))
+;; Flexoki theme
+(use-package flexoki-themes
+  :config (load-theme 'flexoki-themes-dark t))
 
 ;; Dashboard
 (use-package dashboard
-  :elpaca t
+  :ensure t
   :config
-  (add-hook 'elpaca-after-init-hook #'dashboard-insert-startupify-lists)
-  (add-hook 'elpaca-after-init-hook #'dashboard-initialize)
   (dashboard-setup-startup-hook))
 
-(setq dashboard-items '((recents . 5)))
+(defun dashboard-insert-config (list-size)
+  (dashboard-insert-heading "Emacs config:")
+  (insert "\n"))
+(add-to-list 'dashboard-item-generators '(config . dashboard-insert-config))
+
+(setq dashboard-items '((recents  . 5)
+			(config . 5)))
+
+(setq dashboard-startup-banner 'logo)
 
 ;; Vim bindings
 (use-package evil
@@ -77,18 +56,30 @@
   (evil-set-undo-system 'undo-redo)
   (evil-define-key 'insert 'global (kbd "C-p") 'yank)
   (evil-define-key 'normal 'global (kbd "C-o") 'find-file)
+  (evil-define-key 'normal 'global (kbd "C-O") 'find-file-other-window)
+  (evil-define-key 'normal 'global (kbd "C-v") 'vterm-other-window)
   (evil-define-key 'normal 'global (kbd "C-e") 'eval-buffer)
   (evil-define-key 'normal 'global (kbd "C-q") 'save-buffers-kill-emacs))
+
+;; vterm
+(use-package vterm
+    :ensure t)
 
 ;; Language support and autocompletion
 (use-package company
   :hook (prog-mode . company-mode))
+(use-package company-box
+  :hook (company-mode . company-box-mode))
+
+(use-package lsp-mode)
+(use-package lsp-ui
+  :hook (lsp-mode . lsp-ui-mode))
 
 (use-package go-mode
-  :hook (go-mode . eglot-ensure))
+  :hook (go-mode . lsp))
 
 (use-package rust-mode
-  :hook (rust-mode . eglot-ensure))
+  :hook (rust-mode . lsp))
 
 (use-package org-tree-slide)
 

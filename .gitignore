@@ -6,6 +6,7 @@ emacs/eln-cache
 emacs/elpa
 emacs/elpaca
 emacs/recentf
+emacs/straight
 
 fish/completions
 fish/conf.d

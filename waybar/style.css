@@ -1,4 +1,4 @@
-@import "mocha.css";
+@import "flexoki-dark.css";
 
 /* Universal Styling */
 * {
@@ -12,42 +12,41 @@
 #waybar {
     padding: 0px;
     background: transparent;
-    color: @text;
 }
 
 /* Workspaces */
 #workspaces {
-    border: 2px solid @sky;
+    border: 2px solid @cy;
     margin-top: 6px;
-    background-color: @base;
+    background-color: @bg;
 }
 
 #workspaces button {
     padding-left: 6px;
     padding-right: 4px;
-    background-color: @base;
-    color: @text;
+    background-color: @bg;
+    color: @tx;
 }
 
 #workspaces button.focused {
-    background-color: @sky;
-    color: @base;
+    background-color: @cy;
+    color: @bg;
 }
 
 #workspaces button:hover {
-    background-color: @mantle;
-    color: @sky;
+    background-color: @bg-2;
+    color: @cy;
 }
 
 #workspaces button.focused:hover {
-    background-color: @sky;
-    color: @mantle;
+    background-color: @cy;
+    color: @bg-2;
 }
 
 /* Main Modules */
 #tray {
-    border: 2px solid @sky;
-    background-color: @base;
+    border: 2px solid @cy;
+    background-color: @bg;
     margin-top: 6px;
     padding-left: 10px;
     padding-right: 10px;
@@ -74,20 +73,20 @@
 
 /* System Monitoring Modules */
 #cpu, #memory, #temperature {
-    border: 2px solid @sky;
-    background-color: @base;
+    border: 2px solid @cy;
+    background-color: @bg;
     margin-top: 6px;
     padding-left: 10px;
     padding-right: 10px;
-    color: @blue;
+    color: @bl;
 }
 #disk {
-    border: 2px solid @sky;
-    background-color: @base;
+    border: 2px solid @cy;
+    background-color: @bg;
     margin-top: 6px;
     padding-left: 10px;
     padding-right: 10px;
-    color: @peach;
+    color: @or;
 }
 
 /* Clock Module */
@@ -96,18 +95,18 @@
     padding-bottom: 3px;
     font-size: 130%;
     font-weight: bolder;
-    background-color: @base;
-    color: @flamingo;
+    background-color: @bg;
+    color: @tx;
 }
 
 /* Language module */
 #language, #keyboard-state {
-    border: 2px solid @sky;
-    background-color: @base;
+    border: 2px solid @cy;
+    background-color: @bg;
     margin-top: 6px;
     padding-left: 10px;
     padding-right: 10px;
-    color: @flamingo;
+    color: @pu;
 }
 #language {
     border-right: none;
@@ -119,50 +118,30 @@
     padding-left: 0px;
 }
 
-/* Battery Module */
-#battery {
-    color: @sky;
-}
-#battery.charging {
-    color: @sky;
-}
-#battery.warning:not(.charging) {
-    color: @maroon;
-}
-#battery.critical:not(.charging) {
-    color: @red;
-}
-
-/* Backlight Module */
-#backlight {
-    color: @teal;
-    padding-right: 1.25rem;
-}
-
 /* Network Module */
 #network {
-    border: 2px solid @sky;
-    color: @blue;
+    border: 2px solid @cy;
+    color: @bl;
     margin-right: 6px;
 }
 
 /* PulseAudio Module */
 #pulseaudio {
-    border: 2px solid @sky;
-    color: @mauve;
+    border: 2px solid @cy;
+    color: @ma;
 }
 
 /* Idle Inhibitor */
 #idle_inhibitor {
-    border: 2px solid @sky;
+    border: 2px solid @cy;
     margin-top: 6px;
     margin-left: 6px;
     padding-left: 10px;
     padding-right: 17px;
-    color: @base;
-    background-color: @sky;
+    color: @bg;
+    background-color: @cy;
 }
 #idle_inhibitor.deactivated {
-    background-color: @base;
-    color: @text;
+    background-color: @bg;
+    color: @tx;
 }
