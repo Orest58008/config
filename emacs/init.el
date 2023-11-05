@@ -56,7 +56,7 @@
   (evil-set-undo-system 'undo-redo)
   (evil-define-key 'insert 'global (kbd "C-p") 'yank)
   (evil-define-key 'normal 'global (kbd "C-o") 'find-file)
-  (evil-define-key 'normal 'global (kbd "C-O") 'find-file-other-window)
+  (evil-define-key 'normal 'global (kbd "C-S-o") 'find-file-other-window)
   (evil-define-key 'normal 'global (kbd "C-v") 'vterm-other-window)
   (evil-define-key 'normal 'global (kbd "C-e") 'eval-buffer)
   (evil-define-key 'normal 'global (kbd "C-q") 'save-buffers-kill-emacs))

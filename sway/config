@@ -20,7 +20,7 @@ set $navigator nemo
 ### Theming
 #
 exec gsettings set org.gnome.desktop.interface font-name Inter
-exec gsettings set org.gnome.desktop.interface gtk-theme Catppuccin-Mocha-Standard-Sky-Dark
+exec gsettings set org.gnome.desktop.interface gtk-theme Dracula
 exec gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark
 exec gsettings set org.gnome.desktop.interface cursor-theme posy-white
 seat seat0 xcursor_theme posy-white 24

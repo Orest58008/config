@@ -26,7 +26,7 @@
     padding-left: 6px;
     padding-right: 4px;
     background-color: @bg;
-    color: @tx;
+    color: @base-150;
 }
 
 #workspaces button.focused {
@@ -79,7 +79,7 @@
     margin-top: 6px;
     padding-left: 10px;
     padding-right: 10px;
-    color: @bl;
+    color: @base-150;
 }
 #disk {
     border: 2px solid @pu;
@@ -87,7 +87,7 @@
     margin-top: 6px;
     padding-left: 10px;
     padding-right: 10px;
-    color: @or;
+    color: @base-150;
 }
 
 /* Clock Module */
@@ -107,7 +107,7 @@
     margin-top: 6px;
     padding-left: 10px;
     padding-right: 10px;
-    color: @cy;
+    color: @base-150;
 }
 #language {
     border-right: none;
@@ -122,14 +122,14 @@
 /* Network Module */
 #network {
     border: 2px solid @pu;
-    color: @bl;
+    color: @base-150;
     margin-right: 6px;
 }
 
 /* PulseAudio Module */
 #pulseaudio {
     border: 2px solid @pu;
-    color: @ma;
+    color: @base-150;
 }
 
 /* Idle Inhibitor */
@@ -144,5 +144,5 @@
 }
 #idle_inhibitor.deactivated {
     background-color: @bg;
-    color: @tx;
+    color: @base-150;
 }

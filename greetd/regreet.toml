@@ -1,13 +1,17 @@
 [background]
-path = "/data/pictures/wallpapers/82072674_p0.png"
+path = "/data/pictures/wallpapers/81845221_p0.png"
+fit = "Fill"
 
 [env]
-MOZ_ENABLE_WAYLAND=1
+GRIM_DEFAULT_DIR = "$HOME/Картинки/grim"
+MOZ_ENABLE_WAYLAND = "1"
+QT_STYLE_OVERRIDE = "kvantum"
+QT_QPA_PLATFORMTHEME = "gtk3"
 
 [GTK]
 application_prefer_dark_theme = true
-font_name = "Inter 16"
-theme_name = "Catppuccin-Macchiato-Standard-Sapphire-Dark"
+font_name = "Inter 12"
+theme_name = "Catppuccin-Mocha-Standard-Sky-Dark"
 icon_theme_name = "Papirus-Dark"
 cursor_theme_name = "posy-white"
 

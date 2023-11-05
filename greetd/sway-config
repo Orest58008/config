@@ -1,5 +1,5 @@
 # Notice that `swaymsg exit` will run after regreet
-exec "regreet; swaymsg exit"
+exec "regreet -l debug; swaymsg exit"
 
 bindsym Mod4+Shift+e exec swaynag \
 -t warning \
