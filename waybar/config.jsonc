@@ -51,6 +51,9 @@
             //"default": ""
         }
     },
+    "sway/language": {
+	"on-click": "swaymsg input '*' xkb_switch_layout next"
+    },
     "keyboard-state": {
 	"device-path": "/dev/input/event2",
         "numlock": true,
@@ -177,13 +180,5 @@
         },
         "on-click": "pavucontrol"
     },
-    /*
-    "hyprland/language": {
-	"format": "{}",
-	"format-en": "🇬🇧",
-	"format-uk": "🇺🇦",
-	"keyboard-name": "dell-kb216-wired-keyboard"
-    },
-    */
 }
 

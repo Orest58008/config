@@ -1,11 +1,12 @@
 ;;; CUSTOMIZING LOOKS
 (tool-bar-mode -1)
 (set-frame-font "monospace 11" nil t)
-(add-hook 'org-mode-hook 'horizontal-scroll-bar-mode) ; TODO create automatic scroll bar plugin
+(setq inhibit-startup-screen t)
 
-;; Line numbers
-(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+;; Looks modes
+(add-hook 'org-mode-hook 'visual-line-mode)
 (add-hook 'org-mode-hook 'display-line-numbers-mode)
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 
 ;;; PACKAGE MANAGEMENT SETUP
@@ -39,13 +40,7 @@
   :config
   (dashboard-setup-startup-hook))
 
-(defun dashboard-insert-config (list-size)
-  (dashboard-insert-heading "Emacs config:")
-  (insert "\n"))
-(add-to-list 'dashboard-item-generators '(config . dashboard-insert-config))
-
-(setq dashboard-items '((recents  . 5)
-			(config . 5)))
+(setq dashboard-items '((recents  . 5)))
 
 (setq dashboard-startup-banner 'logo)
 
@@ -54,7 +49,7 @@
   :config
   (evil-mode 1)
   (evil-set-undo-system 'undo-redo)
-  (evil-define-key 'insert 'global (kbd "C-p") 'yank)
+  (evil-define-key 'insert 'global (kbd "C-S-v") 'yank)
   (evil-define-key 'normal 'global (kbd "C-o") 'find-file)
   (evil-define-key 'normal 'global (kbd "C-S-o") 'find-file-other-window)
   (evil-define-key 'normal 'global (kbd "C-v") 'vterm-other-window)
@@ -66,6 +61,8 @@
     :ensure t)
 
 ;; Language support and autocompletion
+(setq ispell-program-name "hunspell")
+
 (use-package company
   :hook (prog-mode . company-mode))
 (use-package company-box

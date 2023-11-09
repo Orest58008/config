@@ -1,7 +1,7 @@
 ## Currently using
 ### Global
 * OS -- Arch Linux
-* Theme -- Flexoki Dark & Catppuccin Mocha Lavender
+* Theme -- Flexoki Dark & Yaru
 * Icons -- Papirus Catppuccin
 ### WM stuff
 * Compositor -- sway

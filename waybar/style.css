@@ -23,8 +23,8 @@
 }
 
 #workspaces button {
-    padding-left: 6px;
-    padding-right: 4px;
+    padding-left: 9px;
+    padding-right: 8px;
     background-color: @bg;
     color: @base-150;
 }
@@ -97,7 +97,7 @@
     font-size: 130%;
     font-weight: bolder;
     background-color: @bg;
-    color: @paper;
+    color: @base-100;
 }
 
 /* Language module */

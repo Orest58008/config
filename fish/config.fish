@@ -11,6 +11,7 @@ if status is-interactive
     alias rg "rg -ip"
 
     # abbreviations
+    abbr gdl "gallery-dl"
     abbr m "micro"
     abbr q "exit"
     abbr r "rm -rfv"
@@ -58,11 +59,13 @@ if status is-interactive
     set -x MICRO_TRUECOLOR 1
     set -x PAGER most
 
-    fish_add_path ~/.local/bin/
-    fish_add_path ~/.local/share/cargo/bin/
+    fish_add_path ~/.local/bin
+    fish_add_path ~/.local/share/cargo/bin
+    fish_add_path ~/.config/emacs/bin
 
     # XDG fixes
     set -x XDG_CONFIG_HOME "$HOME/.config"
+    set -x _JAVA_OPTIONS -Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
     set -x GTK2_RC_FILES $XDG_CONFIG_HOME/gtk-2.0/gtkrc
 
     set -x XDG_DATA_HOME "$HOME/.local/share"
@@ -75,8 +78,10 @@ if status is-interactive
     set -x XDG_CACHE_HOME "$HOME/.cache"
     set -x TEXMFVAR $XDG_CACHE_HOME/texlive/texmf-var
 
+    set -x XDG_STATE_HOME "$HOME/.local/state"
+
     # catppuccin theme
-    fish_config theme choose "Catppuccin Mocha"
+    fish_config theme choose flexoki-dark
 
     # starship
     starship init fish | source
