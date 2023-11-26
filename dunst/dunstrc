@@ -4,24 +4,24 @@ icon_theme = "Papirus-Dark"
 enable_recursive_icon_lookup = true
 origin = bottom-left
 offset = 14x14
+frame_width = 2
 mouse_right_click = close_current
 mouse_left_click = do_action
 show_age_threshold = 30
 
 [global]
-frame_color = "#89DCEB"
+frame_color = "#8B7EC8"
 separator_color = frame
-frame_width = 2
-
-[urgency_low]
-background = "#1E1E2E"
-foreground = "#CDD6F4"
 
 [urgency_normal]
-background = "#1E1E2E"
-foreground = "#CDD6F4"
+background = "#100F0F"
+foreground = "#CECDC3"
+
+[urgency_low]
+background = "#1C1B1A"
+foreground = "#878580"
 
 [urgency_critical]
-background = "#1E1E2E"
-foreground = "#CDD6F4"
-frame_color = "#FAB387"
+background = "#100F0F"
+foreground = "#CECDC3"
+frame_color = "#D14D41"

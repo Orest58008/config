@@ -23,7 +23,7 @@
 }
 
 #workspaces button {
-    padding-left: 9px;
+    padding-left: 10px;
     padding-right: 8px;
     background-color: @bg;
     color: @base-150;
