@@ -19,7 +19,7 @@
 ## MPD clients (eg. ncmpc) also use that location.
 ##
 #
-lyrics_directory = ~/.lyrics
+lyrics_directory = ~/.config/mpd/lyrics
 #
 ##### connection settings #####
 #
@@ -311,7 +311,7 @@ visualizer_spectrum_smooth_look = yes
 ##   available.
 ##
 #
-#song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[white]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
+song_columns_list_format = (20)[]{a} (6f)[green]{NE} (45)[white]{t|f:Title} (6f)[blue]{y} (20)[cyan]{b} (7f)[magenta]{l}
 #
 ##### various settings #####
 #
@@ -409,9 +409,9 @@ centered_cursor = yes
 #
 #follow_now_playing_lyrics = no
 #
-#fetch_lyrics_for_current_song_in_background = no
+fetch_lyrics_for_current_song_in_background = no
 #
-#store_lyrics_in_song_dir = no
+store_lyrics_in_song_dir = no
 #
 #generate_win32_compatible_filenames = yes
 #
