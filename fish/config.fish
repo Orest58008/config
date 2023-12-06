@@ -4,6 +4,7 @@ if status is-interactive
     alias clear "clear && yass"
     alias cp "cp -v"
     alias fish_greeting yass
+    alias imv imv-dir
     alias ls "exa -GFhl --git --icons --sort type"
 	alias lt "ls -T"
 	alias la "ls -a"
@@ -14,7 +15,7 @@ if status is-interactive
     abbr gdl "gallery-dl"
     abbr m "micro"
     abbr q "exit"
-    abbr r "rm -rfv"
+    abbr r "trash-put -v"
     abbr sp "speedtest --secure"
     abbr v "nvim"
     abbr yt-mus "yt-dlp -f bestaudio -x --audio-format mp3 --embed-metadata --embed-thumbnail"
@@ -39,10 +40,13 @@ if status is-interactive
     abbr dr "distrobox rm"
     abbr ds "distrobox stop"
 
-    abbr ga "git add ."
-    abbr gc "git commit -m"
-    abbr gl "git log"
-    abbr gp "git push"
+    abbr ga  "git add ."
+    abbr gc  "git commit -m"
+    abbr gl  "git log"
+    abbr gp  "git push"
+    abbr gch "git checkout"
+    abbr gcb "git checkout -b"
+    abbr gsm "git switch main"
 
     abbr gob "go build"
     abbr gor "go run main.go"
@@ -55,20 +59,22 @@ if status is-interactive
     set -x EDITOR nvim
     set -x FZF_DEFAULT_COMMAND "find -H"
     set -x GPG_TTY $(tty)
-    set -x LANG C.UTF-8
     set -x MICRO_TRUECOLOR 1
     set -x PAGER most
 
     fish_add_path ~/.local/bin
     fish_add_path ~/.local/share/cargo/bin
     fish_add_path ~/.config/emacs/bin
+    fish_add_path ~/.yarn/bin
 
     # XDG fixes
     set -x XDG_CONFIG_HOME "$HOME/.config"
-    set -x _JAVA_OPTIONS -Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+    set -x _JAVA_OPTIONS -Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java
     set -x GTK2_RC_FILES $XDG_CONFIG_HOME/gtk-2.0/gtkrc
+    alias d-fi "d-fi -conf $XDG_CONFIG_HOME/d-fi/config.json"
 
     set -x XDG_DATA_HOME "$HOME/.local/share"
+    set -x ANDROID_HOME $XDG_DATA_HOME/android
     set -x CARGO_HOME $XDG_DATA_HOME/cargo
     set -x GOPATH $XDG_DATA_HOME/go
     set -x GNUPGHOME $XDG_DATA_HOME/gnupg
