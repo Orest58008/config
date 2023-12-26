@@ -215,13 +215,10 @@ for_window [app_id="mpv"] floating_maximum_size 800 x 600
 
 # File manager
 bindsym --to-code $mod+d exec $navigator
-for_window [title="Виконати файл"] floating enable
-for_window [title="Підтвердити заміщення файлів"] floating enable
-for_window [title="Розпакувати архів"] floating enable
-for_window [title="Стиснення"] floating enable
-for_window [title="Properties"] floating enable
-for_window [title="Open Directory"] floating enable
-for_window [title="Extract archive"] floating enable
+for_window [title="^Properties$"] floating enable
+for_window [title="^Open Directory$"] floating enable
+for_window [title="^Compress$"] floating enable
+for_window [title="^Extract$"] floating enable
 
 # Calculator
 bindsym --to-code $mod+c exec gnome-calculator
@@ -231,10 +228,10 @@ for_window [app_id="gnome-calculator"] floating enable
 bindsym --to-code $mod+b exec firefox
 assign [app_id="firefox"] 1
 assign [app_id="Firefox"] 1
-for_window [title="Firefox - Покажчик спільного доступу"] floating enable
-for_window [title="Зображення в зображенні"] floating enable
-for_window [title="https://www.deepl.com"] floating enable
-for_window [title="Block Site"] floating enable
+for_window [title="^Block Site$"] floating enable
+for_window [title="^Close Firefox$"] floating enable
+for_window [title="^Library$"] floating enable
+for_window [title="^Picture-in-Picture$"] floating enable
 # bindsym --to-code $mod+b exec librewolf
 assign [app_id="LibreWolf"] 1
 
@@ -246,7 +243,6 @@ assign [class="Signal"] 2
 
 # Music
 bindsym --to-code $mod+m exec $term -e ncmpcpp
-for_window [title="Welcome to"] floating enable
 
 # "work" apps
 bindsym --to-code $mod+g exec gimp
@@ -264,12 +260,9 @@ assign [class="Bitwarden"] 7
 # File sharers
 assign [app_id="org.nicotine_plus.Nicotine"] 8
 assign [app_id="com.transmissionbt.*"] 8
+for_window [title="Torrent Options"] floating enable
 assign [app_id="org.qbittorrent.qBittorrent"] 8
 assign [class="qBittorrent"] 8
-for_window [title="Magnet-посилання"] floating enable
-for_window [title="Виберіть шлях збереження"] floating enable
-for_window [title="Вибрати файл теми qBittorrent"] floating enable
-for_window [title="Інформація про падіння"] floating enable
 
 # Misc
 bindsym --to-code $mod+x exec xeyes
@@ -283,11 +276,11 @@ for_window [title="Про програму"] floating enable
 #
 exec autotiling
 exec activate-linux
-exec waybar
+exec waybar &> ~/.config/waybar/log
 exec firefox
 exec telegram-desktop
 exec nicotine
-# exec transmission-gtk
+exec transmission-gtk
 
 #
 # Status Bar:

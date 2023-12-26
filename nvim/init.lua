@@ -3,18 +3,16 @@
 -- nvim setup
 vim.cmd [[set number]]
 vim.cmd [[set sw=4]]
-vim.cmd [[colorscheme catppuccin-mocha]]
-
 
 -- packer setup
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
-  
+
   -- onedark theme
   -- use 'navarasu/onedark.nvim'
 
   -- catppuccin theme
-  use { 'catppuccin/nvim', as = "catppuccin" }
+  -- use { 'catppuccin/nvim', as = "catppuccin" }
 
   -- fish syntax highlighting
   use 'dag/vim-fish'
@@ -37,7 +35,7 @@ require('packer').startup(function(use)
     end,
   }
   --]]
-  
+ 
   -- lualine
   use {
     'nvim-lualine/lualine.nvim',
@@ -61,7 +59,7 @@ end)
 -- coc setup
 local keyset = vim.keymap.set
 local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
-keyset('i', '<TAB>', [[coc#pum#visible() ? coc#pum#confirm() : coc#on_enter()]], opts)
+keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
 
 -- lightline setup
 require('lualine').setup()
