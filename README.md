@@ -8,7 +8,7 @@
 * Panel -- waybar
 * Notifications -- dunst
 ### Terminal stuff
-* Shell -- fish
+* Shell -- zsh
 * Terminal emulator -- kitty
 ### Apps
 * App / command launcher -- wofi

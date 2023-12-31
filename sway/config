@@ -35,10 +35,6 @@ default_border pixel 2
 gaps inner 3
 gaps outer 3
 
-### Clipboard configuration
-#
-exec wl-paste --watch cliphist store
-
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -204,9 +200,12 @@ bindsym --to-code $mod+p mode "resize"
 bindsym --to-code $mod+Return exec $term
 
 # Launchers
+exec wl-paste --watch cliphist store
+
 set $menu wofi --show drun -I
 bindsym --to-code $mod+r exec $menu
-bindsym --to-code $mod+e exec rofimoji
+bindsym --to-code $mod+e exec "wtype $(cliphist list | wofi --dmenu | cliphist decode)"
+bindsym --to-code $mod+Shift+e exec rofimoji
 
 # Media players
 bindsym --to-code $mod+v exec vlc
@@ -219,6 +218,7 @@ for_window [title="^Properties$"] floating enable
 for_window [title="^Open Directory$"] floating enable
 for_window [title="^Compress$"] floating enable
 for_window [title="^Extract$"] floating enable
+for_window [title="Bitwarden"] floating enable
 
 # Calculator
 bindsym --to-code $mod+c exec gnome-calculator
@@ -260,7 +260,7 @@ assign [class="Bitwarden"] 7
 # File sharers
 assign [app_id="org.nicotine_plus.Nicotine"] 8
 assign [app_id="com.transmissionbt.*"] 8
-for_window [title="Torrent Options"] floating enable
+for_window [title="^Torrent Options$"] floating enable
 assign [app_id="org.qbittorrent.qBittorrent"] 8
 assign [class="qBittorrent"] 8
 
@@ -275,7 +275,7 @@ for_window [title="Про програму"] floating enable
 # Autostarting programs
 #
 exec autotiling
-exec activate-linux
+# exec activate-linux
 exec waybar &> ~/.config/waybar/log
 exec firefox
 exec telegram-desktop
