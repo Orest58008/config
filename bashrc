@@ -24,7 +24,7 @@ export PATH="$PATH":"$HOME"/.local/bin:"$CARGO_HOME"/bin:"$GOPATH"/bin:"$NIMBLE_
 
 # Interactive configuration
 if [[ $- == *i* ]]; then
-	# yass
+	# greeting
 	nightfetch
 	
 	# starship

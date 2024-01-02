@@ -1,0 +1,1 @@
+("/data/projects/nightfetch/" "/data/projects/daggerfetch/" "/data/projects/!archive/nightfetch/" "/data/projects/!archive/ryefetch/" "/data/projects/yass/" "~/.config/emacs/straight/repos/flexoki-emacs-theme/")
