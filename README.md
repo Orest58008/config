@@ -1,8 +1,10 @@
 ## Currently using
-### Global
-* OS -- Arch Linux
+### Looks
 * Theme -- Flexoki Dark & Yaru
 * Icons -- Papirus Catppuccin
+### System
+* OS -- Arch Linux
+* Input remap -- keyd
 ### WM stuff
 * Compositor -- sway
 * Panel -- waybar

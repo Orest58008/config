@@ -98,22 +98,26 @@
 (use-package projectile
   :hook (prog-mode . projectile-mode)
   :config
-  (projectile-update-project-type 'go :run "go run .")
-  :config
+  (projectile-update-project-type 'go
+								  :run "go run .")
+  (projectile-update-project-type 'make
+								  :compile "make compile"
+								  :run "make run"
+								  :test "make test")
   (projectile-register-project-type 'zig '("build.zig")
 									:project-file "build.zig"
 									:src-dir "src/"
 									:compile "zig build src/main.zig"
 									:run "zig run src/main.zig"
 									:test "zig test src/main.zig")
-  :config
   (projectile-register-project-type 'dub '("dub.json" "dub.sdl")
 									:project-file '("dub.json" "dub.sdl")
 									:src-dir '("src/" "source/")
 									:compile "dub build"
 									:run "dub run"
 									:test "dub test")
-  )
+  :custom
+  (projectile-indexing-method 'alien))
 
 ;; Company
 (use-package company

@@ -1,1 +1,1 @@
-("/data/projects/nightfetch/" "/data/projects/daggerfetch/" "/data/projects/!archive/nightfetch/" "/data/projects/!archive/ryefetch/" "/data/projects/yass/" "~/.config/emacs/straight/repos/flexoki-emacs-theme/")
+("/data/projects/daggerfetch/" "/data/projects/eza/" "/data/projects/nightfetch/" "/data/projects/!archive/nightfetch/" "/data/projects/!archive/ryefetch/" "~/.config/emacs/straight/repos/flexoki-emacs-theme/")
