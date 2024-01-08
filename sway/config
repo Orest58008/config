@@ -148,8 +148,8 @@ input * {
 
     # Switch the current container between different layout styles
     # bindsym --to-code $mod+s layout stacking
-    # bindsym --to-code $mod+w layout tabbed
-    # bindsym --to-code $mod+s layout toggle split
+    bindsym --to-code $mod+w layout tabbed
+    bindsym --to-code $mod+s layout toggle split
 
     # Make the current focus fullscreen
     bindsym --to-code $mod+f fullscreen
@@ -204,7 +204,7 @@ exec wl-paste --watch cliphist store
 
 set $menu wofi --show drun -I
 bindsym --to-code $mod+r exec $menu
-bindsym --to-code $mod+w exec "wtype $(cliphist list | wofi --dmenu | cliphist decode)"
+bindsym --to-code $mod+e exec "wtype $(cliphist list | wofi --dmenu | cliphist decode)"
 bindsym --to-code $mod+Shift+e exec rofimoji
 
 # Media players
@@ -248,7 +248,6 @@ bindsym --to-code $mod+m exec $term -e ncmpcpp
 bindsym --to-code $mod+g exec gimp
 assign [class="Gimp"] 4
 for_window [app_id="file-png"] floating enable
-bindsym --to-code $mod+e exec emacs
 
 # Games
 for_window [title="Select an IWAD to use"] floating enable

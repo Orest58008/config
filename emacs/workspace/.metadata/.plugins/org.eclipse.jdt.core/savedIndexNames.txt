@@ -1,3 +1,0 @@
-INDEX VERSION 1.133+/home/orest/.config/emacs/workspace/.metadata/.plugins/org.eclipse.jdt.core
-3842426239.index
-729615778.index
