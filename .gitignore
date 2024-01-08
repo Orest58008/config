@@ -7,6 +7,7 @@ emacs/elpa
 emacs/elpaca
 emacs/recentf
 emacs/straight
+emacs/workspace
 
 fish/completions
 fish/conf.d
