@@ -36,12 +36,10 @@
 
 #workspaces button:hover {
     background-color: @bg-2;
-    color: @pu;
 }
 
 #workspaces button.focused:hover {
-    background-color: @pu;
-    color: @bg-2;
+    background-color: @pu-2;
 }
 
 /* Main Modules */

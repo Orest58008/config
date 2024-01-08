@@ -9,12 +9,15 @@ export ANDROID_HOME="$XDG_DATA_HOME"/android
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export GOPATH="$XDG_DATA_HOME"/go
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export NIMBLE_DIR="$XDG_DATA_HOME"/nimble
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export WINEPREFIX="$XDG_DATA_HOME"/wine
 alias wget="wget --hsts-file='$XDG_DATA_HOME/wget-hsts'"
 
 export XDG_CACHE_HOME="$HOME/.cache"
-export TEXMFVAR="$XDG_CACHE_HOME"/texlive/texmf-var
+export TEXMFVAR="$XDG_CACHE_HOME"
+export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority/texlive/texmf-var
 
 export XDG_STATE_HOME="$HOME/.local/state"
 
@@ -29,19 +32,31 @@ if [[ $- == *i* ]]; then
     nightfetch
 
     # Shell configuration
-    HISTFILE=~/.config/zsh/.histfile
     setopt autocd beep extendedglob nomatch
+
+	# History configuration
+	HISTSIZE=5000
+	SAVEHIST=$HISTSIZE
+    HISTFILE=~/.config/zsh/.histfile
+	setopt appendhistory
+	setopt INC_APPEND_HISTORY  
+	setopt SHARE_HISTORY
+
+	# Bindings
     bindkey -e
+	bindkey "^[[H" beginning-of-line
+	bindkey "^[[F" end-of-line
 
     # Variables
     export BAT_THEME="Catppuccin-mocha"
     export EDITOR=nvim
-    export FZF_DEFAULT_COMMAND="find -H"
+    export FZF_DEFAULT_COMMAND="fd -H"
     export GPG_TTY=$(tty)
     export MICRO_TRUECOLOR=1
     export PAGER=most
 
     # Aliases
+	alias 9=/opt/plan9/bin/9
     alias cat=bat
     alias clear="clear && yass"
     alias cp="cp -v"
@@ -60,6 +75,8 @@ if [[ $- == *i* ]]; then
     source ${ZDOTDIR:-${HOME}}/.zcomet/bin/zcomet.zsh
 
     # Completion
+	zstyle ':completion:*' menu select
+	zmodload zsh/complist
     zcomet compinit
 	zcomet load zsh-users/zsh-completions
 

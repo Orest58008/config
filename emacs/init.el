@@ -9,6 +9,7 @@
 (add-hook 'org-mode-hook  'visual-line-mode)
 (add-hook 'org-mode-hook  'display-line-numbers-mode)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(add-hook 'prog-mode-hook 'electric-pair-mode)
 
 ;; envvars
 (setenv "XDG_CONFIG_HOME" (concat (getenv "HOME") "/.config"))
@@ -79,6 +80,7 @@
 
 ;; Vim bindings
 (use-package evil
+  :demand
   :config
   (evil-mode 1)
   (evil-set-undo-system 'undo-redo)
@@ -94,6 +96,25 @@
   (evil-define-key 'normal 'global (kbd "M-/")   'projectile-repeat-last-command)
   )
 
+;; Font ligatures
+(use-package ligature
+  :config
+  (ligature-set-ligatures 't '("ff" "fi" "ffi"))
+  (ligature-set-ligatures 'prog-mode '("|||>" "<|||" "<==>" "<!--" "####" "~~>" "***" "||="
+									   "||>" ":::" "::=" "=:=" "===" "==>" "=!=" "=>>" "=<<"
+									   "=/=" "!==" "!!." ">=>" ">>=" ">>>" ">>-" ">->" "->>"
+									   "-->" "---" "-<<" "<~~" "<~>" "<*>" "<||" "<|>" "<$>"
+									   "<==" "<=>" "<=<" "<->" "<--" "<-<" "<<=" "<<-" "<<<"
+									   "<+>" "</>" "###" "#_(" "..<" "..." "+++" "/==" "///"
+									   "_|_" "www" "&&" "^=" "~~" "~@" "~=" "~>" "~-" "**" "*>"
+									   "*/" "||" "|}" "|]" "|=" "|>" "|-" "{|" "[|" "]#" "::"
+									   ":=" ":>" ":<" "$>" "==" "=>" "!=" "!!" ">:" ">=" ">>"
+									   ">-" "-~" "-|" "->" "--" "-<" "<~" "<*" "<|" "<:" "<$"
+									   "<=" "<>" "<-" "<<" "<+" "</" "#{" "#[" "#:" "#=" "#!"
+									   "##" "#(" "#?" "#_" "%%" ".=" ".-" ".." ".?" "+>" "++"
+									   "?:" "?=" "?." "??" ";;" "/*" "/=" "/>" "//" "__" "~~"
+									   "(*" "*)" "\\\\" "://"))
+  :hook (prog-mode . ligature-mode))
 ;; Projectile
 (use-package projectile
   :hook (prog-mode . projectile-mode)
@@ -126,37 +147,43 @@
   :after (company)
   :config (add-to-list 'company-backends '(company-shell company-shell-env company-fish-shell)))
 
-;; LSP mode
-(use-package lsp-mode)
+;; LSP
+(use-package lsp-mode
+  :hook (c-mode . lsp-mode)
+  :hook (d-mode . lsp-mode)
+  :hook (go-mode . lsp-mode)
+  :hook (java-mode . lsp-mode)
+  :hook (nim-mode . lsp-mode)
+  :hook (rust-mode . lsp-mode)
+  :hook (zig-mode . lsp-mode))
 
 ;; Language support
 (setq ispell-program-name "hunspell")
 
 (use-package reformatter)
 
-(use-package go-mode
-  :hook (go-mode . lsp))
+(use-package d-mode)
+
+(use-package go-mode)
 (setenv "GOPATH" (concat (getenv "XDG_DATA_HOME") "/go"))
 (setenv "PATH" (concat (getenv "PATH") path-separator (getenv "GOPATH") "/bin"))
 (add-to-list 'exec-path (concat (getenv "GOPATH") "/bin"))
 
-(use-package nim-mode
-  :hook (nim-mode . lsp))
+(use-package lsp-java)
+(setenv "_JAVA_OPTIONS" (concat "-Djava.util.prefs.userRoot=" (getenv "XDG_CONFIG_HOME") "/java"))
+(setenv "GRADLE_USER_HOME" (concat (getenv "XDG_DATA_HOME") "/gradle"))
+
+(use-package nim-mode)
 (setenv "NIMBLE_DIR" (concat (getenv "XDG_DATA_HOME") "/nimble"))
 (setenv "PATH" (concat (getenv "PATH") path-separator (getenv "NIMBLE_DIR") "/bin"))
 (add-to-list 'exec-path (concat (getenv "NIMBLE_DIR") "/bin"))
 
-(use-package rust-mode
-  :hook (rust-mode . lsp))
+(use-package rust-mode)
 (setenv "CARGO_HOME" (concat (getenv "XDG_DATA_HOME") "/cargo"))
 (setenv "PATH" (concat (getenv "PATH") path-separator (getenv "CARGO_HOME") "/bin"))
 (add-to-list 'exec-path (concat (getenv "CARGO_HOME") "/bin"))
 
-(use-package d-mode
-  :hook (d-mode . lsp))
-
-(use-package zig-mode
-  :hook (zig-mode . lsp))
+(use-package zig-mode)
 
 (use-package org-tree-slide)
 
