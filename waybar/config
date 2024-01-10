@@ -106,12 +106,12 @@
     },
     "custom/launcher": {
 	"exec": "~/.config/waybar/launcher.sh",
-	"on-click": "wofi --show drun -I"
+	"on-click": "pgrep wofi > /dev/null && pkill wofi || wofi --show drun -I"
     },
     "clock": {
         // "timezone": "America/New_York",
-	"interval": 1,
-	"format": "{:%X}",
+		"interval": 1,
+		"format": "{:%X}",
         "format-alt": "{:%a, %d %b %Y}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },

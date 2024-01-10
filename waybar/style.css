@@ -11,7 +11,6 @@
 
 /* Bar Styling */
 #waybar {
-    padding: 0px;
     background: transparent;
 }
 
@@ -36,12 +35,10 @@
 
 #workspaces button:hover {
     background-color: @bg-2;
-    color: @pu;
 }
 
 #workspaces button.focused:hover {
-    background-color: @pu;
-    color: @bg-2;
+    background-color: @pu-2;
 }
 
 /* Main Modules */
@@ -52,25 +49,6 @@
     padding-left: 10px;
     padding-right: 10px;
 }
-
-#window,
-#backlight,
-#clock,
-#battery,
-#pulseaudio,
-#network,
-#mpd,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#custom-music,
-#custom-launcher,
-#custom-updates,
-#custom-nordvpn,
-#custom-notifications,
-#custom-power,
-#custom-weather
 
 /* System Monitoring Modules */
 #cpu, #memory, #temperature {
@@ -98,6 +76,10 @@
     font-weight: bolder;
     background-color: @bg;
     color: @base-100;
+    border: 2px solid @pu;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 6px;
 }
 
 /* Language module */
@@ -110,6 +92,7 @@
     color: @base-150;
 }
 #language {
+    background-color: @bg;
     border-right: none;
     margin-right: -6px;
 }
@@ -124,12 +107,18 @@
     border: 2px solid @pu;
     color: @base-150;
     margin-right: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 6px;
 }
 
 /* PulseAudio Module */
 #pulseaudio {
     border: 2px solid @pu;
     color: @base-150;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 6px;
 }
 
 /* Idle Inhibitor */
@@ -139,10 +128,21 @@
     margin-left: 6px;
     padding-left: 10px;
     padding-right: 17px;
+    border-right: none;
     color: @bg;
     background-color: @pu;
 }
 #idle_inhibitor.deactivated {
-    background-color: @bg;
+    background: @bg;
     color: @base-150;
+}
+
+/* Launcher */
+#custom-launcher {
+    border: 2px solid @pu;
+    border-left: none;
+    margin-top: 6px;
+    margin-left: -10px;
+    padding-left: 8px;
+    padding-right: 6px;
 }
