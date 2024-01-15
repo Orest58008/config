@@ -4,8 +4,24 @@
 vim.cmd [[set number]]
 vim.cmd [[set sw=4]]
 
+-- keyboard setup
+vim.cmd [[set langmap=йцукенгшщзфівапролдячсмитьЙЦУКЕНГШЩЗФІВАПРОЛДЯЧСМИТЬю;qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM.]]
+
 -- packer setup
-require('packer').startup(function(use)
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
+end
+
+local packer_bootstrap = ensure_packer()
+
+return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- onedark theme
@@ -22,47 +38,18 @@ require('packer').startup(function(use)
 
   -- toml syntax highlighting
   use 'cespare/vim-toml'
-    
-  -- tree-sitter
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  -- use this command instead for the first build
-  --[[
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = function()
-      local ts_update = require('nvim-treesitter.install').update({ with_sync = true})
-      ts_update()
-    end,
-  }
-  --]]
  
   -- lualine
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
+  require('lualine').setup()
 
-  -- coc.nvim
-  use {'neoclide/coc.nvim', branch = 'release'}
+  -- Automatically set up your configuration after cloning packer.nvim
+  -- Put this at the end after all plugins
+  if packer_bootstrap then
+    require('packer').sync()
+  end
 
-  -- markdown preview
-  use({
-    'iamcco/markdown-preview.nvim',
-    run = function() vim.fn['mkdp#util#install']() end,
-  })
 end)
-
--- uncomment this before first using nvim
--- require('packer').sync()
-
-
--- coc setup
-local keyset = vim.keymap.set
-local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
-keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
-
--- lightline setup
-require('lualine').setup()
-
--- keyboard setup
-vim.cmd [[set langmap=йцукенгшщзфівапролдячсмитьЙЦУКЕНГШЩЗФІВАПРОЛДЯЧСМИТЬю;qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM.]]

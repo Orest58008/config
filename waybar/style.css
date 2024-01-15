@@ -139,6 +139,7 @@
 
 /* Launcher */
 #custom-launcher {
+    color: @base-150;
     border: 2px solid @pu;
     border-left: none;
     margin-top: 6px;

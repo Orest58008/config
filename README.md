@@ -4,7 +4,6 @@
 * Icons -- Papirus Catppuccin
 ### System
 * OS -- Arch Linux
-* Input remap -- keyd
 ### WM stuff
 * Compositor -- sway
 * Panel -- waybar
