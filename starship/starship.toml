@@ -1,3 +1,4 @@
+# Prompt itself
 [character]
 success_symbol = "[><>](bold green)"
 error_symbol = "[><>](bold red)"
@@ -6,12 +7,29 @@ vimcmd_replace_one_symbol = "[<><](bold purple)"
 vimcmd_replace_symbol = "[<><](bold purple)"
 vimcmd_visual_symbol = "[<><](bold yellow)"
 
+# Git
 [git_status]
 ahead = "↑"
 behind = "↓"
 diverged = "↕"
 deleted = "×"
 
+[git_branch]
+symbol = " "
+
+# Package version
+[package]
+symbol = " "
+
+# OS environment
+[directory]
+read_only = " 󰉐 "
+
+[sudo]
+symbol = "󱑷 "
+disabled = false
+
+# Languages
 [aws]
 symbol = " "
 
@@ -27,9 +45,6 @@ symbol = " "
 [dart]
 symbol = " "
 
-[directory]
-read_only = " 󰉐 "
-
 [docker_context]
 symbol = " "
 
@@ -38,9 +53,6 @@ symbol = " "
 
 [elm]
 symbol = " "
-
-[git_branch]
-symbol = " "
 
 [golang]
 symbol = " "
@@ -54,9 +66,6 @@ symbol = " "
 [haxe]
 symbol = "⌘ "
 
-[hg_branch]
-symbol = " "
-
 [java]
 symbol = " "
 
@@ -66,8 +75,11 @@ symbol = " "
 [lua]
 symbol = " "
 
-[memory_usage]
-symbol = "󰍛 "
+[custom.make]
+symbol = " "
+detect_files = [ "GNUmakefile", "makefile", "Makefile" ]
+style = "bold yellow"
+format = "via [$symbol($output )]($style)"
 
 [meson]
 symbol = "󰯙 "
@@ -81,6 +93,28 @@ symbol = " "
 [nodejs]
 symbol = " "
 
+[ocaml]
+symbol = " "
+
+[python]
+symbol = " "
+
+[rlang]
+symbol = "󰟔 "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = "󱘗 "
+
+[scala]
+symbol = " "
+
+[spack]
+symbol = "🅢 "
+
+# OS
 [os.symbols]
 Alpine = " "
 Amazon = " "
@@ -93,7 +127,7 @@ Emscripten = " "
 EndeavourOS = " "
 Fedora = " "
 FreeBSD = " "
-#Garuda = ""
+Garuda = " "
 Gentoo = " "
 #HardenedBSD = ""
 Illumos = "󱗆 "
@@ -118,24 +152,3 @@ SUSE = " "
 Ubuntu = " "
 Unknown = " "
 Windows = " "
-
-[package]
-symbol = " "
-
-[python]
-symbol = " "
-
-[rlang]
-symbol = "󰟔 "
-
-[ruby]
-symbol = " "
-
-[rust]
-symbol = "󱘗 "
-
-[scala]
-symbol = " "
-
-[spack]
-symbol = "🅢 "

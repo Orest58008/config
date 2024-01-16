@@ -3,6 +3,7 @@
 
 /* Universal Styling */
 * {
+    opacity: 1;
     font-family: monospace;
     font-size: 17px;
     border-radius: 0px;
@@ -121,6 +122,16 @@
     margin-top: 6px;
 }
 
+/* MPD Module */
+#mpd {
+    border: 2px solid @pu;
+    color: @base-150;
+    background-color: @bg;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 6px;
+}
+
 /* Idle Inhibitor */
 #idle_inhibitor {
     border: 2px solid @pu;
@@ -133,7 +144,7 @@
     background-color: @pu;
 }
 #idle_inhibitor.deactivated {
-    background: @bg;
+    background-color: @bg;
     color: @base-150;
 }
 

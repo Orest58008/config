@@ -1,20 +1,9 @@
-[2024-01-15 20:10:13.144] [info] Using configuration file /home/orest/.config/waybar/config
-[2024-01-15 20:10:13.145] [info] Unable to receive desktop appearance: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name is not activatable
-[2024-01-15 20:10:13.147] [info] Using CSS file /home/orest/.config/waybar/style.css
-[2024-01-15 20:10:13.291] [info] Found device HT K B at '/dev/input/event2'
-[2024-01-15 20:10:13.800] [info] Bar configured (width: 1920, height: 43) for output: DVI-I-1
+[2024-01-16 12:56:00.643] [info] Using configuration file /home/orest/.config/waybar/config
+[2024-01-16 12:56:00.677] [info] Unable to receive desktop appearance: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.portal.Settings” on object at path /org/freedesktop/portal/desktop
+[2024-01-16 12:56:00.680] [info] Using CSS file /home/orest/.config/waybar/style.css
+[2024-01-16 12:56:00.824] [info] Found device HT K B at '/dev/input/event2'
+[2024-01-16 12:56:01.343] [info] Bar configured (width: 1920, height: 43) for output: DVI-I-1
 
-(waybar:775): LIBDBUSMENU-GLIB-WARNING **: 20:12:00.232: Unable to replace properties on 0: Error getting properties for ID
+(waybar:797): LIBDBUSMENU-GLIB-WARNING **: 12:56:01.740: Unable to replace properties on 0: Error getting properties for ID
 
-(waybar:775): LIBDBUSMENU-GLIB-WARNING **: 20:17:15.829: Unable to replace properties on 0: Error getting properties for ID
-
-(waybar:775): LIBDBUSMENU-GLIB-WARNING **: 20:17:16.290: Unable to replace properties on 0: Error getting properties for ID
-
-(waybar:775): LIBDBUSMENU-GLIB-WARNING **: 20:17:22.870: Unable to replace properties on 0: Error getting properties for ID
-[2024-01-15 20:17:25.261] [warning] Failed to update properties: GDBus.Error:org.freedesktop.DBus.Error.NoReply: Remote peer disconnected
-
-(waybar:775): LIBDBUSMENU-GLIB-WARNING **: 20:17:25.262: Getting layout failed: Operation was cancelled
-
-(waybar:775): LIBDBUSMENU-GLIB-WARNING **: 20:17:28.151: Unable to replace properties on 0: Error getting properties for ID
-
-(waybar:775): LIBDBUSMENU-GLIB-WARNING **: 20:17:29.821: Unable to replace properties on 0: Error getting properties for ID
+(waybar:797): LIBDBUSMENU-GLIB-WARNING **: 12:56:03.213: Unable to replace properties on 0: Error getting properties for ID
