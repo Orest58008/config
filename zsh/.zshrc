@@ -1,11 +1,14 @@
 # XDG fixes
 export XDG_CONFIG_HOME="$HOME/.config"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java
-export GTK2_RC_FILES=$XDG_CONFIG_HOME/gtk-2.0/gtkrc
+export CABAL_CONFIG="$XDG_CONFIG_HOME"/cabal/config
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME"/starship/starship.toml
 alias d-fi="d-fi -conf $XDG_CONFIG_HOME/d-fi/config.json"
 
 export XDG_DATA_HOME="$HOME/.local/share"
 export ANDROID_HOME="$XDG_DATA_HOME"/android
+export CABAL_DIR="$XDG_DATA_HOME"/cabal
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export GOPATH="$XDG_DATA_HOME"/go
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
@@ -21,9 +24,11 @@ export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority/texlive/texmf-var
 
 export XDG_STATE_HOME="$HOME/.local/state"
 
+export GHCUP_USE_XDG_DIRS=1
+
 # $PATH fixes
 typeset -U path PATH
-path=($path ~/.local/bin $CARGO_HOME/bin $GOPATH/bin $NIMBLE_DIR/bin)
+path=(~/.local/bin $CARGO_HOME/bin $GOPATH/bin $NIMBLE_DIR/bin $path)
 export PATH
 
 # Only in interactive mode
@@ -48,18 +53,16 @@ if [[ $- == *i* ]]; then
 	bindkey "^[[F" end-of-line
 
     # Variables
-    export BAT_THEME="Catppuccin-mocha"
     export EDITOR=nvim
     export FZF_DEFAULT_COMMAND="fd -H"
     export GPG_TTY=$(tty)
     export MICRO_TRUECOLOR=1
-    export PAGER=most
 
     # Aliases
 	alias 9=/opt/plan9/bin/9
-    alias cat=bat
-    alias clear="clear && yass"
+    alias cat="bat -n"
     alias cp="cp -v"
+	alias grep="grep --color"
     alias imv=imv-dir
     alias ls="exa -GFhl --git --icons --sort type"
     alias lt="ls -T"

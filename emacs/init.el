@@ -115,6 +115,7 @@
 									   "?:" "?=" "?." "??" ";;" "/*" "/=" "/>" "//" "__" "~~"
 									   "(*" "*)" "\\\\" "://"))
   :hook (prog-mode . ligature-mode))
+
 ;; Projectile
 (use-package projectile
   :hook (prog-mode . projectile-mode)
@@ -145,22 +146,23 @@
   :hook (prog-mode . company-mode))
 (use-package company-shell
   :after (company)
-  :config (add-to-list 'company-backends '(company-shell company-shell-env company-fish-shell)))
+  :config (add-to-list 'company-backends '(company-shell
+										   company-shell-env
+										   company-fish-shell)))
 
 ;; LSP
 (use-package lsp-mode
-  :hook (c-mode . lsp-mode)
-  :hook (d-mode . lsp-mode)
-  :hook (go-mode . lsp-mode)
-  :hook (java-mode . lsp-mode)
-  :hook (nim-mode . lsp-mode)
-  :hook (rust-mode . lsp-mode)
-  :hook (zig-mode . lsp-mode))
+  :hook (c-mode . lsp)
+  :hook (d-mode . lsp)
+  :hook (go-mode . lsp)
+  :hook (haskell-mode . lsp)
+  :hook (java-mode . lsp)
+  :hook (nim-mode . lsp)
+  :hook (rust-mode . lsp)
+  :hook (zig-mode . lsp))
 
 ;; Language support
 (setq ispell-program-name "hunspell")
-
-(use-package reformatter)
 
 (use-package d-mode)
 
@@ -169,23 +171,29 @@
 (setenv "PATH" (concat (getenv "PATH") path-separator (getenv "GOPATH") "/bin"))
 (add-to-list 'exec-path (concat (getenv "GOPATH") "/bin"))
 
+(use-package haskell-mode)
+(use-package lsp-haskell)
+(setenv "CABAL_DIR" (concat (getenv "XDG_DATA_HOME") "/cabal"))
+(setenv "CABAL_CONFIG" (concat (getenv "XDG_CONFIG_HOME") "/cabal/config"))
+
 (use-package lsp-java)
-(setenv "_JAVA_OPTIONS" (concat "-Djava.util.prefs.userRoot=" (getenv "XDG_CONFIG_HOME") "/java"))
+(setenv "_JAVA_OPTIONS"
+		(concat "-Djava.util.prefs.userRoot=" (getenv "XDG_CONFIG_HOME") "/java"))
 (setenv "GRADLE_USER_HOME" (concat (getenv "XDG_DATA_HOME") "/gradle"))
 
-(use-package nim-mode)
-(setenv "NIMBLE_DIR" (concat (getenv "XDG_DATA_HOME") "/nimble"))
-(setenv "PATH" (concat (getenv "PATH") path-separator (getenv "NIMBLE_DIR") "/bin"))
-(add-to-list 'exec-path (concat (getenv "NIMBLE_DIR") "/bin"))
+; (use-package nim-mode)
+; (setenv "NIMBLE_DIR" (concat (getenv "XDG_DATA_HOME") "/nimble"))
+; (setenv "PATH" (concat (getenv "PATH") path-separator (getenv "NIMBLE_DIR") "/bin"))
+; (add-to-list 'exec-path (concat (getenv "NIMBLE_DIR") "/bin"))
 
 (use-package rust-mode)
 (setenv "CARGO_HOME" (concat (getenv "XDG_DATA_HOME") "/cargo"))
 (setenv "PATH" (concat (getenv "PATH") path-separator (getenv "CARGO_HOME") "/bin"))
 (add-to-list 'exec-path (concat (getenv "CARGO_HOME") "/bin"))
 
-(use-package zig-mode)
+; (use-package zig-mode)
 
-(use-package org-tree-slide)
+; (use-package org-tree-slide)
 
 (use-package org-modern
   :hook (org-mode . org-modern-mode))
