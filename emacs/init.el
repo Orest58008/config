@@ -153,6 +153,7 @@
 ;; LSP
 (use-package lsp-mode
   :hook (c-mode . lsp)
+  :hook (caml-mode . lsp)
   :hook (d-mode . lsp)
   :hook (go-mode . lsp)
   :hook (haskell-mode . lsp)
@@ -164,6 +165,11 @@
 ;; Language support
 (setq ispell-program-name "hunspell")
 
+(use-package caml)
+(setenv "OPAMROOT" (concat (getenv "XDG_DATA_HOME") "/opam"))
+(setenv "PATH" (concat (getenv "PATH") path-separator (getenv "OPAMROOT") "/default/bin"))
+(add-to-list 'exec-path (concat (getenv "OPAMROOT") "/default/bin"))
+
 (use-package d-mode)
 
 (use-package go-mode)
@@ -171,8 +177,8 @@
 (setenv "PATH" (concat (getenv "PATH") path-separator (getenv "GOPATH") "/bin"))
 (add-to-list 'exec-path (concat (getenv "GOPATH") "/bin"))
 
-(use-package haskell-mode)
-(use-package lsp-haskell)
+; (use-package haskell-mode)
+; (use-package lsp-haskell)
 (setenv "CABAL_DIR" (concat (getenv "XDG_DATA_HOME") "/cabal"))
 (setenv "CABAL_CONFIG" (concat (getenv "XDG_CONFIG_HOME") "/cabal/config"))
 
@@ -182,9 +188,9 @@
 (setenv "GRADLE_USER_HOME" (concat (getenv "XDG_DATA_HOME") "/gradle"))
 
 ; (use-package nim-mode)
-; (setenv "NIMBLE_DIR" (concat (getenv "XDG_DATA_HOME") "/nimble"))
-; (setenv "PATH" (concat (getenv "PATH") path-separator (getenv "NIMBLE_DIR") "/bin"))
-; (add-to-list 'exec-path (concat (getenv "NIMBLE_DIR") "/bin"))
+(setenv "NIMBLE_DIR" (concat (getenv "XDG_DATA_HOME") "/nimble"))
+(setenv "PATH" (concat (getenv "PATH") path-separator (getenv "NIMBLE_DIR") "/bin"))
+(add-to-list 'exec-path (concat (getenv "NIMBLE_DIR") "/bin"))
 
 (use-package rust-mode)
 (setenv "CARGO_HOME" (concat (getenv "XDG_DATA_HOME") "/cargo"))

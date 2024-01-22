@@ -14,6 +14,7 @@ export GOPATH="$XDG_DATA_HOME"/go
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export NIMBLE_DIR="$XDG_DATA_HOME"/nimble
+export OPAMROOT="$XDG_DATA_HOME"/opam
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export WINEPREFIX="$XDG_DATA_HOME"/wine
 alias wget="wget --hsts-file='$XDG_DATA_HOME/wget-hsts'"
@@ -31,6 +32,9 @@ typeset -U path PATH
 path=(~/.local/bin $CARGO_HOME/bin $GOPATH/bin $NIMBLE_DIR/bin $path)
 export PATH
 
+# Opam setup
+[[ ! -r /home/orest/.local/share/opam/opam-init/init.zsh ]] || source /home/orest/.local/share/opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
 # Only in interactive mode
 if [[ $- == *i* ]]; then
     # Greeting
@@ -46,11 +50,15 @@ if [[ $- == *i* ]]; then
 	setopt appendhistory
 	setopt INC_APPEND_HISTORY  
 	setopt SHARE_HISTORY
+	setopt histignorealldups
 
 	# Bindings
     bindkey -e
-	bindkey "^[[H" beginning-of-line
-	bindkey "^[[F" end-of-line
+	bindkey "^[[H" beginning-of-line # Home
+	bindkey "^[[F" end-of-line # End
+	bindkey "^[[3~" delete-char # Delete
+	bindkey "^[[1;5C" forward-word # C-Right
+	bindkey "^[[1;5D" backward-word # C-Left
 
     # Variables
     export EDITOR=nvim
@@ -62,7 +70,7 @@ if [[ $- == *i* ]]; then
 	alias 9=/opt/plan9/bin/9
     alias cat="bat -n"
     alias cp="cp -v"
-	alias grep="grep --color"
+	alias grep="grep -i --color"
     alias imv=imv-dir
     alias ls="exa -GFhl --git --icons --sort type"
     alias lt="ls -T"

@@ -1,43 +1,29 @@
-[2024-01-19 13:11:25.161] [info] Using configuration file /home/orest/.config/waybar/config.jsonc
-[2024-01-19 13:11:25.169] [info] Unable to receive desktop appearance: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.portal.Settings” on object at path /org/freedesktop/portal/desktop
-[2024-01-19 13:11:25.169] [info] Using CSS file /home/orest/.config/waybar/style.css
-[2024-01-19 13:11:25.229] [info] Found device HT K B at '/dev/input/event2'
-[2024-01-19 13:11:25.383] [info] Bar configured (width: 1920, height: 43) for output: DVI-I-1
+[2024-01-22 16:12:39.457] [info] Using configuration file /home/orest/.config/waybar/config.jsonc
+[2024-01-22 16:12:39.460] [info] Unable to receive desktop appearance: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.portal.Settings” on object at path /org/freedesktop/portal/desktop
+[2024-01-22 16:12:39.518] [info] Using CSS file /home/orest/.config/waybar/style.css
+[2024-01-22 16:12:39.772] [info] Found device HT K B at '/dev/input/event2'
+[2024-01-22 16:12:39.945] [info] Bar configured (width: 1920, height: 43) for output: DVI-I-1
 
-(waybar:776): LIBDBUSMENU-GLIB-WARNING **: 13:11:26.443: Unable to replace properties on 0: Error getting properties for ID
+(waybar:792): LIBDBUSMENU-GLIB-WARNING **: 16:12:40.300: Unable to replace properties on 0: Error getting properties for ID
 
-(waybar:776): LIBDBUSMENU-GLIB-WARNING **: 13:11:27.714: Unable to replace properties on 0: Error getting properties for ID
+(waybar:792): LIBDBUSMENU-GLIB-WARNING **: 16:12:42.749: Unable to replace properties on 0: Error getting properties for ID
+sh: line 1: activate: command not found
+sh: line 1: activate: command not found
+Led Zeppelin - Fool in the Rain
+[paused]  #801/1121   1:03/6:13 (16%)
+volume: 88%   repeat: off   random: on    single: off   consume: off
+Led Zeppelin - Fool in the Rain
+[playing] #801/1121   1:03/6:13 (16%)
+volume: 88%   repeat: off   random: on    single: off   consume: off
 
-(waybar:776): LIBDBUSMENU-GLIB-WARNING **: 13:26:28.030: Unable to replace properties on 0: Error getting properties for ID
+(waybar:792): LIBDBUSMENU-GLIB-WARNING **: 16:27:42.028: Unable to replace properties on 0: Error getting properties for ID
+Led Zeppelin - Stairway to Heaven
+[paused]  #764/1121   0:51/8:00 (10%)
+volume: 88%   repeat: off   random: on    single: off   consume: off
+Led Zeppelin - Stairway to Heaven
+[paused]  #764/1121   5:36/8:00 (70%)
+volume: 88%   repeat: off   random: on    single: off   consume: off
 sh: line 1: activate: command not found
-Curta'n Wall - Chainmail
-[paused]  #376/1236   1:07/5:22 (20%)
-volume: 98%   repeat: off   random: on    single: off   consume: off
-Curta'n Wall - Chainmail
-[playing] #376/1236   1:07/5:22 (20%)
-volume: 98%   repeat: off   random: on    single: off   consume: off
-Curta'n Wall - Chainmail
-[paused]  #376/1236   3:19/5:22 (61%)
-volume: 98%   repeat: off   random: on    single: off   consume: off
-Curta'n Wall - Chainmail
-[playing] #376/1236   3:20/5:22 (62%)
-volume: 98%   repeat: off   random: on    single: off   consume: off
-Silphidae - Human Puppet
-[paused]  #65/1236   0:42/5:40 (12%)
-volume: 98%   repeat: off   random: on    single: off   consume: off
-Silphidae - Human Puppet
-[playing] #65/1236   0:43/5:40 (12%)
-volume: 98%   repeat: off   random: on    single: off   consume: off
 sh: line 1: activate: command not found
-Кому Вниз - Суботів
-[paused]  #1013/1121   4:52/5:19 (91%)
-volume: 98%   repeat: off   random: on    single: off   consume: off
-Кому Вниз - Суботів
-[playing] #1013/1121   4:53/5:19 (91%)
-volume: 98%   repeat: off   random: on    single: off   consume: off
-[
-  {
-    "success": true
-  }
-]
-sh: line 1: activate: command not found
+
+(waybar:792): LIBDBUSMENU-GLIB-WARNING **: 18:11:38.610: Unable to replace properties on 0: Error getting properties for ID
