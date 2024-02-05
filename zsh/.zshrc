@@ -72,7 +72,7 @@ if [[ $- == *i* ]]; then
     alias cp="cp -v"
 	alias grep="grep -i --color"
     alias imv=imv-dir
-    alias ls="exa -GFhl --git --icons --sort type"
+    alias ls="exa -F -Ghl --git --icons --sort type"
     alias lt="ls -T"
     alias la="ls -a"
     alias mv="mv -v"

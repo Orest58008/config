@@ -20,4 +20,4 @@
   * Control through binds -- mpc
   * Last FM synchronization -- mpdscribbler
 * Soulseek client -- Nicotine+
-* Text editor -- GNU Emacs
+* Text editor -- GNU Emacs || vim

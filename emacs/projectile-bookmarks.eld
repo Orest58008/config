@@ -1,1 +1,1 @@
-("/data/projects/hsrpn/" "/data/projects/crpn/" "/data/projects/nightfetch/" "/data/projects/jlox/" "/data/projects/eza/" "/data/projects/daggerfetch/" "~/.config/emacs/straight/repos/flexoki-emacs-theme/")
+("/data/projects/magicker/" "/data/projects/mlrpn/" "/data/projects/crpn/" "/data/projects/daggerfetch/" "/data/projects/hsrpn/" "/data/projects/nightfetch/" "/data/projects/jlox/" "/data/projects/eza/" "~/.config/emacs/straight/repos/flexoki-emacs-theme/")

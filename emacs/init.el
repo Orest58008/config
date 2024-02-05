@@ -14,6 +14,9 @@
 ;; envvars
 (setenv "XDG_CONFIG_HOME" (concat (getenv "HOME") "/.config"))
 (setenv "XDG_DATA_HOME" (concat (getenv "HOME") "/.local/share"))
+(setenv "XDG_BIN_HOME" (concat (getenv "HOME") "/.local/bin"))
+(setenv "PATH" (concat (getenv "PATH") path-separator (getenv "XDG_BIN_HOME")))
+(add-to-list 'exec-path (getenv "XDG_BIN_HOME"))
 
 ;;; PACKAGE MANAGEMENT SETUP
 ;; Bootstrap straight
@@ -100,21 +103,20 @@
 (use-package ligature
   :config
   (ligature-set-ligatures 't '("ff" "fi" "ffi"))
-  (ligature-set-ligatures 'prog-mode '("|||>" "<|||" "<==>" "<!--" "####" "~~>" "***" "||="
-									   "||>" ":::" "::=" "=:=" "===" "==>" "=!=" "=>>" "=<<"
-									   "=/=" "!==" "!!." ">=>" ">>=" ">>>" ">>-" ">->" "->>"
-									   "-->" "---" "-<<" "<~~" "<~>" "<*>" "<||" "<|>" "<$>"
-									   "<==" "<=>" "<=<" "<->" "<--" "<-<" "<<=" "<<-" "<<<"
-									   "<+>" "</>" "###" "#_(" "..<" "..." "+++" "/==" "///"
-									   "_|_" "www" "&&" "^=" "~~" "~@" "~=" "~>" "~-" "**" "*>"
-									   "*/" "||" "|}" "|]" "|=" "|>" "|-" "{|" "[|" "]#" "::"
-									   ":=" ":>" ":<" "$>" "==" "=>" "!=" "!!" ">:" ">=" ">>"
-									   ">-" "-~" "-|" "->" "--" "-<" "<~" "<*" "<|" "<:" "<$"
-									   "<=" "<>" "<-" "<<" "<+" "</" "#{" "#[" "#:" "#=" "#!"
-									   "##" "#(" "#?" "#_" "%%" ".=" ".-" ".." ".?" "+>" "++"
-									   "?:" "?=" "?." "??" ";;" "/*" "/=" "/>" "//" "__" "~~"
-									   "(*" "*)" "\\\\" "://"))
-  :hook (prog-mode . ligature-mode))
+  (ligature-set-ligatures 't '("|||>" "<|||" "<==>" "<!--" "####" "~~>" "***" "||=" "||>" ":::"
+							   "::=" "=:=" "===" "==>" "=!=" "=>>" "=<<" "=/=" "!==" "!!." ">=>"
+							   ">>=" ">>>" ">>-" ">->" "->>" "-->" "---" "-<<" "<~~" "<~>" "<*>"
+							   "<||" "<|>" "<$>" "<==" "<=>" "<=<" "<->" "<--" "<-<" "<<=" "<<-"
+							   "<<<" "<+>" "</>" "###" "#_(" "..<" "..." "+++" "/==" "///" "_|_"
+							   "www" "&&" "^=" "~~" "~@" "~=" "~>" "~-" "**" "*>" "*/" "||" "|}"
+							   "|]" "|=" "|>" "|-" "{|" "[|" "]#" "::" ":=" ":>" ":<" "$>" "=="
+							   "=>" "!=" "!!" ">:" ">=" ">>" ">-" "-~" "-|" "->" "--" "-<" "<~"
+							   "<*" "<|" "<:" "<$" "<=" "<>" "<-" "<<" "<+" "</" "#{" "#[" "#:"
+							   "#=" "#!" "##" "#(" "#?" "#_" "%%" ".=" ".-" ".." ".?" "+>" "++"
+							   "?:" "?=" "?." "??" ";;" "/*" "/=" "/>" "//" "__" "~~" "(*" "*)"
+							   "\\\\" "://"))
+  :hook (prog-mode . ligature-mode)
+  :hook (conf-mode . ligature-mode))
 
 ;; Projectile
 (use-package projectile
@@ -138,8 +140,7 @@
 									:compile "dub build"
 									:run "dub run"
 									:test "dub test")
-  :custom
-  (projectile-indexing-method 'alien))
+  (projectile-update-project-type 'dub :precedence 'high))
 
 ;; Company
 (use-package company
@@ -153,19 +154,19 @@
 ;; LSP
 (use-package lsp-mode
   :hook (c-mode . lsp)
-  :hook (caml-mode . lsp)
   :hook (d-mode . lsp)
   :hook (go-mode . lsp)
   :hook (haskell-mode . lsp)
   :hook (java-mode . lsp)
   :hook (nim-mode . lsp)
   :hook (rust-mode . lsp)
+  :hook (tuareg-mode . lsp) ; unfortunately ocaml-lsp-server is borked so find something else idk
   :hook (zig-mode . lsp))
 
 ;; Language support
 (setq ispell-program-name "hunspell")
 
-(use-package caml)
+(use-package tuareg)
 (setenv "OPAMROOT" (concat (getenv "XDG_DATA_HOME") "/opam"))
 (setenv "PATH" (concat (getenv "PATH") path-separator (getenv "OPAMROOT") "/default/bin"))
 (add-to-list 'exec-path (concat (getenv "OPAMROOT") "/default/bin"))

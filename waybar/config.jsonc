@@ -106,7 +106,7 @@
     },
     "custom/launcher": {
 	"exec": "~/.config/waybar/launcher.sh",
-	"on-click": "wofi --show drun -I"
+	"on-click": "pgrep wofi &> /dev/null || wofi --show drun -I && pkill wofi"
     },
     "clock": {
         // "timezone": "America/New_York",
