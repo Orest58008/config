@@ -1,9 +1,9 @@
 # XDG fixes
 export XDG_CONFIG_HOME="$HOME/.config"
-export _JAVA_OPTIONS=-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java
 export CABAL_CONFIG="$XDG_CONFIG_HOME"/cabal/config
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME"/starship/starship.toml
+export VIMINIT='let $MYVIMRC = !has("nvim") ? "$XDG_CONFIG_HOME/vim/vimrc" : "$XDG_CONFIG_HOME/nvim/init.lua" | so $MYVIMRC'
 alias d-fi="d-fi -conf $XDG_CONFIG_HOME/d-fi/config.json"
 
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -67,7 +67,6 @@ if [[ $- == *i* ]]; then
     export MICRO_TRUECOLOR=1
 
     # Aliases
-	alias 9=/opt/plan9/bin/9
     alias cat="bat -n"
     alias cp="cp -v"
 	alias grep="grep -i --color"
@@ -77,6 +76,7 @@ if [[ $- == *i* ]]; then
     alias la="ls -a"
     alias mv="mv -v"
     alias rg="rg -ip"
+	find /opt/plan9 &> /dev/null && alias 9=/opt/plan9/bin/9
 
     # zcomet setup
     if [[ ! -f ${ZDOTDIR:-${HOME}}/.zcomet/bin/zcomet.zsh ]]; then

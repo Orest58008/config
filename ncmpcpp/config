@@ -311,7 +311,7 @@ visualizer_spectrum_smooth_look = yes
 ##   available.
 ##
 #
-song_columns_list_format = (20)[]{a} (6f)[green]{NE} (45)[white]{t|f:Title} (6f)[blue]{y} (20)[cyan]{b} (7f)[magenta]{l}
+song_columns_list_format = (20)[]{a} (5f)[green]{drE} (6f)[green]{NE} (45)[white]{t|f:Title} (6f)[blue]{y} (20)[cyan]{b} (7f)[magenta]{l}
 #
 ##### various settings #####
 #

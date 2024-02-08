@@ -88,7 +88,7 @@ input * {
     
     # Screenshooting
     bindsym Print exec grim - | wl-copy
-    bindsym Shift+Print exec grim -g "$(slurp && sleep .5)" - | wl-copy
+    bindsym Shift+Print exec grim -g "$(slurp && sleep .1)" - | wl-copy
     bindsym Ctrl+Print exec grim
 
     # Reload the configuration file
@@ -218,7 +218,7 @@ bindsym --to-code $mod+d exec $navigator
 for_window [title="^Properties$"] floating enable
 for_window [title="^Open Directory$"] floating enable
 for_window [title="^Compress$"] floating enable
-for_window [title="^Extract$"] floating enable
+for_window [title="^Extract archive$"] floating enable
 for_window [title="Bitwarden"] floating enable
 
 # Calculator
@@ -241,6 +241,8 @@ bindsym --to-code $mod+t exec telegram-desktop
 assign [app_id="org.telegram.desktop"] 2
 for_window [title="TelegramDesktop"] floating enable
 assign [class="Signal"] 2
+for_window [title="ArmCord Setup"] floating enable
+for_window [title="vesktop"] floating enable
 
 # Music
 bindsym --to-code $mod+m exec $term -e ncmpcpp
@@ -277,6 +279,7 @@ for_window [title="Про програму"] floating enable
 # Autostarting programs
 #
 exec autotiling
+exec autotiling-rs
 # exec activate-linux
 exec waybar &> ~/.config/waybar/log
 exec firefox

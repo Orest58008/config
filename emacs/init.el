@@ -1,42 +1,25 @@
-;;; INTERNAL CUSTOMIZATION
-;; Looks
-(tool-bar-mode -1)
-(set-frame-font "monospace 11" nil t)
-(setq inhibit-startup-screen t)
-(setq-default tab-width 4)
-
-;; Modes
-(add-hook 'org-mode-hook  'visual-line-mode)
-(add-hook 'org-mode-hook  'display-line-numbers-mode)
-(add-hook 'prog-mode-hook 'display-line-numbers-mode)
-(add-hook 'prog-mode-hook 'electric-pair-mode)
-
-;; envvars
+;;; ENVVARS
 (setenv "XDG_CONFIG_HOME" (concat (getenv "HOME") "/.config"))
 (setenv "XDG_DATA_HOME" (concat (getenv "HOME") "/.local/share"))
 (setenv "XDG_BIN_HOME" (concat (getenv "HOME") "/.local/bin"))
 (setenv "PATH" (concat (getenv "PATH") path-separator (getenv "XDG_BIN_HOME")))
 (add-to-list 'exec-path (getenv "XDG_BIN_HOME"))
 
+
 ;;; PACKAGE MANAGEMENT SETUP
-;; Bootstrap straight
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 6))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
+(require 'package)
 
-;; Enable use-package support
-(straight-use-package 'use-package)
-(setq straight-use-package-by-default t)
+;; Package list
+(add-to-list 'package-archives
+			 '("melpa" . "https://melpa.org/packages/") t)
 
+;; Bootstrap use-package
+(package-initialize)
+(setq use-package-always-ensure t)
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(eval-when-compile (require 'use-package))
 
 ;;; EXTENSIONS
 ;; Dashboard
@@ -49,19 +32,10 @@
 						(projects . 9)))
 (setq dashboard-startup-banner 'logo)
 
-;; treemacs
-(use-package treemacs
-  :hook
-  (treemacs-mode . treemacs-project-follow-mode))
-(use-package treemacs-evil
-  :after (treemacs evil))
-(use-package treemacs-projectile
-  :after (treemacs projectile))
-
 ;; Flexoki theme
 (use-package flexoki-themes
-  :config (load-theme 'flexoki-themes-dark t))
-
+  :demand t
+  :init (load-theme 'flexoki-themes-dark t))
 
 ;; Nyanmacs
 (use-package nyan-mode
@@ -71,10 +45,7 @@
 
 ;; vterm
 (use-package vterm
-  :ensure t)
-
-;; Magit
-(use-package magit)
+  :defer t)
 
 ;; TO​DO highlighting
 (use-package hl-todo
@@ -120,6 +91,7 @@
 
 ;; Projectile
 (use-package projectile
+  :defer t
   :hook (prog-mode . projectile-mode)
   :config
   (projectile-update-project-type 'go
@@ -153,6 +125,7 @@
 
 ;; LSP
 (use-package lsp-mode
+  :defer t
   :hook (c-mode . lsp)
   :hook (d-mode . lsp)
   :hook (go-mode . lsp)
@@ -171,15 +144,15 @@
 (setenv "PATH" (concat (getenv "PATH") path-separator (getenv "OPAMROOT") "/default/bin"))
 (add-to-list 'exec-path (concat (getenv "OPAMROOT") "/default/bin"))
 
-(use-package d-mode)
+(use-package d-mode :disabled)
 
 (use-package go-mode)
 (setenv "GOPATH" (concat (getenv "XDG_DATA_HOME") "/go"))
 (setenv "PATH" (concat (getenv "PATH") path-separator (getenv "GOPATH") "/bin"))
 (add-to-list 'exec-path (concat (getenv "GOPATH") "/bin"))
 
-; (use-package haskell-mode)
-; (use-package lsp-haskell)
+(use-package haskell-mode :disabled)
+(use-package lsp-haskell :disabled)
 (setenv "CABAL_DIR" (concat (getenv "XDG_DATA_HOME") "/cabal"))
 (setenv "CABAL_CONFIG" (concat (getenv "XDG_CONFIG_HOME") "/cabal/config"))
 
@@ -188,19 +161,35 @@
 		(concat "-Djava.util.prefs.userRoot=" (getenv "XDG_CONFIG_HOME") "/java"))
 (setenv "GRADLE_USER_HOME" (concat (getenv "XDG_DATA_HOME") "/gradle"))
 
-; (use-package nim-mode)
+(use-package nim-mode :disabled)
 (setenv "NIMBLE_DIR" (concat (getenv "XDG_DATA_HOME") "/nimble"))
 (setenv "PATH" (concat (getenv "PATH") path-separator (getenv "NIMBLE_DIR") "/bin"))
 (add-to-list 'exec-path (concat (getenv "NIMBLE_DIR") "/bin"))
 
-(use-package rust-mode)
+(use-package rust-mode :disabled)
 (setenv "CARGO_HOME" (concat (getenv "XDG_DATA_HOME") "/cargo"))
 (setenv "PATH" (concat (getenv "PATH") path-separator (getenv "CARGO_HOME") "/bin"))
 (add-to-list 'exec-path (concat (getenv "CARGO_HOME") "/bin"))
 
-; (use-package zig-mode)
+(use-package zig-mode :disabled)
 
-; (use-package org-tree-slide)
+(use-package org-tree-slide :disabled)
 
 (use-package org-modern
+  :defer t
   :hook (org-mode . org-modern-mode))
+
+
+;;; INTERNAL CUSTOMIZATION
+;; Looks
+(tool-bar-mode -1)
+(set-frame-font "monospace 11" nil t)
+(setq inhibit-startup-screen t)
+(setq-default tab-width 4)
+
+;; Modes
+(add-hook 'org-mode-hook  'visual-line-mode)
+(add-hook 'org-mode-hook  'display-line-numbers-mode)
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(add-hook 'prog-mode-hook 'electric-pair-mode)
+
