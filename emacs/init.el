@@ -63,7 +63,7 @@
   (evil-define-key 'normal 'global (kbd "C-S-o") 'find-file-other-window)
   (evil-define-key 'normal 'global (kbd "C-v")   'vterm-other-window)
   (evil-define-key 'normal 'global (kbd "C-e")   'eval-buffer)
-  (evil-define-key 'normal 'global (kbd "C-t")   'treemacs)
+  ; (evil-define-key 'normal 'global (kbd "C-t")   'treemacs)
   (evil-define-key 'normal 'global (kbd "M-c")   'projectile-compile-project)
   (evil-define-key 'normal 'global (kbd "M-r")   'projectile-run-project)
   (evil-define-key 'normal 'global (kbd "M-t")   'projectile-test-project)
@@ -193,3 +193,15 @@
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 (add-hook 'prog-mode-hook 'electric-pair-mode)
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages '(company-shell)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

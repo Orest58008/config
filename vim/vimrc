@@ -16,16 +16,26 @@ set viewdir=$XDG_STATE_HOME/vim/view     | call mkdir(&viewdir,   'p')
 
 if !has('nvim') | set viminfofile=$XDG_STATE_HOME/vim/viminfo | endif
 
+
 """ Sugar
 " Line numbers
 set number
+
 " Syntax highlighting
 syntax on
+
 " Blinking cursor in INSERT
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
+
 " Mouse support
 set mouse=a
+
+" Tab size
+set noexpandtab
+set tabstop=4
+set shiftwidth=4
+
 
 """ Plugins
 call plug#begin($XDG_CONFIG_HOME.'/vim/plugged')
@@ -34,5 +44,8 @@ call plug#begin($XDG_CONFIG_HOME.'/vim/plugged')
 Plug 'itchyny/lightline.vim'
 set laststatus=2
 set noshowmode
+
+" SuperTab
+Plug 'ervandew/supertab'
 
 call plug#end()

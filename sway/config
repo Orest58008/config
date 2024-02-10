@@ -8,6 +8,11 @@ include flexoki-dark.css
 #
 # Read `man 5 sway` for a complete reference.
 
+### Autostarting important services
+#
+exec "dex -a"
+exec waybar &> ~/.config/waybar/log
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -20,7 +25,7 @@ set $navigator nemo
 ### Theming
 #
 exec gsettings set org.gnome.desktop.interface font-name Inter
-exec gsettings set org.gnome.desktop.interface gtk-theme Adw-dark
+exec gsettings set org.gnome.desktop.interface gtk-theme Yaru-purple-dark
 exec gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark
 exec gsettings set org.gnome.desktop.interface cursor-theme posy-white
 seat seat0 xcursor_theme posy-white 24
@@ -203,15 +208,15 @@ bindsym --to-code $mod+Return exec $term
 exec wl-paste --watch cliphist store
 
 set $menu wofi --show drun -I
+set $clipmenu wofi -d -D cache_file=/dev/null
 bindsym --to-code $mod+r exec $menu
-bindsym --to-code $mod+w exec "wtype $(cliphist list | wofi --dmenu | cliphist decode)"
-bindsym --to-code $mod+Shift+w exec "cliphist list | wofi --dmenu | cliphist decode | wl-copy"
+bindsym --to-code $mod+w exec "wtype $(cliphist list | $clipmenu | cliphist decode)"
+bindsym --to-code $mod+Shift+w exec "cliphist list | $clipmenu | cliphist decode | wl-copy"
 bindsym --to-code $mod+Shift+e exec rofimoji
 
 # Media players
 bindsym --to-code $mod+v exec vlc
 for_window [app_id="mpv"] floating enable
-for_window [app_id="mpv"] floating_maximum_size 800 x 600
 
 # File manager
 bindsym --to-code $mod+d exec $navigator
@@ -281,7 +286,6 @@ for_window [title="Про програму"] floating enable
 exec autotiling
 exec autotiling-rs
 # exec activate-linux
-exec waybar &> ~/.config/waybar/log
 exec firefox
 exec telegram-desktop
 exec nicotine
