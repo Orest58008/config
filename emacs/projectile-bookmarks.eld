@@ -1,1 +1,1 @@
-("/data/projects/magocker/" "/data/projects/mlrpn/" "/data/projects/crpn/" "/data/projects/nightfetch/" "/data/projects/jlox/" "/data/projects/eza/")
+("/data/projects/mycofetch/" "/data/projects/!archive/nightfetch/")

@@ -16,6 +16,9 @@ export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export NIMBLE_DIR="$XDG_DATA_HOME"/nimble
 export OPAMROOT="$XDG_DATA_HOME"/opam
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+export TERMINFO="$XDG_DATA_HOME"/terminfo
+export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
+export W3M_DIR="$XDG_DATA_HOME"/w3m
 export WINEPREFIX="$XDG_DATA_HOME"/wine
 alias wget="wget --hsts-file='$XDG_DATA_HOME/wget-hsts'"
 
@@ -61,15 +64,20 @@ if [[ $- == *i* ]]; then
 	bindkey "^[[1;5D" backward-word # C-Left
 
 	# Variables
-	export EDITOR=nvim
+	export EDITOR=vim
 	export FZF_DEFAULT_COMMAND="fd -H"
 	export GPG_TTY=$(tty)
 	export MICRO_TRUECOLOR=1
+	export MANPAGER="bat -l man -p"
+	export PINENTRY_USER_DATA="USE_CURSES=1"
 
 	# Aliases
-	alias bat="bat -n"
+	alias ccat="command cat"
+	alias lls="command ls"
+	
+	alias cat="bat -n"
 	alias cp="cp -v"
-	alias grep="grep -i --color"
+	alias grep="grep -ni --color"
 	alias imv=imv-dir
 	alias ls="eza -F -Ghl --git --icons --sort type"
 	alias lt="ls -T"
