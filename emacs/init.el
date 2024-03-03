@@ -202,13 +202,13 @@
 (add-hook 'prog-mode-hook 'electric-pair-mode)
 (global-display-line-numbers-mode)
 (column-number-mode)
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(company-shell)))
+ '(package-selected-packages
+   '(json-mode vterm tuareg tree-sitter-langs projectile org-modern nyan-mode lsp-mode ligature json-snatcher hl-todo go-mode flexoki-themes evil dashboard d-mode company-shell)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

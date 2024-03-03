@@ -1,1 +1,1 @@
-("/data/projects/mycofetch/" "/data/projects/!archive/nightfetch/")
+("/data/projects/mycofetch/" "/data/projects/!archive/nightfetch/" "/data/projects/harelang.org/")

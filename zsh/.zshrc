@@ -1,5 +1,6 @@
 # XDG fixes
 export XDG_CONFIG_HOME="$HOME/.config"
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export CABAL_CONFIG="$XDG_CONFIG_HOME"/cabal/config
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME"/starship/starship.toml
@@ -80,8 +81,6 @@ if [[ $- == *i* ]]; then
 	alias grep="grep -ni --color"
 	alias imv=imv-dir
 	alias ls="eza -F -Ghl --git --icons --sort type"
-	alias lt="ls -T"
-	alias la="ls -a"
 	alias mv="mv -v"
 	alias rg="rg -ip"
 	find /opt/plan9 &> /dev/null && alias 9=/opt/plan9/bin/9
@@ -123,9 +122,8 @@ if [[ $- == *i* ]]; then
 		abbr -q -S u="$SUDO_COMMAND xbps-install -Suv"
 	fi
 
-	# NOTE: Load zsh-history-substring-search and zsh-autosuggestions after zsh-syntax-highlighting
 	# Syntax highlighting
-	zcomet load zsh-users/zsh-syntax-highlighting
+	zcomet load zdharma-continuum/fast-syntax-highlighting
 
 	# Substring history search
 	zcomet load zsh-users/zsh-history-substring-search

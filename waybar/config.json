@@ -113,7 +113,7 @@
 		"interval": 1,
 		"format": "{:%X}",
 		"format-alt": "{:%a, %d %b %Y}",
-		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+		"tooltip-format": "{calendar}",
 	},
 	"network": {
 		// "interface": "wlp2*", // (Optional) To force the use of this interface
