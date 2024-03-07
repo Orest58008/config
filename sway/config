@@ -200,6 +200,7 @@ bindsym --to-code $mod+t exec telegram-desktop
 assign [app_id="org.telegram.desktop"] 2
 for_window [title="TelegramDesktop"] floating enable
 assign [class="Signal"] 2
+assign [app_id="cinny"] 4
 for_window [title="ArmCord Setup"] floating enable
 for_window [title="vesktop"] floating enable
 ## Music

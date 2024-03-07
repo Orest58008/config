@@ -70,6 +70,7 @@ if [[ $- == *i* ]]; then
 	export GPG_TTY=$(tty)
 	export MICRO_TRUECOLOR=1
 	export MANPAGER="bat -l man -p"
+	export PAGER=less
 	export PINENTRY_USER_DATA="USE_CURSES=1"
 
 	# Aliases
