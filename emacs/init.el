@@ -28,8 +28,8 @@
   :config
   (dashboard-setup-startup-hook))
 
-(setq dashboard-items '((recents . 12)
-						(projects . 9)))
+(setq dashboard-items '((recents . 20)
+						(projects . 8)))
 (setq dashboard-startup-banner 'logo)
 
 ;; Flexoki theme
@@ -106,8 +106,8 @@
 (setenv "PATH" (concat (getenv "PATH") path-separator (getenv "GOPATH") "/bin"))
 (add-to-list 'exec-path (concat (getenv "GOPATH") "/bin"))
 
-(use-package haskell-mode :disabled)
-(use-package lsp-haskell :disabled)
+(use-package haskell-mode)
+(use-package lsp-haskell)
 (setenv "CABAL_DIR" (concat (getenv "XDG_DATA_HOME") "/cabal"))
 (setenv "CABAL_CONFIG" (concat (getenv "XDG_CONFIG_HOME") "/cabal/config"))
 
@@ -202,13 +202,29 @@
 (add-hook 'prog-mode-hook 'electric-pair-mode)
 (global-display-line-numbers-mode)
 (column-number-mode)
+
+;; Merlin
+(let ((opam-share (ignore-errors (car (process-lines "opam" "var" "share")))))
+  (when (and opam-share (file-directory-p opam-share))
+	;; Register Merlin
+	(add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
+	(autoload 'merlin-mode "merlin" nil t nil)
+	;; Automatically start it in OCaml buffers
+	(add-hook 'tuareg-mode-hook 'merlin-mode t)
+	(add-hook 'caml-mode-hook 'merlin-mode t)
+	;; Use opam switch to lookup ocamlmerlin binary
+	(setq merlin-command 'opam)
+	;; To easily change opam switches within a given Emacs session, you can
+	;; install the minor mode https://github.com/ProofGeneral/opam-switch-mode
+	;; and use one of its "OPSW" menus.
+	))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(json-mode vterm tuareg tree-sitter-langs projectile org-modern nyan-mode lsp-mode ligature json-snatcher hl-todo go-mode flexoki-themes evil dashboard d-mode company-shell)))
+   '(lsp-haskell haskell-mode vterm tuareg tree-sitter-langs projectile org-modern nyan-mode lsp-mode ligature json-snatcher hl-todo go-mode flexoki-themes evil dashboard d-mode company-shell)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

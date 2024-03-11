@@ -1,0 +1,11 @@
+#
+# This file is parsed by pam_env module
+#
+# Syntax: simple "KEY=VAL" pairs on separate lines
+#
+GRIM_DEFAULT_DIR=$HOME"/Pictures/grim"
+GTK_THEME="Yaru-purple-dark"
+MOZ_ENABLE_WAYLAND="1"
+QT_STYLE_OVERRIDE="kvantum"
+QT_QPA_PLATFORMTHEME="gtk3"
+ZDOTDIR=$HOME"/.config/zsh"
