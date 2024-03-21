@@ -1,1 +1,1 @@
-("/data/projects/mlrpn/" "/data/projects/mycofetch/" "/data/projects/!archive/nightfetch/" "/data/projects/harelang.org/")
+("/data/projects/mycofetch/" "/data/projects/mlox/" "/data/projects/mlrpn/" "/data/projects/!archive/nightfetch/" "/data/projects/harelang.org/")

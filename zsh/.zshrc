@@ -24,7 +24,7 @@ export WINEPREFIX="$XDG_DATA_HOME"/wine
 alias wget="wget --hsts-file='$XDG_DATA_HOME/wget-hsts'"
 
 export XDG_CACHE_HOME="$HOME/.cache"
-export TEXMFVAR="$XDG_CACHE_HOME"
+export TEXMFVAR="$XDG_CACHE_HOME"/texlive/texmf-var
 export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority/texlive/texmf-var
 
 export XDG_STATE_HOME="$HOME/.local/state"
@@ -42,7 +42,7 @@ export PATH
 # Only in interactive mode
 if [[ $- == *i* ]]; then
 	# Greeting
-	nightfetch
+	mycofetch -m $XDG_CONFIG_HOME/mycofetch/template.mfc
 
 	# Shell configuration
 	setopt autocd beep extendedglob nomatch
@@ -74,15 +74,13 @@ if [[ $- == *i* ]]; then
 	export PINENTRY_USER_DATA="USE_CURSES=1"
 
 	# Aliases
-	alias ccat="command cat"
-	alias lls="command ls"
-	
 	alias cat="bat -n"
 	alias cp="cp -v"
 	alias grep="grep -ni --color"
 	alias imv=imv-dir
 	alias ls="eza -F -Ghl --git --icons --sort type"
 	alias mv="mv -v"
+	alias mycofetch="mycofetch -m $XDG_CONFIG_HOME/mycofetch/template.mfc"
 	alias rg="rg -ip"
 	find /opt/plan9 &> /dev/null && alias 9=/opt/plan9/bin/9
 
