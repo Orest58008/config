@@ -4,7 +4,7 @@
 # Syntax: simple "KEY=VAL" pairs on separate lines
 #
 GRIM_DEFAULT_DIR="/home/orest/Pictures/grim"
-GTK_THEME="oomox-gr"
+GTK_THEME="oomox-colors-oomox"
 MOZ_ENABLE_WAYLAND="1"
 QT_STYLE_OVERRIDE="kvantum"
 QT_QPA_PLATFORMTHEME="gtk3"

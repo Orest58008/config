@@ -1,6 +1,6 @@
 # Theming
 exec gsettings set org.gnome.desktop.interface font-name Inter
-exec gsettings set org.gnome.desktop.interface gtk-theme oomox-gr
+exec gsettings set org.gnome.desktop.interface gtk-theme oomox-colors-oomox
 exec gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark
 exec gsettings set org.gnome.desktop.interface cursor-theme posy-white
 seat seat0 xcursor_theme posy-white 24
