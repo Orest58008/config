@@ -12,12 +12,12 @@
 
 /* Bar Styling */
 #waybar {
-    background: transparent;
+	background: transparent;
 }
 
 /* Workspaces */
 #workspaces {
-    border: 2px solid @pu;
+    border: 2px solid @gr;
     margin-top: 6px;
     background-color: @bg;
 }
@@ -30,7 +30,7 @@
 }
 
 #workspaces button.focused {
-    background-color: @pu;
+    background-color: @gr;
     color: @bg;
 }
 
@@ -39,12 +39,12 @@
 }
 
 #workspaces button.focused:hover {
-    background-color: @pu-2;
+    background-color: @gr-2;
 }
 
 /* Main Modules */
 #tray {
-    border: 2px solid @pu;
+    border: 2px solid @gr;
     background-color: @bg;
     margin-top: 6px;
     padding-left: 10px;
@@ -53,7 +53,7 @@
 
 /* System Monitoring Modules */
 #cpu, #memory, #temperature {
-    border: 2px solid @pu;
+    border: 2px solid @gr;
     background-color: @bg;
     margin-top: 6px;
     padding-left: 10px;
@@ -61,7 +61,7 @@
     color: @base-150;
 }
 #disk {
-    border: 2px solid @pu;
+    border: 2px solid @gr;
     background-color: @bg;
     margin-top: 6px;
     padding-left: 10px;
@@ -77,7 +77,7 @@
     font-weight: bolder;
     background-color: @bg;
     color: @base-100;
-    border: 2px solid @pu;
+    border: 2px solid @gr;
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 6px;
@@ -85,7 +85,7 @@
 
 /* Language module */
 #language, #keyboard-state {
-    border: 2px solid @pu;
+    border: 2px solid @gr;
     background-color: @bg;
     margin-top: 6px;
     padding-left: 10px;
@@ -105,7 +105,8 @@
 
 /* Network Module */
 #network {
-    border: 2px solid @pu;
+    background-color: @bg;
+    border: 2px solid @gr;
     color: @base-150;
     margin-right: 6px;
     padding-left: 10px;
@@ -115,7 +116,8 @@
 
 /* PulseAudio Module */
 #pulseaudio {
-    border: 2px solid @pu;
+    background-color: @bg;
+    border: 2px solid @gr;
     color: @base-150;
     padding-left: 10px;
     padding-right: 10px;
@@ -124,7 +126,7 @@
 
 /* MPD Module */
 #mpd {
-    border: 2px solid @pu;
+    border: 2px solid @gr;
     color: @base-150;
     background-color: @bg;
     padding-left: 10px;
@@ -134,14 +136,14 @@
 
 /* Idle Inhibitor */
 #idle_inhibitor {
-    border: 2px solid @pu;
+    border: 2px solid @gr;
     margin-top: 6px;
     margin-left: 6px;
     padding-left: 10px;
     padding-right: 17px;
     border-right: none;
     color: @bg;
-    background-color: @pu;
+    background-color: @gr;
 }
 #idle_inhibitor.deactivated {
     background-color: @bg;
@@ -150,8 +152,9 @@
 
 /* Launcher */
 #custom-launcher {
+    background-color: @bg;
     color: @base-150;
-    border: 2px solid @pu;
+    border: 2px solid @gr;
     border-left: none;
     margin-top: 6px;
     margin-left: -10px;

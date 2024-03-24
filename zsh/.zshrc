@@ -24,8 +24,9 @@ export WINEPREFIX="$XDG_DATA_HOME"/wine
 alias wget="wget --hsts-file='$XDG_DATA_HOME/wget-hsts'"
 
 export XDG_CACHE_HOME="$HOME/.cache"
-export TEXMFVAR="$XDG_CACHE_HOME"/texlive/texmf-var
 export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority/texlive/texmf-var
+export PKG_CACHE_PATH="$XDG_CACHE_HOME"/pkg-cache
+export TEXMFVAR="$XDG_CACHE_HOME"/texlive/texmf-var
 
 export XDG_STATE_HOME="$HOME/.local/state"
 

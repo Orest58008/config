@@ -22,13 +22,13 @@ set $navigator nemo
 ### Theming
 ## GTK theming and cursor
 exec gsettings set org.gnome.desktop.interface font-name Inter
-exec gsettings set org.gnome.desktop.interface gtk-theme Yaru-purple-dark
+exec gsettings set org.gnome.desktop.interface gtk-theme Yaru-olive-dark
 exec gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark
 exec gsettings set org.gnome.desktop.interface cursor-theme posy-white
 seat seat0 xcursor_theme posy-white 24
 ## window theming
 # target				title	bg		text	indicator	border
-client.focused			$pu		$bg		$tx		$pu			$pu
+client.focused			$gr		$bg		$tx		$gr			$gr
 client.focused_inactive	$ui		$bg		$tx		$ui			$ui
 client.unfocused		$ui		$bg-2	$tx		$ui-2		$ui-2
 client.urgent			$re		$bg		$tx		$re			$re
@@ -42,7 +42,7 @@ floating_maximum_size 1920 x 1080
 
 ### Output configuration
 ## wallpaper
-output * bg /data/pictures/wallpapers/81845221_p0.png fill
+output * bg /data/pictures/wallpapers/82518592_p0.png fill
 
 ### Idle configuration
 exec swayidle -w \
@@ -76,9 +76,9 @@ bindsym Shift+XF86AudioPlay exec mpc stop
 bindsym Shift+XF86AudioNext exec mpc volume +5
 bindsym Shift+XF86AudioPrev exec mpc volume -5
 ## Screenshooting
-bindsym Print exec grim - | wl-copy
-bindsym Shift+Print exec grim -g "$(slurp && sleep .1)" - | wl-copy
-bindsym Ctrl+Print exec grim
+bindsym Print exec grim -t png - | wl-copy
+bindsym Shift+Print exec grim -t png -g "$(slurp && sleep .1)" - | wl-copy
+bindsym Ctrl+Print exec grim -t png
 ## Reload the configuration file
 bindsym --to-code $mod+Shift+r reload
 ## Exit sway (logs you out of your Wayland session)
@@ -192,6 +192,7 @@ for_window [title="^Block Site$"] floating enable
 for_window [title="^Close Firefox$"] floating enable
 for_window [title="^Library$"] floating enable
 for_window [title="^Picture-in-Picture$"] floating enable
+for_window [title="^Extension: "] floating enable
 # bindsym --to-code $mod+b exec librewolf
 assign [app_id="LibreWolf"] 1
 ## Messaging apps
