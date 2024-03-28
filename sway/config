@@ -22,7 +22,7 @@ set $navigator nemo
 ### Theming
 ## GTK theming and cursor
 exec gsettings set org.gnome.desktop.interface font-name Inter
-exec gsettings set org.gnome.desktop.interface gtk-theme oomox-colors-oomox
+exec gsettings set org.gnome.desktop.interface gtk-theme oomox-flexoki-dark
 exec gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark
 exec gsettings set org.gnome.desktop.interface cursor-theme posy-white
 seat seat0 xcursor_theme posy-white 24
@@ -47,9 +47,9 @@ output * bg /data/pictures/wallpapers/82518592_p0.png fill
 ### Idle configuration
 exec swayidle -w \
 timeout 2000 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-timeout 2100 'swaylock -f -i /data/pictures/wallpapers/81845221_p0.png --font monospace' \
-after-resume 'swaylock -f -i /data/pictures/wallpapers/81845221_p0.png --font monospace'
-bindsym --to-code $mod+l 'swaylock -f -i /data/pictures/wallpapers/81845221_p0.png --font monospace'
+timeout 2100 'swaylock -f -i /data/pictures/wallpapers/82518592_p0.png --font monospace' \
+after-resume 'swaylock -f -i /data/pictures/wallpapers/82518592_p0.png --font monospace'
+bindsym --to-code $mod+l 'swaylock -f -i /data/pictures/wallpapers/82518592_p0.png --font monospace'
 
 ### Input configuration
 input * {
@@ -199,9 +199,10 @@ assign [app_id="LibreWolf"] 1
 bindsym --to-code $mod+t exec telegram-desktop
 assign [app_id="org.telegram.desktop"] 2
 for_window [title="^TelegramDesktop$"] floating enable
-assign [class="Signal"] 2
+assign [class="Signal"] 4
 assign [app_id="cinny"] 4
 for_window [title="^ArmCord Setup$"] floating enable
+assign [class="^vesktop$"] 4
 for_window [title="^vesktop$"] floating enable
 ## Music
 bindsym --to-code $mod+m exec $term -e ncmpcpp
@@ -246,5 +247,6 @@ exec geary
 exec nicotine
 exec telegram-desktop
 exec transmission-gtk
+exec vesktop
 
 include /etc/sway/config.d/*
