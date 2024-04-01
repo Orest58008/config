@@ -118,7 +118,7 @@
 (setenv "PATH" (concat (getenv "PATH") path-separator (getenv "NIMBLE_DIR") "/bin"))
 (add-to-list 'exec-path (concat (getenv "NIMBLE_DIR") "/bin"))
 
-(use-package rust-mode :disabled)
+(use-package rust-mode)
 (setenv "CARGO_HOME" (concat (getenv "XDG_DATA_HOME") "/cargo"))
 (setenv "PATH" (concat (getenv "PATH") path-separator (getenv "CARGO_HOME") "/bin"))
 (add-to-list 'exec-path (concat (getenv "CARGO_HOME") "/bin"))
@@ -127,6 +127,14 @@
 (setenv "OPAMROOT" (concat (getenv "XDG_DATA_HOME") "/opam"))
 (setenv "PATH" (concat (getenv "PATH") path-separator (getenv "OPAMROOT") "/default/bin"))
 (add-to-list 'exec-path (concat (getenv "OPAMROOT") "/default/bin"))
+(add-to-list 'auto-mode-alist '("dune-project" . lisp-mode))
+(let ((opam-share (ignore-errors (car (process-lines "opam" "var" "share"))))) ;; Merlin support
+  (when (and opam-share (file-directory-p opam-share))
+	(add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share)) ;; Register Merlin
+	(autoload 'merlin-mode "merlin" nil t nil)
+	(add-hook 'tuareg-mode-hook 'merlin-mode t) ;; Automatically start it in OCaml buffers
+	(add-hook 'caml-mode-hook 'merlin-mode t)
+	(setq merlin-command 'opam))) ;; Use opam switch to lookup ocamlmerlin binary
 
 (use-package zig-mode :disabled)
 
@@ -167,6 +175,14 @@
   (evil-define-key 'normal 'global (kbd "M-/")   'projectile-repeat-last-command)
   )
 
+;; langmap
+(use-package reverse-im
+  :ensure t
+  :custom
+  (reverse-im-input-methods '("ukrainian-computer"))
+  :config
+  (reverse-im-mode t))
+
 ;; Font ligatures
 (use-package ligature
   :config
@@ -205,13 +221,16 @@
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 (global-display-line-numbers-mode)
 (column-number-mode)
+
+;;---------;;
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(elcord vterm tuareg tree-sitter-langs projectile org-modern nyan-mode lsp-mode lox-mode ligature json-snatcher hl-todo go-mode flexoki-themes evil dashboard d-mode company-shell)))
+   '(rust-mode elcord vterm tuareg tree-sitter-langs projectile org-modern nyan-mode lsp-mode lox-mode ligature json-snatcher hl-todo go-mode flexoki-themes evil dashboard d-mode company-shell)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

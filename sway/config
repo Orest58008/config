@@ -193,6 +193,7 @@ for_window [title="^Close Firefox$"] floating enable
 for_window [title="^Library$"] floating enable
 for_window [title="^Picture-in-Picture$"] floating enable
 for_window [title="^Extension: "] floating enable
+for_window [title="^Authorize application"] floating enable
 # bindsym --to-code $mod+b exec librewolf
 assign [app_id="LibreWolf"] 1
 ## Messaging apps
@@ -245,6 +246,7 @@ exec autotiling-rs
 exec firefox
 exec geary
 exec nicotine
+exec signal --start-in-tray
 exec telegram-desktop
 exec transmission-gtk
 exec vesktop
