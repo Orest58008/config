@@ -39,7 +39,7 @@
 }
 
 #workspaces button.focused:hover {
-    background-color: @gr-2;
+	color: @gr
 }
 
 /* Main Modules */

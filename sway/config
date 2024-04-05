@@ -246,7 +246,7 @@ exec autotiling-rs
 exec firefox
 exec geary
 exec nicotine
-exec signal --start-in-tray
+exec signal-desktop --start-in-tray
 exec telegram-desktop
 exec transmission-gtk
 exec vesktop

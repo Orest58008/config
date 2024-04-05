@@ -77,6 +77,9 @@
 									:compile "dub build"
 									:run "dub run"
 									:test "dub test")
+  (projectile-register-project-type 'deno "deno.json"
+									:project-file "deno.json"
+									:run "deno run main.ts")
   (projectile-update-project-type 'dub :precedence 'high))
 
 ;; Company
@@ -118,7 +121,7 @@
 (setenv "PATH" (concat (getenv "PATH") path-separator (getenv "NIMBLE_DIR") "/bin"))
 (add-to-list 'exec-path (concat (getenv "NIMBLE_DIR") "/bin"))
 
-(use-package rust-mode)
+(use-package rust-mode :disabled)
 (setenv "CARGO_HOME" (concat (getenv "XDG_DATA_HOME") "/cargo"))
 (setenv "PATH" (concat (getenv "PATH") path-separator (getenv "CARGO_HOME") "/bin"))
 (add-to-list 'exec-path (concat (getenv "CARGO_HOME") "/bin"))
@@ -135,6 +138,8 @@
 	(add-hook 'tuareg-mode-hook 'merlin-mode t) ;; Automatically start it in OCaml buffers
 	(add-hook 'caml-mode-hook 'merlin-mode t)
 	(setq merlin-command 'opam))) ;; Use opam switch to lookup ocamlmerlin binary
+
+(use-package typescript-mode)
 
 (use-package zig-mode :disabled)
 
@@ -155,6 +160,7 @@
   :hook (nim-mode . lsp)
   :hook (rust-mode . lsp)
   :hook (tuareg-mode . lsp)
+  :hook (typescript-mode . lsp)
   :hook (zig-mode . lsp))
 
 ;; Vim bindings
@@ -230,7 +236,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(rust-mode elcord vterm tuareg tree-sitter-langs projectile org-modern nyan-mode lsp-mode lox-mode ligature json-snatcher hl-todo go-mode flexoki-themes evil dashboard d-mode company-shell)))
+   '(typescript-mode rust-mode elcord vterm tuareg tree-sitter-langs projectile org-modern nyan-mode lsp-mode lox-mode ligature json-snatcher hl-todo go-mode flexoki-themes evil dashboard d-mode company-shell)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
