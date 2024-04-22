@@ -94,8 +94,6 @@
 }
 #language {
     background-color: @bg;
-    border-right: none;
-    margin-right: -6px;
 }
 #keyboard-state {
     border-left: none;

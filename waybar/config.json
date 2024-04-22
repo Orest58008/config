@@ -19,7 +19,7 @@
 		"mpd",
 		"pulseaudio",
 		"sway/language",
-		"keyboard-state",
+		//"keyboard-state",
 		"network"
 	],
 	// Modules configuration
@@ -43,9 +43,11 @@
 		}
 	},
 	"sway/language": {
+		"format": "{shortDescription}",
 		"on-click": "swaymsg input '*' xkb_switch_layout next"
 	},
 	"keyboard-state": {
+		"device-path": "/dev/input/event19",
 		"numlock": true,
 		"capslock": true,
 		"format": "{icon}",
@@ -68,7 +70,6 @@
 		"format": "({elapsedTime:%M:%S}/{totalTime:%M:%S}) {artist} - {title}",
 		"format-paused": "{stateIcon} {artist} - {title}",
 		"format-disconnected": "Disconnected",
-		"format-stoppe6": "",
 		"unknown-tag": "N/A",
 		"artist-len": 20,
 		"title-len": 26,

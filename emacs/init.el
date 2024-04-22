@@ -1,10 +1,14 @@
+;; Fonts
+(add-to-list 'default-frame-alist
+             ; '(font . "monospace-11")
+			 '(font . "Maple Mono-11")
+			 '(font . "CaskaydiaCove Nerd Font-11"))
 ;;; ENVVARS
 (setenv "XDG_CONFIG_HOME" (concat (getenv "HOME") "/.config"))
 (setenv "XDG_DATA_HOME" (concat (getenv "HOME") "/.local/share"))
 (setenv "XDG_BIN_HOME" (concat (getenv "HOME") "/.local/bin"))
 (setenv "PATH" (concat (getenv "PATH") path-separator (getenv "XDG_BIN_HOME")))
 (add-to-list 'exec-path (getenv "XDG_BIN_HOME")) ;
-
 
 ;;; PACKAGE MANAGEMENT SETUP
 (require 'package)
@@ -193,18 +197,19 @@
 (use-package ligature
   :config
   (ligature-set-ligatures 't '("ff" "fi" "ffi"))
-  (ligature-set-ligatures 't '("|||>" "<|||" "<==>" "<!--" "####" "~~>" "***" "||=" "||>" ":::"
-							   "::=" "=:=" "===" "==>" "=!=" "=>>" "=<<" "=/=" "!==" "!!." ">=>"
-							   ">>=" ">>>" ">>-" ">->" "->>" "-->" "---" "-<<" "<~~" "<~>" "<*>"
-							   "<||" "<|>" "<$>" "<==" "<=>" "<=<" "<->" "<--" "<-<" "<<=" "<<-"
-							   "<<<" "<+>" "</>" "###" "#_(" "..<" "..." "+++" "/==" "///" "_|_"
-							   "www" "&&" "^=" "~~" "~@" "~=" "~>" "~-" "**" "*>" "*/" "||" "|}"
-							   "|]" "|=" "|>" "|-" "{|" "[|" "]#" "::" ":=" ":>" ":<" "$>" "=="
-							   "=>" "!=" "!!" ">:" ">=" ">>" ">-" "-~" "-|" "->" "--" "-<" "<~"
-							   "<*" "<|" "<:" "<$" "<=" "<>" "<-" "<<" "<+" "</" "#{" "#[" "#:"
-							   "#=" "#!" "##" "#(" "#?" "#_" "%%" ".=" ".-" ".." ".?" "+>" "++"
-							   "?:" "?=" "?." "??" ";;" "/*" "/=" "/>" "//" "__" "~~" "(*" "*)"
-							   "\\\\" "://"))
+  (ligature-set-ligatures 't '("|||>" "<|||" "<==>" "<!--" "<!---->" "####" "~~>" "***" "||="
+							   "||>" ":::" "::=" "=:=" "===" "==>" "=!=" "=>>" "=<<" "=/=" "!=="
+							   "!!." ">=>" ">>=" ">>>" ">>-" ">->" "->>" "-->" "---" "-<<" "<~~"
+							   "<~>" "<*>" "<||" "<|>" "<$>" "<==" "<=>" "<=<" "<->" "<--" "<-<"
+							   "<<=" "<<-" "<<<" "<+>" "</>" "###" "#_(" "..<" "..." "+++" "/=="
+							   "///" "_|_" "www" "&&" "^=" "~~" "~@" "~=" "~>" "~-" "**" "*>"
+							   "*/" "||" "|}" "|]" "|=" "|>" "|-" "{|" "[|" "]#" "::" ":*" ":+"
+							   ":^" ":-" ":~" ":=" ":>" "::>" ":<" "$>" "==" "=>" "!=" "!!" ">:"
+							   ">=" ">>" ">-" "-~" "-|" "->" "--" "-<" "<~" "<*" "<|" "<:" "<$"
+							   "<=" "<>" "<-" "<<" "<+" "</" "#{" "}#" "#[" "]#" "#:" "#=" "#!"
+							   "##" "#(" "#?" "#_" "%%" ".=" ".-" ".." ".?" "+>" "++" "?:" "?="
+							   "?." "??" ";;" "/*" "/**" "/=" "/>" "//" "__" "~~" "(*" "*)"
+							   "\\\\" "://" "}}" "{{" ">=" "<=" "[TODO)" "todo))" ))
   :hook (prog-mode . ligature-mode)
   :hook (conf-mode . ligature-mode))
 
@@ -215,11 +220,6 @@
 
 ;;; INTERNAL CUSTOMIZATION
 ;; Looks
-(add-to-list 'default-frame-alist
-             ; '(font . "monospace-11")
-			 '(font . "Maple Mono NF-11")
-			 '(font . "CaskaydiaCove Nerd Font-11")
-			 )
 (tool-bar-mode -1)
 (setq inhibit-startup-screen t)
 (setq-default tab-width 4)
@@ -233,3 +233,16 @@
 (column-number-mode)
 
 ;;---------;;
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(## xterm-color vterm typescript-mode tuareg tree-sitter-langs rust-mode reverse-im org-modern nyan-mode lsp-mode lox-mode ligature json-snatcher hl-todo go-mode flexoki-themes evil elcord dashboard d-mode company-shell)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

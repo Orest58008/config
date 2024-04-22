@@ -4,7 +4,7 @@
 include flexoki-dark.css
 
 ### Autostarting important services
-exec "dex -a"
+# exec "dex -a"
 exec waybar &> ~/.config/waybar/log
 
 ### I don't know how to do user services on nosystemd
@@ -53,8 +53,8 @@ bindsym --to-code $mod+l 'swaylock -f -i /data/pictures/wallpapers/82518592_p0.p
 
 ### Input configuration
 input * {
-xkb_layout "us,ua"
-xkb_options "grp:caps_toggle,compose:rctrl"
+	xkb_layout "us,ua"
+	xkb_options "grp:caps_toggle,compose:rctrl"
 }
 ## Clipboard
 exec wl-paste --watch cliphist store
@@ -169,14 +169,14 @@ set $clipmenu wofi -d -D cache_file=/dev/null
 bindsym --to-code $mod+r exec $menu
 bindsym --to-code $mod+w exec "wtype $(cliphist list | $clipmenu | cliphist decode)"
 bindsym --to-code $mod+Shift+w exec "cliphist list | $clipmenu | cliphist decode | wl-copy"
-bindsym --to-code $mod+Shift+e exec rofimoji
+bindsym --to-code $mod+Shift+e exec rofimoji --max-recent 0
 ## Media players
 bindsym --to-code $mod+v exec vlc
 for_window [app_id="^mpv$"] floating enable
 for_window [app_id="^mpv$"] floating_maximum_size 900 x 600
 ## File manager
 bindsym --to-code $mod+d exec $navigator
-for_window [title="^Properties$"] floating enable
+for_window [title="Properties$"] floating enable
 for_window [title="^Open Directory$"] floating enable
 for_window [title="^Compress$"] floating enable
 for_window [title="^Extract archive$"] floating enable
@@ -213,7 +213,7 @@ assign [class="Gimp"] 4
 for_window [title="^Export Image"] floating enable
 bindsym --to-code $mod+e exec emacs
 ## Games
-for_window [title="^Select an IWAD to use$"] floating enable
+for_window [title="Select an IWAD to use"] floating enable
 for_window [title="^Log for "] floating enable
 for_window [title="^Install "] floating enable
 assign [class="^Minecraft.*"] 5
@@ -237,7 +237,8 @@ bindsym --to-code $mod+x exec xeyes
 for_window [app_id="gxmessage"] floating enable
 for_window [app_id="pavucontrol"] floating enable
 for_window [class="XEyes"] floating enable
-for_window [title="Про програму"] floating enable
+for_window [class="xwaylandvideobridge"] floating enable
+for_window [title="^Open$"] floating enable
 
 ### Autostarting programs
 exec activate-linux
