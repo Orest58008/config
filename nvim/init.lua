@@ -4,52 +4,59 @@
 vim.cmd [[set number]]
 vim.cmd [[set sw=4]]
 
--- keyboard setup
-vim.cmd [[set langmap=йцукенгшщзфівапролдячсмитьЙЦУКЕНГШЩЗФІВАПРОЛДЯЧСМИТЬю;qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM.]]
-
--- packer setup
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
+-- lazy.nvim setup
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer_bootstrap = ensure_packer()
-
-return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
-
-  -- onedark theme
-  -- use 'navarasu/onedark.nvim'
-
-  -- catppuccin theme
-  -- use { 'catppuccin/nvim', as = "catppuccin" }
-
-  -- fish syntax highlighting
-  use 'dag/vim-fish'
-
-  -- ron syntax highlighting
-  use 'ron-rs/ron.vim'
-
-  -- toml syntax highlighting
-  use 'cespare/vim-toml'
- 
-  -- lualine
-  use {
+require'lazy'.setup({
+  {
+    'nvim-orgmode/orgmode',
+    event = 'VeryLazy',
+    ft = { 'org' },
+    config = function()
+      require'orgmode'.setup({
+	org_agenda_files = '~/orgfiles/**/*',
+	org_default_notes_file = '~/orgfiles/refile.org',
+      })
+    end,
+  },
+  { 'jiangmiao/auto-pairs', name = 'auto-pairs' },
+  {
+    'kepano/flexoki-neovim',
+    name = 'flexoki',
+    config = function()
+      vim.cmd('colorscheme flexoki-dark')
+    end,
+  },
+  {
     'nvim-lualine/lualine.nvim',
-    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require'lualine'.setup()
+    end,
+  },
+  {
+    'neovim/nvim-lspconfig',
+    config = function()
+      local lc = require'lspconfig'
+      lc.denols.setup{}
+    end,
+  },
+  {
+    'ervandew/supertab',
+    name = 'supertab',
+    config = function()
+      vim.cmd [[let g:SuperTabDefaultCompletionType = "<c-n>"]]
+    end,
   }
-  require('lualine').setup()
-
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-
-end)
+})

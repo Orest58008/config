@@ -1,18 +1,18 @@
-** Currently using
-*** Looks
+* Currently using
+** Looks
 + Theme - Flexoki Dark
 + Icons - Papirus Catppuccin
 + Telegram theme - [[https://t.me/addtheme/FECO9Ihr3SC0lCgA]]
-*** System
+** System
 + OS - Arch Linux
-*** WM stuff
+** WM stuff
 + Compositor - sway
 + Panel - waybar
 + Notifications - dunst
-*** Terminal stuff
+** Terminal stuff
 + Shell - zsh
 + Terminal emulator - kitty
-*** Apps
+** Apps
 + App / command launcher - wofi
 + Browser - Firefox
 + File manager - nemo
@@ -22,4 +22,4 @@
   + Last FM synchronization - mpdscribbler
 + Soulseek client - Nicotine+
 + Bittorrent client - transmission-gtk
-+ Text editor - GNU Emacs || vim
++ Text editor - neovim
