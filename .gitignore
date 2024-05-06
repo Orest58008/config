@@ -15,6 +15,7 @@ fish/conf.d
 fish/fish_variables
 fish/functions
 
+vim/autoload
 vim/plugged
 
 zsh/.zcomet

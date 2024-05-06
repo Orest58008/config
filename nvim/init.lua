@@ -22,9 +22,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require'lazy'.setup {
-	{
-		'jiangmiao/auto-pairs'
-	},
+	{ 'jiangmiao/auto-pairs', },
 	{
 		'kepano/flexoki-neovim',
 		config = function()
@@ -49,21 +47,24 @@ require'lazy'.setup {
 		end,
 	},
 	{
-		'echasnovski/mini.completion',
-		version = '*',
+		'echasnovski/mini.nvim',
+		version = false,
 		config = function()
-			vim.keymap.set('i', '<Tab>',   [[pumvisible() ? "\<C-n>" : "\<Tab>"]],   { expr = true })
-			vim.keymap.set('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
+			vim.keymap.set('i', '<Tab>',   'pumvisible() ? "\\<C-n>" : "\\<Tab>"',   { expr = true })
+			vim.keymap.set('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', { expr = true })
 			require'mini.completion'.setup {}
-		end
+		end,
 	},
 	{
 		'neovim/nvim-lspconfig',
 		config = function()
-			local lc = require'lspconfig'
 			-- list of supported servers:
 			--   https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-			lc.denols.setup {}
+			local servers = { 'denols', 'als', 'crystalline' }
+			for _, server in ipairs(servers) do
+				local server_setup = loadstring ('require"lspconfig".' .. server .. '.setup {}')
+				server_setup()
+			end
 		end,
 	},
 	{
@@ -84,8 +85,13 @@ require'lazy'.setup {
 		config = function()
 			local builtin = require'telescope.builtin'
 			vim.keymap.set('n', '<C-o>', vim.cmd('cd /data') and builtin.find_files)
-		end
+		end,
 	},
+	{
+		'folke/trouble.nvim',
+		dependencies = { 'nvim-tree/nvim-web-devicons' }
+	},
+	{ 'andymass/vim-matchup' },
 }
 
 --- neovide setup
