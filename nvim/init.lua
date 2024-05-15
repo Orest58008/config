@@ -28,33 +28,17 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require'lazy'.setup {
-  {
-    'jiangmiao/auto-pairs',
-  },
+  { 'jiangmiao/auto-pairs', },
   {
     'kepano/flexoki-neovim',
     config = function()
       vim.cmd('colorscheme flexoki-dark')
     end,
   },
-  --[[
-  {
-    'nvimdev/dashboard-nvim',
-    event = 'VimEnter',
-    config = function()
-      require'dashboard'.setup {
-        shortcut_type = 'number',
-      }
-    end,
-    dependencies = { 'nvim-tree/nvim-web-devicons' }
-  },
-  --]]
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function()
-      require'lualine'.setup()
-    end,
+    opts = {},
   },
   {
     'echasnovski/mini.nvim',
@@ -62,6 +46,7 @@ require'lazy'.setup {
     config = function()
       vim.keymap.set('i', '<Tab>',   'pumvisible() ? "\\<C-n>" : "\\<Tab>"',   { expr = true })
       vim.keymap.set('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', { expr = true })
+
       require'mini.completion'.setup {}
     end,
   },
@@ -81,35 +66,31 @@ require'lazy'.setup {
     'nvim-orgmode/orgmode',
     event = 'VeryLazy',
     ft = { 'org' },
-    config = function()
-      require'orgmode'.setup({
-        org_startup_folded = 'content',
-        org_hide_leading_stars = true,
-      })
-    end,
+    opts = {
+      org_startup_folded = 'content',
+      org_hide_leading_stars = true,
+    },
   },
   {
     'andweeb/presence.nvim',
-    config = function()
-      require'presence'.setup {
-        log_level = 'debug',
-      }
-    end,
+    opts = { log_level = 'debug' },
   },
-  --[[
   {
     'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      local builtin = require'telescope.builtin'
-      vim.keymap.set('n', '<C-o>', vim.cmd('cd /data') and builtin.find_files)
+    opts = {
+      defaults = { borderchars = { '-', '|', '-', '|', '*', '*', '*', '*' }, }
+    },
+    config = function(_, opts)
+      require'telescope'.setup(opts)
+
+      vim.keymap.set('n', '<C-o>', vim.cmd('cd/data') and require'telescope.builtin'.find_files)
     end,
   },
-  --]]
   {
     'folke/trouble.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' }
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    opts = {},
   },
   { 'andymass/vim-matchup' },
   { 'mhinz/vim-startify' },
