@@ -8,6 +8,10 @@ local tabwidth = 2
 vim.opt.sw = tabwidth
 vim.opt.ts = tabwidth
 vim.opt.et = true -- expand tabs to spaces
+-- auto-wrap
+local textwidth = 100
+vim.opt.tw = textwidth
+vim.opt.cc = textwidth
 -- clipboard
 vim.opt.clipboard = 'unnamedplus'
 -- unhighlight search
@@ -42,7 +46,6 @@ require'lazy'.setup {
   },
   {
     'echasnovski/mini.nvim',
-    version = false,
     config = function()
       vim.keymap.set('i', '<Tab>',   'pumvisible() ? "\\<C-n>" : "\\<Tab>"',   { expr = true })
       vim.keymap.set('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', { expr = true })
@@ -73,7 +76,7 @@ require'lazy'.setup {
   },
   {
     'andweeb/presence.nvim',
-    opts = { log_level = 'debug' },
+    opts = {},
   },
   {
     'nvim-telescope/telescope.nvim',

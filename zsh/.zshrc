@@ -70,6 +70,7 @@ if [[ $- == *i* ]]; then
   export EDITOR=nvim
   export FZF_DEFAULT_COMMAND="fd -H"
   export GPG_TTY=$(tty)
+  export GUILE_AUTO_COMPILE=0
   export MICRO_TRUECOLOR=1
   export MANPAGER="bat -l man -p"
   export PAGER=less
