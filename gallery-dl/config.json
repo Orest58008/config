@@ -1,3 +1,4 @@
 {
-    "base-directory": "/data/pictures/anime/gallery-dl/"
+    "base-directory": "/ssdata/pictures/anime/gallery-dl/",
+    "cookies": [ "firefox" ]
 }

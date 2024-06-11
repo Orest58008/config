@@ -11,7 +11,7 @@ vim.opt.et = true -- expand tabs to spaces
 -- auto-wrap
 local textwidth = 100
 vim.opt.tw = textwidth
-vim.opt.cc = textwidth
+vim.opt.cc = textwidth .. ''
 -- clipboard
 vim.opt.clipboard = 'unnamedplus'
 -- unhighlight search
@@ -70,7 +70,7 @@ require'lazy'.setup {
     event = 'VeryLazy',
     ft = { 'org' },
     opts = {
-      org_startup_folded = 'content',
+      org_startup_folded = 'showeverything',
       org_hide_leading_stars = true,
     },
   },
