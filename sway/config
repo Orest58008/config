@@ -25,11 +25,11 @@ exec gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark
 exec gsettings set org.gnome.desktop.interface cursor-theme posy-white
 seat seat0 xcursor_theme posy-white 24
 ## window theming
-# target                title	bg	  text	indic	border
-client.focused		      $gr   $bg	  $tx	  $gr	  $gr
-client.focused_inactive $ui   $bg	  $tx	  $ui	  $ui
-client.unfocused	      $ui   $bg-2	$tx	  $ui-2	$ui-2
-client.urgent           $re   $bg	  $tx	  $re	  $re
+# target				title	bg	text	indic	border
+client.focused			$gr		$bg	  $tx	$gr	  $gr
+client.focused_inactive $ui		$bg	  $tx	$ui	  $ui
+client.unfocused		$ui		$bg-2 $tx	$ui-2 $ui-2
+client.urgent			$re		$bg	  $tx	$re	  $re
 ## gaps
 default_border pixel 2
 gaps inner 3
@@ -40,19 +40,20 @@ floating_maximum_size 1920 x 1080
 
 ### Output configuration
 ## wallpaper
-output * bg /ssdata/pictures/wallpapers/82518592_p0.png fill
+set $wallpaper /ssdata/pictures/wallpapers/drawing.png
+output * bg $wallpaper fill
 
 ### Idle configuration
 exec swayidle -w \
-       timeout 2000 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-       timeout 2100 'swaylock -f -i /ssdata/pictures/wallpapers/82518592_p0.png --font monospace' \
-       after-resume 'swaylock -f -i /ssdata/pictures/wallpapers/82518592_p0.png --font monospace'
+timeout 2000 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+timeout 2100 'swaylock -f --font monospace -i ' $wallpaper \
+after-resume 'swaylock -f --font monospace -i ' $wallpaper
 
 ### Input configuration
-       input * {
-         xkb_layout "us,ua"
-           xkb_options "grp:caps_toggle,compose:rctrl"
-       }
+input * {
+xkb_layout "us,ua"
+xkb_options "grp:caps_toggle,compose:rctrl"
+}
 ## Clipboard
 exec wl-paste --watch cliphist store
 
@@ -146,13 +147,13 @@ mode "resize" {
 ## → will grow the containers width
 ## ↑ will shrink the containers height
 ## ↓ will grow the containers height
-  bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
+bindsym Left resize shrink width 10px
+bindsym Down resize grow height 10px
+bindsym Up resize shrink height 10px
+bindsym Right resize grow width 10px
 ## Return to default mode
-    bindsym Escape mode "default"
-    bindsym --to-code $mod+p mode "default"
+bindsym Escape mode "default"
+bindsym --to-code $mod+p mode "default"
 }
 bindsym --to-code $mod+p mode "resize"
 
@@ -207,12 +208,13 @@ bindsym --to-code $mod+g exec gimp
 assign [class="Gimp"] 4
 for_window [title="^Export Image"] floating enable
 for_window [title="^Image Recovery$"] floating enable
-bindsym --to-code $mod+e exec $term -e nvim
+# bindsym --to-code $mod+e exec $term -e nvim
 # bindsym --to-code $mod+e exec neovide
-# bindsym --to-code $mod+e exec emacs
+bindsym --to-code $mod+e exec emacs
 ## Games
 for_window [title="Select an IWAD to use"] floating enable
 for_window [title="^Log for "] floating enable
+for_window [title="^PollyMC Quick Setup "] floating enable
 assign [class="^Minecraft.*"] 5
 assign [class="^PollyMC"] 5
 # assign [title="^Lutris$"] 4
