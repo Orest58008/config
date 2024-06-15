@@ -3,7 +3,7 @@ include flexoki-dark.css
 
 ### Autostarting important services
 # exec "dex -a"
-exec waybar &> ~/.config/waybar/log
+exec "GDK_DPI_SCALE=1.5 waybar &> ~/.config/waybar/log"
 
 ### I don't know how to do user services on nosystemd
 # exec mpd &> ~/.config/mpd/mpd.log

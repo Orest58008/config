@@ -59,11 +59,6 @@
   (dashboard-startup-banner 'logo)
   (dashboard-show-shortcuts t))
 
-;; deno-fmt
-(use-package deno-fmt
-  :hook (js2-mode . deno-fmt-mode)
-  :hook (typescript-ts-mode . deno-fmt-mode))
-
 ;; eglot
 (use-package eglot
   :hook (deno-fmt-mode . eglot-ensure))
@@ -112,3 +107,11 @@
 
 ;; rainbow-mode
 (use-package rainbow-mode)
+
+										; LANGUAGES
+;; LSP
+(use-package lsp-mode
+  :hook (typescript-mode))
+
+;; TypeScript
+(use-package typescript-mode)

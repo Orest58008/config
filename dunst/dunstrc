@@ -1,5 +1,5 @@
 [global]
-font = "Monospace 13"
+font = "Monospace 15"
 icon_theme = "Papirus-Dark"
 enable_recursive_icon_lookup = true
 origin = bottom-left
@@ -10,7 +10,7 @@ mouse_left_click = do_action
 show_age_threshold = 30
 
 [global]
-frame_color = "#8B7EC8"
+frame_color = "#879A39"
 separator_color = frame
 
 [urgency_normal]

@@ -1,6 +1,6 @@
 # XDG fixes
 export XDG_CONFIG_HOME="$HOME/.config"
-export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+export JAVA_TOOL_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
 export CABAL_CONFIG="$XDG_CONFIG_HOME"/cabal/config
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME"/starship/starship.toml
@@ -35,11 +35,13 @@ export GHCUP_USE_XDG_DIRS=1
 
 # $PATH fixes
 typeset -U path PATH
-path=(~/.local/bin $CARGO_HOME/bin $GOPATH/bin $NIMBLE_DIR/bin $path)
+path=(~/.local/bin ~/.config/emacs/bin $CARGO_HOME/bin $GOPATH/bin $NIMBLE_DIR/bin $path)
 export PATH
 
 # Opam setup
-[[ ! -r /home/orest/.local/share/opam/opam-init/init.zsh ]] || source /home/orest/.local/share/opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+if [[ ! -r /home/orest/.local/share/opam/opam-init/init.zsh ]]; then
+  source /home/orest/.local/share/opam/opam-init/init.zsh > /dev/null 2> /dev/null
+fi
 
 # Only in interactive mode
 if [[ $- == *i* ]]; then
