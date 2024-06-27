@@ -20,4 +20,5 @@ vim/plugged
 
 zsh/.zcomet
 zsh/.zcompdump*
+zsh/.histfile
 zsh/*.zwc

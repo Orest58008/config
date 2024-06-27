@@ -1,1 +1,1 @@
-("/data/projects/,DENO.TS/yamadachibot/")
+("~/config/" "/data/projects/,DENO.TS/yamadachibot/")
