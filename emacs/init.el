@@ -118,5 +118,8 @@
 ;; Go
 (use-package go-mode)
 
+;; sxhkd
+(add-to-list 'auto-mode-alist '("sxhkdrc\\'" . conf-mode))
+
 ;; TypeScript
 (use-package typescript-mode)

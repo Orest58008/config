@@ -1,10 +1,19 @@
 # summons
-## summon a terminal
+## summon terminal
 super + Return
       xfce4-terminal
-## summon a browser
+## summon rofi
+super + r
+      rofi -show drun
+## summon file manager
+super + d
+      thunar
+## summon browser
 super + b
       flatpak run org.mozilla.firefox
+## summon Emacs
+super + e
+      emacs-desktop
 
 # bspwm hotkeys
 ## restart or quit bspwm
@@ -16,3 +25,8 @@ super + {_,shift + }q
 ## focus or send to the given desktop
 super + {_,shift + }{1-9,0}
       bspc {desktop -f,node -d} '^{1-9,10}'
+
+# sxhkd hotkeys
+## restart sxhkd
+super + Escape
+      pkill -USR1 -x sxhkd

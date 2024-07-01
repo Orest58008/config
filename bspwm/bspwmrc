@@ -1,27 +1,48 @@
-#! /bin/sh
+#! /bin/bash
 
-# autostarts
-declare -a commands=(
-    "sxhkd"
-)
-for command in "${commands[@]}"; do
-    pgrep -x $command || $command &
-done
-
-# fuzzy focus
+                                       # BSPWM SETTINGS
+## fuzzy focus
 bspc config focus_follows_pointer true
 
-# borders and gaps
-bspc config border_width 2
-bspc config window_gap   4
+## borders and gaps
+bspc config border_width   2
+bspc config bottom_padding 40
+bspc config window_gap     4
 
-# desktops
+## desktops
 bspc monitor -d {I,II,III,IV,V,VI,VII,VIII,IX,X}
 
-# floating rules
-bspc rule -a "Wrapper-2.0" state=pseudo_tiled
-bspc rule -a "Xfce4-appfinder" state=floating
-bspc rule -a "Xfce4-panel" state=floating
+                                          # AUTOSTART
+## sxhkd
+pkill sxkhd ; sxhkd &
 
-# desktop rules
+## commands
+declare commands=(
+    "nicotine"
+    "transmission-gtk"
+)
+for command in "${commands[@]}"; do
+    $command &
+done
+
+## flatpaks
+flatpaks=(
+    "dev.vencord.Vesktop"
+    "org.mozilla.firefox"
+    "org.telegram.desktop"
+)
+for flatpak in "${flatpaks[@]}"; do
+    flatpak run $flatpak &
+done
+
+                                          # APP RULES
+## desktop rules
 bspc rule -a "org.mozilla.firefox" desktop=^1
+bspc rule -a "TelegramDesktop" desktop=^2
+bspc rule -a "vesktop" desktop=^4
+bspc rule -a "org.nicotine_plus.Nicotine" desktop=^8
+bspc rule -a "transmission-gtk" desktop=^8
+
+## floating rules
+bspc rule -a "Wrapper-2.0" state=floating
+bspc rule -a "Xfce4-appfinder" state=floating
