@@ -1,260 +1,192 @@
-### Theme
+                                            # LOOKS
+## colors
 include flexoki-dark.css
+### target              title   bg      test    indic   border
+client.focused          $gr     $bg     $tx     $gr     $gr
+client.focused_inactive $ui     $bg     $tx     $ui     $ui
+client.unfocused        $ui     $bg-2   $tx     $ui-2   $ui-2
+client.urgent           $re     $bg     $tx     $re     $re
 
-### Autostarting important services
-# exec "dex -a"
-exec "GDK_DPI_SCALE=1.5 waybar &> ~/.config/waybar/log"
-
-### I don't know how to do user services on nosystemd
-# exec mpd &> ~/.config/mpd/mpd.log
-# exec mpdscribble &> ~/.config/mpdscribble/mpdscribble.log
-
-### Variables
-## Logo key. Use Mod1 for Alt.
-set $mod Mod4
-## Your preferred terminal emulator
-set $term kitty
-## Your preferred file navigator
-set $navigator nemo
-
-### Theming
-## GTK theming and cursor
-exec gsettings set org.gnome.desktop.interface font-name Inter
-exec gsettings set org.gnome.desktop.interface gtk-theme oomox-flexoki-dark
-exec gsettings set org.gnome.desktop.interface icon-theme Papirus-Dark
-exec gsettings set org.gnome.desktop.interface cursor-theme posy-white
-seat seat0 xcursor_theme posy-white 24
-## window theming
-# target				title	bg	text	indic	border
-client.focused			$gr		$bg	  $tx	$gr	  $gr
-client.focused_inactive $ui		$bg	  $tx	$ui	  $ui
-client.unfocused		$ui		$bg-2 $tx	$ui-2 $ui-2
-client.urgent			$re		$bg	  $tx	$re	  $re
 ## gaps
 default_border pixel 2
 gaps inner 3
 gaps outer 3
-## floating constraints
-floating_minimum_size 50 x 50
-floating_maximum_size 1920 x 1080
 
-### Output configuration
-## wallpaper
+## GTK and cursor
+exec gsettings set org.gnome.desktop.interface gtk-theme    oomox-gr
+exec gsettings set org.gnome.desktop.interface icon-theme   Papirus-Dark
+exec gsettings set org.gnome.desktop.interface cursor-theme posy-white
+seat seat0 xcursor_theme posy-white 24
+
+                                      # INPUT AND OUTPUT
+## display
 set $wallpaper /ssdata/pictures/wallpapers/drawing.png
 output * bg $wallpaper fill
 
-### Idle configuration
+## swayidle
 exec swayidle -w \
-timeout 2000 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-timeout 2100 'swaylock -f --font monospace -i ' $wallpaper \
-after-resume 'swaylock -f --font monospace -i ' $wallpaper
+    timeout 2000 "swaylock 'output * power off'" resume "swaymsg 'output * power on'" \
+    after-resume "swaylock -f --font monospace -i $wallpaper"
 
-### Input configuration
-input * {
-xkb_layout "us,ua"
-xkb_options "grp:caps_toggle,compose:rctrl"
+## input
+input "9741:1:HT_K_B" {
+    xkb_layout "us,ua"
+    xkb_options "grp:caps_toggle,compose:rctrl"
 }
-## Clipboard
+
+## clipboard
 exec wl-paste --watch cliphist store
 
-### System keybindings
-## Kill focused window
-bindsym --to-code $mod+q kill
-## Drag floating windows by holding down $mod and left mouse button.
-floating_modifier $mod normal
-## Sound
-exec mpc volume 100
+                                       # SYSTEM HOTKEYS
+## modkey. use Mod1 for Alt
+set $Mod Mod4
+
+## kill focused window
+bindsym --to-code $Mod+q kill
+
+## floating window drag key
+floating_modifier $Mod normal
+
+## sound
+### system sound
 bindsym XF86AudioRaiseVolume exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
 bindsym XF86AudioLowerVolume exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-
-bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-bindsym XF86AudioPlay exec mpc toggle
-bindsym XF86AudioNext exec mpc next
-bindsym XF86AudioPrev exec mpc prev
-bindsym Shift+XF86AudioPlay exec mpc stop
-bindsym Shift+XF86AudioNext exec mpc volume +5
-bindsym Shift+XF86AudioPrev exec mpc volume -5
-## Screenshooting
-bindsym Print exec grim -t png - | wl-copy
-bindsym Shift+Print exec grim -t png -g "$(slurp && sleep .1)" - | wl-copy
+bindsym XF86AudioMute        exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+### mpc controls
+bindsym XF86AudioPlay       mpc toggle
+bindsym XF86AudioNext       mpc next
+bindsym XF86AudioPrev       mpc prev
+bindsym Shift+XF86AudioPlay mpc stop
+bindsym Shift+XF86AudioNext mpc volume +5
+bindsym Shift+XF86AudioPrev mpc volume -5
+
+## screenshots
+bindsym Print            exec grim -t png - | wl-copy
+bindsym Shift+Print      exec grim -t png -g "$(slurp && sleep .1)" - | wl-copy
+bindsym Ctrl+Print       exec grim -t png
 bindsym Ctrl+Shift+Print exec grim -t png -g "$(slurp && sleep .1)"
-bindsym Ctrl+Print exec grim -t png
-## Reload the configuration file
-bindsym --to-code $mod+Shift+r reload
 
-### Moving around
-## Move your focus around
-bindsym --to-code $mod+Left focus left
-bindsym --to-code $mod+Down focus down
-bindsym --to-code $mod+Up focus up
-bindsym --to-code $mod+Right focus right
-## Move the focused window with the same, but add Shift
-bindsym --to-code $mod+Shift+Left move left
-bindsym --to-code $mod+Shift+Down move down
-bindsym --to-code $mod+Shift+Up move up
-bindsym --to-code $mod+Shift+Right move right
+## reload config
+bindsym $Mod+Escape reload
 
-### Workspaces:
-## Switch to workspace
-bindsym --to-code $mod+1 workspace number 1
-bindsym --to-code $mod+2 workspace number 2
-bindsym --to-code $mod+3 workspace number 3
-bindsym --to-code $mod+4 workspace number 4
-bindsym --to-code $mod+5 workspace number 5
-bindsym --to-code $mod+6 workspace number 6
-bindsym --to-code $mod+7 workspace number 7
-bindsym --to-code $mod+8 workspace number 8
-bindsym --to-code $mod+9 workspace number 9
-bindsym --to-code $mod+0 workspace number 10
-## Move focused container to workspace
-bindsym --to-code $mod+Shift+1 move container to workspace number 1
-bindsym --to-code $mod+Shift+2 move container to workspace number 2
-bindsym --to-code $mod+Shift+3 move container to workspace number 3
-bindsym --to-code $mod+Shift+4 move container to workspace number 4
-bindsym --to-code $mod+Shift+5 move container to workspace number 5
-bindsym --to-code $mod+Shift+6 move container to workspace number 6
-bindsym --to-code $mod+Shift+7 move container to workspace number 7
-bindsym --to-code $mod+Shift+8 move container to workspace number 8
-bindsym --to-code $mod+Shift+9 move container to workspace number 9
-bindsym --to-code $mod+Shift+0 move container to workspace number 10
+## moving around
+### move focus
+bindsym $Mod+Left  focus left
+bindsym $Mod+Right focus right
+bindsym $Mod+Up    focus up
+bindsym $Mod+Down  focus down
+### move window
+bindsym $Mod+Shift+Left  move left
+bindsym $Mod+Shift+Right move right
+bindsym $Mod+Shift+Up    move up
+bindsym $Mod+Shift+Down  move down
 
-### Layout stuff:
-## Splits
-bindsym --to-code $mod+Shift+h splith
-bindsym --to-code $mod+Shift+v splitv
-## Switch the current container between different layout styles
-# bindsym --to-code $mod+s layout stacking
-# bindsym --to-code $mod+w layout tabbed
-# bindsym --to-code $mod+s layout toggle split
-## Make the current focus fullscreen
-bindsym --to-code $mod+f fullscreen
-## Toggle the current focus between tiling and floating mode
-bindsym --to-code $mod+Shift+space floating toggle
-## Swap focus between the tiling area and the floating area
-bindsym --to-code $mod+space focus mode_toggle
-## Move focus to the parent container
-bindsym --to-code $mod+a focus parent
+## workspaces
+### switch workspace
+bindsym $Mod+1 workspace number 1
+bindsym $Mod+2 workspace number 2
+bindsym $Mod+3 workspace number 3
+bindsym $Mod+4 workspace number 4
+bindsym $Mod+5 workspace number 5
+bindsym $Mod+6 workspace number 6
+bindsym $Mod+7 workspace number 7
+bindsym $Mod+8 workspace number 8
+bindsym $Mod+9 workspace number 9
+bindsym $Mod+0 workspace number 10
+### move to workspace
+bindsym $Mod+Shift+1 move container to workspace number 1
+bindsym $Mod+Shift+2 move container to workspace number 2
+bindsym $Mod+Shift+3 move container to workspace number 3
+bindsym $Mod+Shift+4 move container to workspace number 4
+bindsym $Mod+Shift+5 move container to workspace number 5
+bindsym $Mod+Shift+6 move container to workspace number 6
+bindsym $Mod+Shift+7 move container to workspace number 7
+bindsym $Mod+Shift+8 move container to workspace number 8
+bindsym $Mod+Shift+9 move container to workspace number 9
+bindsym $Mod+Shift+0 move container to workspace number 10
 
-### Scratchpad:
-## Move the currently focused window to the scratchpad
-bindsym --to-code $mod+Shift+minus move scratchpad
-## Show the next scratchpad window or hide the focused scratchpad window.
-## If there are multiple scratchpad windows, this command cycles through them.
-bindsym --to-code $mod+minus scratchpad show
+## toggle floating
+bindsym $Mod+Space floating toggle
 
-### Resizing containers:
-mode "resize" {
-## ← will shrink the containers width
-## → will grow the containers width
-## ↑ will shrink the containers height
-## ↓ will grow the containers height
-bindsym Left resize shrink width 10px
-bindsym Down resize grow height 10px
-bindsym Up resize shrink height 10px
-bindsym Right resize grow width 10px
-## Return to default mode
-bindsym Escape mode "default"
-bindsym --to-code $mod+p mode "default"
-}
-bindsym --to-code $mod+p mode "resize"
+## toggle fullscreen
+bindsym --to-code $Mod+F fullscreen
 
-### Apps:
-## Terminal
-bindsym --to-code $mod+Return exec $term
-## Launchers
-set $menu wofi --show drun -I
+                                          # PROGRAMS
+## general
+### general variables
+set $flatpak flatpak run
+### terminal
+set $terminal kitty
+bindsym $Mod+Return exec $terminal
+### launcher
+set $menu     wofi --show drun -I
 set $clipmenu wofi -d -D cache_file=/dev/null
-bindsym --to-code $mod+r exec $menu
-bindsym --to-code $mod+w exec "wtype $(cliphist list | $clipmenu | cliphist decode)"
-bindsym --to-code $mod+Shift+w exec "cliphist list | $clipmenu | cliphist decode | wl-copy"
-bindsym --to-code $mod+Shift+e exec rofimoji --max-recent 0
-## Media players
-bindsym --to-code $mod+v exec vlc
-for_window [app_id="^mpv$"] floating enable
-for_window [app_id="^mpv$"] floating_maximum_size 900 x 600
-## File manager
-bindsym --to-code $mod+d exec $navigator
-for_window [title="Properties$"] floating enable
-for_window [title="^Open Directory$"] floating enable
-for_window [title="^Compress$"] floating enable
+bindsym --to-code $Mod+R       exec $menu
+bindsym --to-code $Mod+W       exec wtype "$(cliphist list |$clipmenu |cliphist decode)"
+bindsym --to-code $Mod+Shift+W exec cliphist list |$clipmenu |cliphist decode |wl-copy
+bindsym --to-code $Mod+Shift+E exec rofimoji --max-recent 0
+### navigator
+set $navigator nemo
+bindsym --to-code $Mod+D exec $navigator
+for_window [title=" Properties$"]      floating enable
+for_window [title="^Open Directory$"]  floating enable
+for_window [title="^Compress$"]        floating enable
 for_window [title="^Extract archive$"] floating enable
-for_window [title="^Bitwarden$"] floating enable
-## Browser
-bindsym --to-code $mod+b exec firefox
-assign [app_id="firefox"] 1
-assign [app_id="Firefox"] 1
-for_window [title="^Block Site$"] floating enable
-for_window [title="^Close Firefox$"] floating enable
-for_window [title="^Library$"] floating enable
-for_window [title="^Picture-in-Picture$"] floating enable
-for_window [title="^Extension: "] floating enable
-for_window [title="^Authorize application"] floating enable
-for_window [title="^Google Pay — Mozilla Firefox$"] floating enable
-# bindsym --to-code $mod+b exec librewolf
-assign [app_id="LibreWolf"] 1
-## Messaging apps
-bindsym --to-code $mod+t exec telegram-desktop
-assign [app_id="org.telegram.desktop"] 2
+### editor
+bindsym --to-code $Mod+E exec emacs
+
+## workspace 1
+### browser
+set $_browser org.mozilla.firefox
+bindsym --to-code $Mod+B exec $flatpak $_browser
+assign [app_id=$_browser] 1
+
+## workspace 2
+### Telegram
+set $_telegram org.telegram.desktop
+bindsym --to-code $Mod+T exec $flatpak $_telegram
+assign [app_id=$_telegram] 2
 for_window [title="^TelegramDesktop$"] floating enable
-assign [class="Signal"] 4
-assign [app_id="cinny"] 4
-for_window [title="^ArmCord Setup$"] floating enable
-assign [class="^vesktop$"] 4
-for_window [title="^vesktop$"] floating enable
-assign [class="^discord$"] 4
-## Music
-bindsym --to-code $mod+m exec $term -e ncmpcpp
-## Hobby apps
-bindsym --to-code $mod+g exec gimp
+
+## workspace 4
+### GIMP
 assign [class="Gimp"] 4
-for_window [title="^Export Image"] floating enable
-for_window [title="^Image Recovery$"] floating enable
-# bindsym --to-code $mod+e exec $term -e nvim
-# bindsym --to-code $mod+e exec neovide
-bindsym --to-code $mod+e exec emacs
-## Games
-for_window [title="Select an IWAD to use"] floating enable
-for_window [title="^Log for "] floating enable
-for_window [title="^PollyMC Quick Setup "] floating enable
-assign [class="^Minecraft.*"] 5
-assign [class="^PollyMC"] 5
-# assign [title="^Lutris$"] 4
-for_window [title="^Steam Settings$"] floating enable
-## Serious apps
-assign [class="Bitwarden"] 7
-assign [app_id="geary"] 7
-assign [app_id="thunderbird"] 7
-for_window [title="^Write: Re:"] floating enable
-for_window [title="^Claws Mail Setup Wizard$"] floating enable
-for_window [title="^Welcome to Balsa!$"] floating enable
-## File sharers
+### Vesktop
+set $_vesktop dev.vencord.Vesktop
+assign [app_id="vesktop"] 4
+for_window [title="vesktop"] floating enable
+
+## workspace 7
+### Evolution
+set $_evolution org.gnome.Evolution
+assign [app_id="evolution.bin"] 7
+### Geary
+set $geary geary
+assign [app_id=$geary] 7
+
+## workspace 8
+### Nicotine+
+set $nicotine nicotine
 assign [app_id="org.nicotine_plus.Nicotine"] 8
+### Transmission
+set $transmission transmission-gtk
 assign [app_id="com.transmissionbt.*"] 8
-for_window [title="^Torrent Options$"] floating enable
-assign [app_id="org.qbittorrent.qBittorrent"] 8
-assign [class="qBittorrent"] 8
-## Misc
-bindsym --to-code $mod+x exec xeyes
-for_window [app_id="gxmessage"] floating enable
-for_window [app_id="mate-calc"] floating enable
-for_window [app_id="pavucontrol"] floating enable
-for_window [app_id="xdg-desktop-portal-gtk"] floating enable
-for_window [class="XEyes"] floating enable
-for_window [class="xwaylandvideobridge"] floating enable
-for_window [title="^Open$"] floating enable
-for_window [title="^Zoom Workplace$"] floating enable
 
-### Autostarting programs
-exec arrpc
-exec activate-linux
-exec autotiling
+                                          # AUTOSTART
+## services
+exec GDK_DPI_SCALE=1.5 waybar
 exec autotiling-rs
-exec firefox
-exec geary
-exec nicotine
-exec signal-desktop --start-in-tray
-exec syncthing-gtk
-exec telegram-desktop
-exec transmission-gtk
-exec "sleep 1s ; vesktop"
 
-include /etc/sway/config.d/*
+## programs
+### workspace 1
+exec $flatpak $_browser
+### workspace 2
+exec $flatpak $_telegram
+### workspace 4
+exec $flatpak $_vesktop
+### workspace 7
+exec $flatpak $_evolution
+### workspace 8
+exec $nicotine
+exec $transmission
