@@ -21,7 +21,6 @@ export SSB_HOME="$XDG_DATA_HOME"/zoom
 export TERMINFO="$XDG_DATA_HOME"/terminfo
 export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
 export W3M_DIR="$XDG_DATA_HOME"/w3m
-export WINEPREFIX="$XDG_DATA_HOME"/wine
 alias wget="wget --hsts-file='$XDG_DATA_HOME/wget-hsts'"
 
 export XDG_CACHE_HOME="$HOME/.cache"
