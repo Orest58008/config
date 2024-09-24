@@ -1,0 +1,29 @@
+! 2024-07-15 https://anilist.co
+anilist.co##.sense
+
+! 3 Aug 2024 null
+##.error-view
+
+! 7 Aug 2024 https://pastebin.com
+pastebin.com###vi-smartbanner
+
+! 18 Aug 2024 https://rpgbot.net
+rpgbot.net##.humix-universal-js-insert
+rpgbot.net##center
+rpgbot.net##center
+
+! 24 Aug 2024 https://www.pixiv.net
+www.pixiv.net##.cVFqOO.sc-185y4-0
+www.pixiv.net##.dgZqhM.sc-h4y4ap-1
+
+! 30 Aug 2024 https://ageofminiatures.com
+ageofminiatures.com###fixed_container_bottom
+ageofminiatures.com##.sidebar
+
+! 31 Aug 2024 https://ageofsigmar.lexicanum.com
+ageofsigmar.lexicanum.com##.vm-footer
+ageofsigmar.lexicanum.com##div#sidebar-ad:nth-of-type(2)
+
+! 15 Sept 2024 https://genius.com
+genius.com###primis_container_div
+genius.com###lyrics-root > .fuSJbt.RightSidebar__Container-pajcl2-0

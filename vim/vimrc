@@ -40,12 +40,16 @@ set shiftwidth=4
 """ Plugins
 call plug#begin($XDG_CONFIG_HOME.'/vim/plugged')
 
-" Lightline
+Plug 'jiangmiao/auto-pairs'
+
 Plug 'itchyny/lightline.vim'
 set laststatus=2
 set noshowmode
 
-" SuperTab
 Plug 'ervandew/supertab'
+
+Plug 'andymass/vim-matchup'
+
+Plug 'LnL7/vim-nix'
 
 call plug#end()
