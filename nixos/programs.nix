@@ -4,14 +4,11 @@
   nixpkgs.config.allowUnfree = true;
 
   programs = {
+    file-roller.enable = true;
     firefox.enable = true;
     gnome-terminal.enable = true;
-    steam = {
-      enable = true;
-      extraCompatPackages = with pkgs; [
-        proton-ge-bin
-      ];
-    };
+    gnupg.agent.enable = true;
+    steam.enable = true;
     zsh = {
       enable = true;
       vteIntegration = true;
@@ -24,9 +21,12 @@
     evince
     eza
     gnome.dconf-editor
+    gnome.eog
     gnome.geary
     gnome.nautilus
     gnome.sushi
+    gnomeExtensions.appindicator
+    imagemagick
     libreoffice
     materia-theme
     papirus-icon-theme
@@ -35,6 +35,7 @@
     vesktop
     vim
     wlprop
+    zoom-us
   ];
 
   fonts = {    

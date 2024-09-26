@@ -56,23 +56,14 @@
 
     networkmanager.enable = true;
 
-    firewall.enable = true;
-    firewall.allowedTCPPorts = [  ];
-    firewall.allowedUDPPorts = [  ];
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [  ];
+      allowedUDPPorts = [  ];
+    };
   };
 
   services = {
-    xserver = {
-      enable = true;
-      excludePackages = with pkgs; [
-        xterm
-        xorg.xprop
-      ];
-
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
-    };
-
     gnome = {
       core-utilities.enable = false;
       sushi.enable = true;
@@ -83,6 +74,21 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+    };
+
+    udev.packages = with pkgs; [
+      gnome.gnome-settings-daemon
+    ];
+
+    xserver = {
+      enable = true;
+      excludePackages = with pkgs; [
+        xterm
+        xorg.xprop
+      ];
+
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
     };
   };
 
@@ -96,7 +102,7 @@
 
   users.users.orest = {
     isNormalUser = true;
-    description = "Orest I";
+    description = "Орест";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
   };
