@@ -63,6 +63,15 @@
     };
   };
 
+  nix.settings = {
+    use-xdg-base-directories = true;
+  };
+
+  qt = {
+    platformTheme = "gnome";
+    style = "adwaita-dark";
+  };
+
   services = {
     gnome = {
       core-utilities.enable = false;

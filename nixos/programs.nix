@@ -4,39 +4,62 @@
   nixpkgs.config.allowUnfree = true;
 
   programs = {
-    file-roller.enable = true;
-    firefox.enable = true;
-    gnome-terminal.enable = true;
     gnupg.agent.enable = true;
-    steam.enable = true;
     zsh = {
       enable = true;
       vteIntegration = true;
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    baobab
-    bat
-    evince
-    eza
-    gnome.dconf-editor
-    gnome.eog
-    gnome.geary
-    gnome.nautilus
-    gnome.sushi
-    gnomeExtensions.appindicator
-    imagemagick
-    libreoffice
-    materia-theme
-    papirus-icon-theme
-    starship
-    telegram-desktop
-    vesktop
-    vim
-    wlprop
-    zoom-us
-  ];
+  environment.systemPackages = let
+    consolePackages = with pkgs; [
+      bat
+      gnupg
+      eza
+      imagemagick
+      starship
+      trashy
+      vim
+      wlprop
+      zsh
+    ];
+
+    DEPackages = with pkgs; [
+      gnomeExtensions.appindicator
+      materia-theme
+      papirus-icon-theme
+    ];
+
+    devPackages = with pkgs; [
+      emacs-gtk
+      nil
+    ];
+
+    gnomePackages = with pkgs.gnome; [
+      cheese
+      dconf-editor
+      eog
+      file-roller
+      geary
+      gnome-terminal
+      nautilus
+      sushi
+    ];
+
+    programPackages = with pkgs; [
+      baobab
+      evince
+      firefox
+      gnome-text-editor
+      libreoffice
+      steam
+      telegram-desktop
+      vesktop
+      zoom-us
+    ];
+    
+  in builtins.concatLists
+  [ consolePackages DEPackages devPackages gnomePackages programPackages ];
 
   fonts = {    
     packages = with pkgs; [
