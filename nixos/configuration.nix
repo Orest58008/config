@@ -118,5 +118,10 @@
 
   xdg.portal.enable = true;
 
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+  };
+  
   system.stateVersion = "24.05"; # Don't change
 }

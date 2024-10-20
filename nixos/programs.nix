@@ -5,6 +5,10 @@
 
   programs = {
     gnupg.agent.enable = true;
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [];
+    };
     zsh = {
       enable = true;
       vteIntegration = true;
@@ -31,6 +35,7 @@
     ];
 
     devPackages = with pkgs; [
+      arrpc
       emacs-gtk
       nil
     ];
@@ -41,6 +46,7 @@
       eog
       file-roller
       geary
+      gnome-calculator
       gnome-terminal
       nautilus
       sushi
@@ -49,12 +55,17 @@
     programPackages = with pkgs; [
       baobab
       evince
+      celluloid
       firefox
-      gnome-text-editor
+      gimp
       libreoffice
+      lutris
       steam
       telegram-desktop
+      transmission_4-gtk
       vesktop
+      wineWowPackages.stable
+      wineWowPackages.wayland
       zoom-us
     ];
     
