@@ -5,34 +5,21 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ./programs.nix ];
+  imports = [ ./hardware-configuration.nix ./fonts.nix ./packages.nix ];
 
   boot = {
+    kernel.sysctl = {
+      "vm.swappiness" = 180;
+      "vm.page-cluster" = 0;
+    };
+    
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-
-    kernelPackages = pkgs.linuxKernel.packages.linux_zen;
   };
 
-  hardware = {
-    pulseaudio.enable = false;
-
-    opengl.extraPackages = with pkgs; [
-      rocmPackages.clr.icd
-      amdvlk
-    ];
-
-    amdgpu = {
-      amdvlk = {
-        enable = true;
-        support32Bit.enable = true;
-      };
-
-      initrd.enable = true;
-    };
-  };
+  hardware.pulseaudio.enable = false;
 
   i18n = {
     defaultLocale = "en_GB.UTF-8";
@@ -47,6 +34,11 @@
       LC_PAPER = "uk_UA.UTF-8";
       LC_TELEPHONE = "uk_UA.UTF-8";
       LC_TIME = "uk_UA.UTF-8";
+    };
+
+    inputMethod = {
+      enabled = "ibus";
+      ibus.engines = with pkgs.ibus-engines; [ libpinyin ];
     };
   };
 
@@ -117,11 +109,6 @@
   };
 
   xdg.portal.enable = true;
-
-  zramSwap = {
-    enable = true;
-    algorithm = "zstd";
-  };
   
   system.stateVersion = "24.05"; # Don't change
 }
