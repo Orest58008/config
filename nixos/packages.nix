@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  nix.package = pkgs.lix;
+  # nix.package = pkgs.lix;
   nixpkgs.config.allowUnfree = true;
 
   programs = {
@@ -40,7 +40,9 @@
         file-roller
         geary
         gnome-calculator
+        gnome-sound-recorder
         gnome-terminal
+        gnome-tweaks
         nautilus
         sushi
       ];
@@ -49,6 +51,7 @@
         baobab
         evince
         celluloid
+        emacs-gtk
         firefox
         gimp
         libreoffice
@@ -66,15 +69,11 @@
 
       servicePackages = with pkgs; [
         arrpc
-        emacs-gtk
+        git-lfs
         nil
       ];
       
     in builtins.concatLists
       [ consolePackages DEPackages gnomePackages programPackages servicePackages ];
-
-    variables = {
-      XCURSOR_THEME = "Posy_Cursor";
-    };
   };
 }

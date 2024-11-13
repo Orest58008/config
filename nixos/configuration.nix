@@ -5,7 +5,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ./fonts.nix ./packages.nix ];
+  imports = [ ./hardware-configuration.nix ./fonts.nix ./packages.nix ./users.nix ];
 
   boot = {
     kernel.sysctl = {
@@ -43,7 +43,6 @@
   };
 
   networking = {
-    hostName = "orest-nixos";
     wireless.enable = false;
 
     networkmanager.enable = true;
@@ -65,6 +64,8 @@
   };
 
   services = {
+    flatpak.enable = true;
+    
     gnome = {
       core-utilities.enable = false;
       sushi.enable = true;
@@ -100,13 +101,6 @@
   };
 
   time.timeZone = "Europe/Kyiv";
-
-  users.users.orest = {
-    isNormalUser = true;
-    description = "Орест";
-    extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.zsh;
-  };
 
   xdg.portal.enable = true;
   
