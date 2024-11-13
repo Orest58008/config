@@ -1,0 +1,7 @@
+ #b#distro:logo#   #b#cauto#d#env:USER#c#b#@#cauto#d#host:name#
+ #b#distro:logo#   #b#cauto#os     #c#os:pretty_name#
+ #b#distro:logo#   #b#cauto#host   #c#board:name#
+ #b#distro:logo#   #b#cauto#kernel #c#kernel:osrelease#
+ #b#distro:logo#   #b#cauto#uptime #c#uptime:hours#h #uptime:mins#m
+ #b#distro:logo#   #b#cauto#pkgs   #c#distro:pm_count#
+ #b#distro:logo#   #b#cauto#memory #c#mem:memfree_mb#M / #mem:memtotal_mb#M
