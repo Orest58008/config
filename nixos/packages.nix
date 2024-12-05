@@ -20,6 +20,7 @@
         eza
         imagemagick
         starship
+        tealdeer
         trashy
         vim
         wlprop
@@ -28,6 +29,8 @@
 
       DEPackages = with pkgs; [
         gnomeExtensions.appindicator
+        gnomeExtensions.dim-completed-calendar-events
+        gnomeExtensions.just-perfection
         materia-theme
         papirus-icon-theme
         posy-cursors
@@ -51,17 +54,18 @@
         baobab
         evince
         celluloid
-        emacs-gtk
         firefox
         gimp
         libreoffice
         lutris
         obs-studio
         nicotine-plus
+        rhythmbox
         steam
         telegram-desktop
         transmission_4-gtk
         vesktop
+        vscodium-fhs
         wineWowPackages.stable
         wineWowPackages.wayland
         zoom-us
@@ -69,11 +73,15 @@
 
       servicePackages = with pkgs; [
         arrpc
+        bintools
+        gamemode
         git-lfs
+        linuxHeaders
         nil
+        wl-clipboard
       ];
-      
+
     in builtins.concatLists
-      [ consolePackages DEPackages gnomePackages programPackages servicePackages ];
+    [ consolePackages DEPackages gnomePackages programPackages servicePackages ];
   };
 }

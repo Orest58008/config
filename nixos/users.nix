@@ -1,16 +1,13 @@
 {config, lib, pkgs, ...}:
 
-with lib.hm.gvariant;
-
 {
-  imports = [ <home-manager/nixos> ];
-  
   users.users.orest = {
     isNormalUser = true;
     description = "Орест";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
   };
+
 /*
   home-manager.users.orest = {
     dconf.settings = {

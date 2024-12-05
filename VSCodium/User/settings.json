@@ -1,0 +1,24 @@
+{
+   "workbench.colorTheme": "One Hunter Flexoki Dark",
+   "editor.fontLigatures": true,
+   "editor.tabSize": 3,
+   "explorer.confirmDelete": false,
+   "editor.detectIndentation": false,
+   "editor.rulers": [
+      100
+   ],
+   "editor.wordWrapColumn": 100,
+   "editor.wordWrap": "bounded",
+   "vim.textwidth": 100,
+   "workbench.editor.enablePreview": false,
+   "editor.minimap.enabled": false,
+   "git.enableCommitSigning": true,
+   "[typescript]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+   },
+   "git.enableSmartCommit": true,
+   "git.confirmSync": false,
+   "git.autofetch": true,
+   "security.workspace.trust.enabled": false,
+   "explorer.confirmDragAndDrop": false,
+}
