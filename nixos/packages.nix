@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  # nix.package = pkgs.lix;
+  nix.package = pkgs.lix;
   nixpkgs.config.allowUnfree = true;
 
   programs = {
@@ -36,7 +36,7 @@
         posy-cursors
       ];
 
-      gnomePackages = with pkgs.gnome; [
+      gnomePackages = with pkgs; [
         cheese
         dconf-editor
         eog
@@ -75,6 +75,7 @@
         arrpc
         bintools
         gamemode
+        git
         git-lfs
         linuxHeaders
         nil

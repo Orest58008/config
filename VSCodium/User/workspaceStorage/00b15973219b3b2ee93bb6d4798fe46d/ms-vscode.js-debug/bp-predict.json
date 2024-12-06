@@ -1,1 +1,0 @@
-{"{\"cwd\":\"/data/projects/,DENO.TS/liboth\",\"negations\":[\"**/node_modules/**\"],\"pattern\":\"**/*.(m|c|)js\"}":{"children":{"":{"children":{"data":{"children":{"projects":{"children":{",DENO.TS":{"children":{"liboth":{"children":{},"data":{"type":0,"mtime":1732749890144.43}}}}}}}}}}}}}

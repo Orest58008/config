@@ -37,7 +37,8 @@
     };
 
     inputMethod = {
-      enabled = "ibus";
+      enable = true;
+      type = "ibus";
       ibus.engines = with pkgs.ibus-engines; [ libpinyin ];
     };
   };
@@ -79,7 +80,7 @@
     };
 
     udev.packages = with pkgs; [
-      gnome.gnome-settings-daemon
+      gnome-settings-daemon
     ];
 
     xserver = {
@@ -97,10 +98,12 @@
   security = {
     rtkit.enable = true;
     sudo.extraConfig = "Defaults env_reset,pwfeedback
-    Defaults env_keep += \"EDITOR VIMINIT XDG_CONFIG_HOME XDG_DATA_HOME XDG_STATE_HOME\"";
+    Defaults env_keep += \"EDITOR VIMINIT XDG_CONFIG_HOME XDG_STATE_HOME\"";
   };
 
   time.timeZone = "Europe/Kyiv";
+
+  virtualisation.docker.enable = true;
 
   xdg.portal.enable = true;
   

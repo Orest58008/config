@@ -3,7 +3,7 @@
 VSCodium/*
 !VSCodium/User
 VSCodium/User/History
-VSCodium/User/*[sS]torage
+VSCodium/User/*Storage
 
 btop/btop.log
 
