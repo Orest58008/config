@@ -56,6 +56,7 @@
         celluloid
         firefox
         gimp
+        inkscape
         libreoffice
         lutris
         obs-studio
@@ -74,6 +75,7 @@
       servicePackages = with pkgs; [
         arrpc
         bintools
+        distrobox
         gamemode
         git
         git-lfs
