@@ -23,4 +23,12 @@
    "explorer.confirmDragAndDrop": false,
    "sonarlint.ls.javaHome": "/home/orest/.local/state/nix/profile/",
    "sonarlint.pathToNodeExecutable": "/home/orest/.local/state/nix/profile/bin/node",
+   "vscord.app.name": "VSCodium",
+   "sonarlint.connectedMode.connections.sonarqube": [
+    {
+        "serverUrl": "https://sonar.labx.pp.ua",
+        "connectionId": "https-sonar-labx-pp-ua"
+    }
+],
+"editor.renderWhitespace": "trailing",
 }
