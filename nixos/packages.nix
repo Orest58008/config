@@ -1,7 +1,17 @@
 { config, pkgs, ... }:
 
 {
-  nix.package = pkgs.lix;
+  nix = {
+    package = pkgs.lix;
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   programs = {
@@ -16,75 +26,79 @@
     systemPackages = let
       consolePackages = with pkgs; [
         bat
-        gnupg
+        distrobox
         eza
+        git
+        git-lfs
+        gnupg
         imagemagick
         starship
         tealdeer
-        trashy
+        trash-cli
         vim
         wlprop
         zsh
       ];
 
-      DEPackages = with pkgs; [
+      desktopPackages = with pkgs; [
         gnomeExtensions.appindicator
-        gnomeExtensions.dim-completed-calendar-events
         gnomeExtensions.just-perfection
         materia-theme
         papirus-icon-theme
         posy-cursors
       ];
 
-      gnomePackages = with pkgs; [
-        cheese
-        dconf-editor
-        eog
-        file-roller
-        geary
-        gnome-calculator
-        gnome-sound-recorder
-        gnome-terminal
-        gnome-tweaks
-        nautilus
-        sushi
+      emacsPackages = with pkgs; [
+        aspell
+        aspellDicts.uk
+        aspellDicts.en
+        emacs29-pgtk
+        gcc
+        nil
+        python3Packages.python-lsp-server
+        tree-sitter-grammars.tree-sitter-python
+        tree-sitter-grammars.tree-sitter-typescript
       ];
 
       programPackages = with pkgs; [
         baobab
-        evince
         celluloid
+        cheese
+        dconf-editor
+        eog
+        evince
+        file-roller
         firefox
+        fragments
+        geary
         gimp
+        gnome-calculator
+        gnome-sound-recorder
+        gnome-terminal
+        gnome-tweaks
         inkscape
         libreoffice
         lutris
-        obs-studio
+        nautilus
         nicotine-plus
+        obs-studio
         rhythmbox
         steam
         telegram-desktop
-        transmission_4-gtk
         vesktop
         vscodium-fhs
-        wineWowPackages.stable
-        wineWowPackages.wayland
         zoom-us
       ];
 
       servicePackages = with pkgs; [
         arrpc
-        bintools
-        distrobox
-        gamemode
-        git
-        git-lfs
         linuxHeaders
-        nil
+        wineWowPackages.stable
+        wineWowPackages.wayland
         wl-clipboard
       ];
 
     in builtins.concatLists
-    [ consolePackages DEPackages gnomePackages programPackages servicePackages ];
+    [ consolePackages desktopPackages emacsPackages programPackages servicePackages ];
   };
 }

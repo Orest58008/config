@@ -3,8 +3,8 @@
 {
   fonts = {    
     packages = with pkgs; [
-      cascadia-code
       fira-code-nerdfont
+      iosevka
       source-sans
       source-han-sans
       source-serif
@@ -16,7 +16,7 @@
       defaultFonts = {
         sansSerif = [ "Source Sans 3"];
         serif = [ "Source Serif 4" ];
-        monospace = [ "Cascadia Code" "FiraCode Nerd Font" ];
+        monospace = [ "Iosevka Extended" "FiraCode Nerd Font" ];
         emoji = [ "Twitter Color Emoji" ];
       };
     };

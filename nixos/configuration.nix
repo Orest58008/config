@@ -8,11 +8,8 @@
   imports = [ ./hardware-configuration.nix ./fonts.nix ./packages.nix ./users.nix ];
 
   boot = {
-    kernel.sysctl = {
-      "vm.swappiness" = 180;
-      "vm.page-cluster" = 0;
-    };
-    
+    # crashDump.enable = true;
+
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
@@ -65,8 +62,11 @@
   };
 
   services = {
-    flatpak.enable = true;
-    
+    emacs = {
+      enable = true;
+      package = pkgs.emacs29-pgtk;
+    };
+
     gnome = {
       core-utilities.enable = false;
       sushi.enable = true;
